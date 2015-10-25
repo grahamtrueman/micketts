@@ -1,0 +1,102 @@
+
+
+
+<!--TEMPLATE-->
+<font class="Tahoma" size="2" color="#000080">
+<b>Micketts Database Test</b>
+
+<br>
+
+
+[[FORAGST]]
+
+[[TOTWINS]]
+
+[[SUMUP]]
+</font>
+
+<!--/TEMPLATE-->
+
+<!--SUMUP-->
+
+<br>Record against [[Xparam]] [[tpld]] [[twins]] 
+
+	<table align="center">
+		<tr>
+			<td>Played</td>
+			<td>Won</td>
+			<td>For</td>
+			<td>Agst</td>
+			<td>Average</td>
+		</tr>
+		<tr>
+			<td>[[tpld]]</td>
+			<td>[[twins]]</td>
+			<td>[[tlegs]]</td>
+			<td>[[tagst]]</td>
+			<td>[[alegs]]</td>
+		</tr>
+	</table>
+
+	Biggest Win [[maxlegs]]
+	<br>
+	Worst Result [[minlegs]]
+	<br>
+<!--/SUMUP-->
+
+[[SUMUP]]
+
+[[TOTLOSS]]
+
+<!--FORAGST-->
+
+[[SQL ~
+        SELECT sum(legs),sum(conc),count(legs),avg(legs),max(legs),min(legs)
+        FROM fixtures
+        WHERE opposition="[[VERYHARD Xparam]]"
+~tlegs,tagst,tpld,alegs,maxlegs,minlegs~]]
+
+[[/SQL]]
+
+
+<!--/FORAGST-->
+
+<!--TOTWINS-->
+
+[[SQL ~
+        SELECT count(*)
+        FROM fixtures
+        WHERE opposition="[[VERYHARD Xparam]]"
+		AND (legs) >= 11
+~twins~]]
+
+[[/SQL]]
+
+
+<!--/TOTWINS-->
+
+
+<!--TOTPLD-->
+
+[[SQL ~
+        SELECT count(*)
+        FROM fixtures
+        WHERE opposition="[[VERYHARD Xparam]]"
+~tpld~]]
+
+[[/SQL]]
+
+
+<!--/TOTPLD-->
+
+
+<!--TOTLOSS-->
+
+[[SQL ~
+        SELECT count(*)
+        FROM fixture
+        WHERE opposition="[[VERYHARD Xparam]]"
+		AND (legs) > 11
+~tloss~]]
+
+<!--/TOTLOSS-->

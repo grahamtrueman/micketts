@@ -1,0 +1,76 @@
+
+
+
+<!--TEMPLATE-->
+<font class="Tahoma" size="2" color="#000080">
+<b>Micketts Database Test</b>
+
+<br>
+
+
+[[GATHERSTATS]]
+[[WHOAMI]]
+[[SUMUP]]
+</font>
+
+<!--/TEMPLATE-->
+
+<!--SUMUP-->
+
+<br>Record for [[mktname]] ([[plyname]])<br>
+
+	<table align="center">
+		<tr>
+			<td class="tbldata">Singles Played</td>
+			<td class="tbldata">[[sinpld]] ([[sinwin]] wins) - [[sinfin]] finishes</td>
+		</tr>	
+		<tr>
+			<td class="tbldata">Pairs Played</td>
+			<td class="tbldata">[[ppld]] ([[pwin]] wins) - [[pfin]] finishes</td>
+		</tr>	
+		<tr>
+			<td class="tbldata">Fours Played</td>
+			<td class="tbldata">[[fpld]] ([[fwin]] wins) - [[ffin]] finishes</td>
+		</tr>	
+		<tr>
+			<td class="tbldata">180's</td>
+			<td class="tbldata">[[180s]]</td>
+		</tr>
+		<tr>
+			<td class="tbldata">Top Finish</td>
+			<td class="tbldata">[[hifin]]</td>
+		</tr>
+	</table>
+
+
+<!--/SUMUP-->
+
+<!--WHOAMI-->
+
+[[SQL ~
+        SELECT nickname, name 
+		FROM player 
+		WHERE ID = [[VERYHARD Xparam]] 
+~mktname,plyname~]]
+
+[[/SQL]]
+
+<!--/WHOAMI-->
+
+<!--GATHERSTATS-->
+
+[[SQL ~
+        SELECT sum(1p), sum(1w), sum(1f), sum(2p), sum(2f), sum(2w), sum(4p), sum(4f), sum(4w), sum(max180), max(hiout)
+		FROM matchdata
+		WHERE player = [[VERYHARD Xparam]] 
+~sinpld,sinfin,sinwin,ppld,pfin,pwin,fpld,ffin,fwin,180s,hifin~]]
+
+[[/SQL]]
+
+
+<!--/GATHERSTATS-->
+
+
+
+
+

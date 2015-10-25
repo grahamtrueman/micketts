@@ -1,0 +1,97 @@
+<!--TEMPLATE-->
+
+
+Test 24.12.04<br>
+[[SECOND]]
+
+<!--/TEMPLATE-->
+
+<!--SUMUP-->
+
+
+
+<!--/SUMUP-->
+
+[[SUMUP]]
+
+[[TOTLOSS]]
+
+<!--FIRST-->
+
+[[SQL ~
+        SELECT linkname,url
+        FROM tina_links
+		WHERE category=[[VERYHARD LOOPVALUE]]
+~testhead,testurl~]]
+
+[[testhead]] - [[testurl]]<br>
+
+[[/SQL]]
+
+
+<!--/FIRST-->
+
+<!--FIRSTX-->
+[[LOOPVALUE]]
+
+<!--/FIRSTX-->
+
+<!--SECOND-->
+[[LOOP (1,2,3,4,5)]]
+
+[[SQL ~
+        SELECT linkname,url
+        FROM tina_links
+		WHERE category=[[VERYHARD LOOPVALUE]]
+~testhead,testurl~]]
+
+[[testhead]] - [[testurl]]<br>
+
+[[/SQL]]
+
+[[LOOPVALUE]]count<br>
+
+[[/LOOP]]
+
+<!--/SECOND-->
+
+
+<!--TOTWINS-->
+
+[[SQL ~
+        SELECT count(*)
+        FROM fixtures
+        WHERE opposition="[[VERYHARD Xparam]]"
+		AND (legs) >= 11
+~twins~]]
+
+[[/SQL]]
+
+
+<!--/TOTWINS-->
+
+
+<!--TOTPLD-->
+
+[[SQL ~
+        SELECT count(*)
+        FROM fixtures
+        WHERE opposition="[[VERYHARD Xparam]]"
+~tpld~]]
+
+[[/SQL]]
+
+
+<!--/TOTPLD-->
+
+
+<!--TOTLOSS-->
+
+[[SQL ~
+        SELECT count(*)
+        FROM fixture
+        WHERE opposition="[[VERYHARD Xparam]]"
+		AND (legs) > 11
+~tloss~]]
+
+<!--/TOTLOSS-->

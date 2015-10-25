@@ -1,0 +1,137 @@
+
+
+
+<!--TEMPLATE-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<link href="http://www.zen18555.zen.co.uk/mnotw.css" rel="stylesheet" type="text/css">
+	<title>Micketts Top Out Shots</title>
+</head>
+
+
+<body bgcolor="navy">
+
+
+<table align="center" bgcolor="navy" width="800" cellspacing="0" cellpadding="0" border="0">
+<tr>
+    <td colspan="3"></td>
+</tr>
+<tr>
+    <td bgcolor="navy"></td>
+    <td><img width=615 src="http://www.zen18555.zen.co.uk/images/MNotw.jpg"></td>
+	<td bgcolor="navy"></td>
+</tr>
+<tr>
+    <td></td>
+    <td colspan="2"></td>
+
+</tr>
+<tr>
+    <td valign="top" bgcolor="navy"><div class="leftlink"><a href="http://www.micketts.co.uk/">&nbsp;Home Page</a></div><br>
+				&nbsp;<br>
+				<EM>INFO</EM><br>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/about.html">&nbsp;About&nbsp;Us&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>	
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/archives.html">&nbsp;Archives&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/diary.html">&nbsp;Diary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>			
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/fixtures.html">&nbsp;Fixtures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/pics.html">&nbsp;Pictures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/profiles.html">&nbsp;Profiles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/stats.html">&nbsp;Stats&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+				<em></em><br>
+				
+				<em>LATEST</em><br>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/newsletter.html">&nbsp;Talking&nbsp;Bull&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/incie.PDF">&nbsp;Incie&nbsp;News&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+				<em></em><br>
+				
+				<em>LINKS</em><br>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/hmdl/">&nbsp;HMDL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/links.html">&nbsp;Our Links&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a></div>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/prolinks.html">&nbsp;The&nbsp;Pro&nbsp;Sites</a></div>
+
+				<EM>&nbsp;</EM><br>
+				<EM>&nbsp;</EM><br>
+				<p>
+			<div class="leftlink"><a href="http://www.zen18555.zen.co.uk/micketts/contact.html">&nbsp;Contact&nbsp;Us&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div>
+
+			<br>
+			<br>&nbsp;<br>
+	</td>
+
+    	<td valign="top" bgcolor="navy">
+		
+	<p><div class="texthead">Micketts Top Out Shots</div></p>
+	
+		
+	<!--Start Center Table-->
+
+	
+	[[DBQRY]]
+
+</font>
+
+	<!--End Center Table-->
+
+
+	</td>
+    <td valign="top" bgcolor="navy" width="100"><em>SPONSORS</em><br>&nbsp;<br><a href="http://www.flamingosrest.co.uk"><img border=0 width=150 alt="Flamingo's Rest Luxury Holiday Villa" src="http://www.zen30521.zen.co.uk/images/rrlogo.gif"></a><br><a href="http://www.zen18555.zen.co.uk/b48"><img border=0 width=150 alt="Alberts Classic Car Hire" src="http://www.zen18555.zen.co.uk/images/1948Bentley.jpg"></a><br><a href="http://www.zen18555.zen.co.uk/hmdl"><img border=0 width=150 alt="Hanworth Mini Darts League" src="http://www.zen18555.zen.co.uk/images/team.jpeg"></a><br><a href="mailto:smashie@micketts.co.uk"><img border=0 width=150 alt="Smashie's Disco" src="http://www.zen18555.zen.co.uk/images/smashiesdisco.jpg"></a><br></td>
+</tr>
+<tr>
+    <td colspan="3"><div class="copytext">&copy;2004 Micketts</div></td>
+</tr>
+</table>
+
+
+
+</body>
+</html>
+
+	
+
+<!--/TEMPLATE-->
+
+
+
+<!--DBQRY-->
+	<table align="center">
+	
+		<tr>	
+			<td class="tbldata" align="left">Player</td>
+			<td class="tbldata" align="center">&nbsp;</td>
+			
+			<td class="tbldata" align="center">Out Shot</td>
+			<td class="tbldata" align="center">Against</td>
+			<td class="tbldata" align="center">Venue</td>
+			<td class="tbldata" align="center">Season</td>
+		</tr>
+		
+		
+	[[SQL ~
+	        SELECT t1.hiout,t1.opposition,t1.ha,t3.name, t2.nickname
+			FROM matchdata AS t1, player AS t2, season AS t3
+			WHERE t1.player=t2.ID and t1.hiout>119 and t1.season=t3.season
+			ORDER BY t1.hiout DESC
+	~outshot,opp,ven,ssn,pname,~]]
+	
+	
+		<tr>	
+			<td class="tbldata" align="left">[[pname]]</td>
+			<td class="tbldata" align="center">&nbsp;</td>
+			
+			<td class="tbldata" align="center">[[outshot]]</td>
+			<td class="tbldata" align="center">[[opp]]</td>
+			<td class="tbldata" align="center">[[ven]]</td>
+			<td class="tbldata" align="right">[[ssn]]</td>
+		</tr>
+	
+	[[/SQL]]
+		
+	</table>
+
+<!--/DBQRY-->
+

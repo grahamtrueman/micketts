@@ -1,0 +1,88 @@
+
+
+
+<!--TEMPLATE-->
+<font class="Tahoma" size="2" color="#000080">
+<b>Micketts Database Test</b>
+<br>[[Xparam]]
+<br>
+
+
+
+[[FORAGST]]
+
+</font>
+
+<!--/TEMPLATE-->
+
+
+<!--FORAGST-->
+
+[[SQL ~
+        SELECT sum(legs)
+        FROM fixtures
+        WHERE opposition=[[VERYHARD Xparam]]
+~tlegs~]]
+[[tlegs]]
+[[tagst]]
+
+[[/SQL]]
+
+
+<!--/FORAGST-->
+
+<!--TOTPLD-->
+
+<!--/TOTPLD-->
+
+<!--TOTWIN-->
+
+<!--/TOTWIN-->
+
+<!--TOTLOSS-->
+
+<!--/TOTLOSS-->
+
+<!--FORAGST-->
+
+<!--/FORAGST-->
+
+<!--MATCHLIST-->
+
+[[SQL ~
+        SELECT match_id,season,opposition,ha,legs
+        FROM fixtures
+        WHERE opposition=[[VERYHARD Xparam]]
+~mid,ssn,opp,ven,pts~]]
+
+
+[[mid]]
+[[opp]]
+[[ssn]]
+[[pts]]
+<br>
+[[/SQL]]
+
+
+
+
+<!--/MATCHLIST-->
+
+<!--SUMUP-->
+Played: 
+Won   :
+Lost  :
+Points: [[tlegs]]
+Agst  : [[tagst]]
+
+<!--/SUMUP-->
+
+
+[[TOTPLD]]
+[[TOTWIN]]
+[[TOTLOSS]]
+[[FORAGST]]
+[[MATCHLIST]]
+[[SUMUP]]
+
+

@@ -1,0 +1,77 @@
+
+
+
+<!--TEMPLATE-->
+<font face="tahoma" color="blue"><b><center>BBC Table</center></b></font>
+[[LAYTABLE]]
+[[BBCQUERY]]
+<font face="tahoma" color="red"><b><center>Silent Manager Table</center></b></font>
+[[LAYTABLE]]
+[[SMQUERY]]
+
+<!--/TEMPLATE-->
+
+
+<!--LAYTABLE-->
+<p>
+<table align="center" border="1" bgcolor="#ffff00">
+	<tr>
+		<td align="center"><b>Team Name</b></td>
+		<td align="center"><b>Manager</b></td>
+		<td align="center"><b>Month</b></td>
+		<td align="center"><b>Best Month</b></td>
+		<td align="center"><b>Worst Month</b></td>
+		<td align="center"><b>Average</b></td>
+		<td align="center"><b>Total</b></td>
+	</tr>
+<!--/LAYTABLE-->
+
+
+<!--BBCQUERY-->
+
+	[[SQL ~
+	        SELECT t2.team, t2.manager, sum(t1.points) AS totpts, max(t1.points), min(t1.points), FORMAT(avg(t1.points),1), max(t1.month)
+	        FROM ffpts AS t1, ffteams AS t2
+			WHERE t1.team=t2.id AND t2.league="BBC"
+			GROUP BY t2.team
+			ORDER BY totpts DESC
+	~tname,tmgr,tpts,maxpts,minpts,avgpts,cmonth~]]
+	<tr>
+		<td align="center">[[tname]]</td>
+		<td align="center">[[tmgr]]</td>
+		<td align="center">[[cmonth]]</td>
+		<td align="center">[[maxpts]]</td>
+		<td align="center">[[minpts]]</td>
+		<td align="center">[[avgpts]]</td>
+		<td align="center">[[tpts]]</td>
+	</tr>
+	[[/SQL]]
+	
+	</table></p>
+	
+<!--/BBCQUERY-->
+
+<!--SMQUERY-->
+
+	[[SQL ~
+	        SELECT t2.team, t2.manager, sum(t1.points) AS totpts, max(t1.points), min(t1.points), FORMAT(avg(t1.points),1), max(t1.month)
+	        FROM ffpts AS t1, ffteams AS t2
+			WHERE t1.team=t2.id and t2.league="Silent Manager"
+			GROUP BY t2.team
+			ORDER BY totpts DESC
+	~tname,tmgr,tpts,maxpts,minpts,avgpts,cmonth~]]
+	<tr>
+		<td align="center">[[tname]]</td>
+		<td align="center">[[tmgr]]</td>
+		<td align="center">[[cmonth]]</td>
+		<td align="center">[[maxpts]]</td>
+		<td align="center">[[minpts]]</td>
+		<td align="center">[[avgpts]]</td>
+		<td align="center">[[tpts]]</td>
+	</tr>
+			
+	[[/SQL]]
+	
+	</table></p>
+	
+<!--/SMQUERY-->

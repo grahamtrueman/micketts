@@ -1,0 +1,103 @@
+
+
+
+<!--TEMPLATE-->
+<font class="Tahoma" size="2" color="#000080">
+<b>CD List:</b>
+<br>
+<br>
+
+[[IF ($Xargs eq 'new')]]
+	[[NEWDATA]]
+[[/IF]]
+
+[[IF ($Xargs eq 'delete')]]
+	[[RMDATA]]
+[[/IF]]
+
+
+<br>
+[[LISTDATA]]
+<br>[[Xargs]]/[[Xartist]]
+</font>
+<!--/TEMPLATE-->
+
+<!--NEWDATA-->
+
+<b>Adding New Record</b><br>
+[[Xtitle]], by [[Xartist]]
+[[IF ($prod) ne '')]]
+	([[Xprod]])&nbsp;
+[[/IF]]
+into '[[Xcategory]]'.
+<br>
+
+[[SQL ~
+INSERT INTO newsfeed2
+value (NULL,'[[VERYHARD Xtitle]]','[[VERYHARD Xprod]]','[[VERYHARD Xartist]]','[[VERYHARD Xcategory]]')
+	~~]]
+[[/SQL]]
+
+<!--/NEWDATA-->
+
+<!--RMDATA-->
+
+<b>Record Removed...</b><br>
+
+[[SQL ~
+	DELETE FROM newsfeed2
+	WHERE id=[[VERYHARD Xdelme]]
+	~~]]
+[[/SQL]]
+	
+<!--/RMDATA-->
+
+
+<!--LISTDATA-->
+	
+	<table align="left">
+	
+
+[[SQL ~
+	SELECT heading,url,date,site
+	FROM cddata
+	ORDER BY date DESC
+~arthead,arturl,artdate,artdomain~]]
+	
+		<tr>
+			<td>[[arthead]]</td>
+			<td>[[arturl]]</td>
+			<td>([[artdate]])</td>
+			<td>([[artdomain]])</td>
+			<td><a href="./cdlist.cgi?args=delete~delme=[[cdid]]">Delete</a></td>
+		</tr>
+[[/SQL]]
+
+	</table>
+<br>
+
+
+<!--/LISTDATA-->
+
+<!--BLOCK4-->
+	I have found a CD called [[title]] <br>
+<!--/BLOCK4-->
+
+
+
+[[SQLMOD]]
+	INSERT INTO cddata
+	SET
+		title='[[Xtitle]]',
+		prod='[[Xprod]]',
+		artist='[[Xartist]]',
+		category='[[Xcategory]]'
+		~thisvalue~]]
+[[/SQLMOD]]
+
+
+
+
+
+
+
