@@ -1,0 +1,544 @@
+
+<!--TEMPLATE-->
+	[[IF ($Xtemplate eq 'help')]]
+		[[HELP]]
+	[[/IF]]
+	[[IF ($Xtemplate ne 'help')]]
+		<b>This is a staging version of the Shell E:mailer</b><br>
+		<br>
+		[[MAINHEADERBLOCK]]
+		[[IF ($Xaction eq '')]]
+			[[LIST]]
+		[[/IF]]
+		[[IF ($Xaction eq 'list')]]
+			[[LIST]]
+		[[/IF]]
+		[[IF ($Xaction eq 'new')]]
+			[[NEWEMAILERFORM]]
+		[[/IF]]
+		[[IF ($Xaction eq 'addemailer')]]
+			[[ADDEMAILER]]
+		[[/IF]]
+		[[IF ($Xaction eq 'edit')]]
+			[[EDITEMAILERFORM]]
+		[[/IF]]
+		[[IF ($Xaction eq 'editemailer')]]
+			[[EDITEMAILER]]
+		[[/IF]]
+		[[IF ($Xaction eq 'deleteschedules')]]
+			[[DELETESCHEDULES]]
+		[[/IF]]
+		<script>
+			function jump(URL) {
+				window.open(URL, 'magussearchhelp', 'scrollbars,resizable=yes,width=450,height=600,left=370,top=30,status=yes,toolbar=yes,menubar=yes,location=yes') ;
+			}
+		</script>
+	[[/IF]]
+<!--/TEMPLATE-->
+
+
+
+<!--MAINHEADERBLOCK-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">
+			[[\  Search E:mail Newsletter  \]]
+			[[EMAILER_TITLE]]E:mail Newsletter Schedules
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			[[\We can automatically e:mail newsletters to you giving details about what your visitors are looking for.  The newsletter will contain an analysis over a specific period of time.\]]
+			We can automatically e:mail newsletters to you giving details about what your visitors are looking for.  The newsletter will contain an analysis over a specific period of time.
+			[[LAST EMAILER_SUMMARYDESC]]
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			You are in: [[LAST TRAIL]]
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<!--/MAINHEADERBLOCK-->
+
+
+
+<!--EDITEMAILER-->
+	[[SQLMOD ~
+		UPDATE
+			clients AS C,subdivisions AS S, emailers AS E
+		SET
+			E.subdivision=[[VERYHARD XsiteId]]  ,
+			E.type=[[VERYHARD Xtype]]  ,
+			E.email='[[HARDEVAL ( &makesafetext($Xemail) )]]'
+		WHERE
+			E.id=[[VERYHARD XeId]] AND
+			C.client='[[VERYHARD company]]' AND
+			S.client=C.id AND
+			E.subdivision=S.id
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND S.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					S.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+	
+	~~]]
+		<span class="dynCalendar_today">&nbsp;Schedule modified successfully[[EMAILER_EDITOK]]&nbsp;</span>
+	[[/SQLMOD/]]
+		<span class="dynCalendar_today">&nbsp;No modifications were made (either you submitted no changes, a duplicate schedule or there is an error)[[EMAILER_EDITFAILED]]&nbsp;</span>
+	[[/SQLMOD]]
+	<br>
+	<br>
+	[[LAST LIST]]
+<!--/EDITEMAILER-->
+
+
+
+<!--EDITEMAILERFORM-->
+	[[CALC (EMAILER_SUMMARY,=,Edit an e:mail schedule)]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]"><b>Home</b></a> &gt; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=emailer2"><b>[[\Summary\]]Emailer Summary[[VERYHARD EMAILER_SUM]]</b></a> &gt; Edit Schedule[[\Edit Schedule\]][[VERYHARD EMAILER_EDITTRAIL]])]]
+	<form action="[[adminName]]" method="POST">
+	<input type="hidden" name="tool" value="emailer2">
+	<input type="hidden" name="action" value="editemailer">
+	<table border="0" width="100%">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; Site Identifier</td>
+			<td class="CMTITLETD">&nbsp; Type</td>
+			<td class="CMTITLETD">&nbsp; E:mail address</td>
+		</tr>
+		[[SQL ~
+			SELECT E.id, E.subdivision, E.type, E.email
+			FROM clients AS C , subdivisions AS S , emailers AS E, emailerTypes AS T
+			WHERE
+				C.client='[[VERYHARD company]]' AND
+				C.id=S.client AND
+				S.id=E.subdivision AND
+				E.id=[[VERYHARD Xid]] AND
+				E.type=T.id
+		~eId,esubdivision,etype,eemail~]]
+			<input type="hidden" name="eId" value="[[eId]]">
+			<tr>
+				<td width="10%" align="center" class="CMTable">Edit</td>
+				<td width="20%" align="center" class="CMTable"><select name="siteId">
+						[[SQLE ~
+							SELECT
+								S.id,S.subdivision
+							FROM
+								clients AS C,
+								subdivisions AS S
+							WHERE
+								C.client='[[VERYHARD company]]' AND
+								S.client=C.id
+								[[VHIF ($focus ne 'corporate')]]
+									[[VHIF ($permissionSplit != 1)]]
+										AND S.subdivision='[[VERYHARD focus]]'
+									[[/VHIF]]
+								[[/VHIF]]
+								[[VHIF ($permissionSplit == 1)]]
+									AND (
+									[[LOOP (@focusList)]]
+										S.subdivision='[[LOOPVALUE]]' OR
+									[[/LOOP]]
+									1=0 )
+								[[/VHIF]]
+							ORDER BY S.subdivision ASC
+						~subId,thisSubdivision~]]
+							<option [[IF ($subId == $esubdivision)]]SELECTED[[/IF]] value="[[subId]]">[[thisSubdivision]]</option>
+						[[/SQLE/]]
+							<option value="invalid">Invalid</option>
+						[[/SQLE]]
+
+				</select></td>
+				<td width="15%" align="center" class="CMTable">
+					<select name="type">
+					[[SQLE ~
+						SELECT
+							T.id,T.type
+						from
+							clients AS C,
+							emailerTypes AS T,
+							emailerClientTypeJunc AS J
+						WHERE
+							C.client='[[VERYHARD company]]' AND
+							J.client=C.id AND
+							J.type=T.id
+						ORDER BY
+							T.id DESC
+					~typeId,thisType~]]
+						<option [[IF ($typeId == $etype)]]SELECTED[[/IF]] value="[[typeId]]">[[thisType]]</option>
+					[[/SQLE/]]
+						<option value="invalid">Invalid</option>
+					[[/SQLE]]
+					</select>
+				
+				</td>
+				<td width="55%" align="left" class="CMTable"><input type="textbox" name="email" value="[[eemail]]" class="cst"></td>
+				
+			</tr>
+		[[/SQL]]
+		<tr>
+			<td colspan="3" align="center" class="CMTable">&nbsp;</td>
+			<td align="right" class="CMTable"><input type="Submit" name="submit" value="Submit"></td>
+		</tr>
+	</table>
+	</form>
+<!--/EDITEMAILERFORM-->
+
+
+
+<!--DELETESCHEDULES-->
+	[[LOOP (%FORM)]]
+		[[HIF ([[LOOPVALUE]] > 0)]]
+		[[HIF ([[PARAMVALUE]] eq 'DELETE')]]
+			[[SQLMOD ~
+				DELETE FROM
+					emailers
+				USING
+					clients AS C, subdivisions AS S, emailers
+				WHERE
+					emailers.id=[[LOOPVALUE]] AND
+					C.client='[[VERYHARD company]]' AND
+					S.client=C.id AND
+					emailers.subdivision=S.id
+				[[VHIF ($focus ne 'corporate')]]
+					[[VHIF ($permissionSplit != 1)]]
+						AND S.subdivision='[[VERYHARD focus]]'
+					[[/VHIF]]
+				[[/VHIF]]
+				[[VHIF ($permissionSplit == 1)]]
+					AND (
+					[[LOOP (@focusList)]]
+						S.subdivision='[[LOOPVALUE]]' OR
+					[[/LOOP]]
+					1=0 )
+				[[/VHIF]]
+			~~]]
+				[[CALC (deletedCount,+,1)]]
+			[[/SQLMOD/]]
+			[[/SQLMOD]]
+		[[/HIF]]
+		[[/HIF]]
+	[[/LOOP]]
+	[[IF ($deletedCount > 0.5)]]
+		<span class="dynCalendar_today">&nbsp;Deleted [[deletedCount]] email schedule[[s-deletedCount]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	[[IF ($deletedCount < 0.5)]]
+		<span class="dynCalendar_today">&nbsp;[[\Nothing deleted\]][[CST_NOTHINGDELETED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	[[LAST LIST]]
+<!--/DELETESCHEDULES-->
+
+
+
+<!--ADDEMAILER-->
+	[[LOOP (1...9|1)]]
+		[[HIF ($XsiteId[[LOOPVALUE]] >= 0.5)]]
+			[[HIF ($Xemail[[LOOPVALUE]] ne '')]]
+				[[SQLMOD ~
+					INSERT INTO
+						emailers
+						(subdivision, type, email)
+					SELECT
+						S.id,
+						[[HARDEVAL ( $Xtype[[LOOPVALUE]] )]],
+						'[[HARDEVAL ( &makesafetext($Xemail[[LOOPVALUE]]) )]]'
+					FROM
+						clients AS C,
+						subdivisions AS S
+					WHERE
+						C.client='[[VERYHARD company]]' AND
+						S.client=C.id AND
+						S.id=[[HARDEVAL ( $XsiteId[[LOOPVALUE]] )]]
+						[[VHIF ($focus ne 'corporate')]]
+							[[VHIF ($permissionSplit != 1)]]
+								AND S.subdivision='[[VERYHARD focus]]'
+							[[/VHIF]]
+						[[/VHIF]]
+						[[VHIF ($permissionSplit == 1)]]
+							AND (
+							[[LOOP (@focusList)]]
+								S.subdivision='[[LOOPVALUE]]' OR
+							[[/LOOP]]
+							1=0 )
+						[[/VHIF]]
+				~~]]
+					[[CALC (Added,+,1)]]
+				[[/SQLMOD/]]
+				[[/SQLMOD]]
+			[[/HIF]]
+		[[/HIF]]
+	[[/LOOP]]
+
+	[[IF ($Added > 0)]]
+		<span class="dynCalendar_today">&nbsp;[[Added]] new email schedule[[IF ($Added==1)]] was[[/IF]][[IF ($Added>1.5)]]s were[[/IF]] added[[EMAILER_NEW_ADDED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	[[IF ($Added < 0.5)]]
+		<span class="dynCalendar_today">&nbsp;Nothing was added (were your schedules duplicates?)[[EMAILER_NOTHINGADDED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	[[LAST LIST]]
+<!--/ADDEMAILER-->
+
+
+
+
+<!--NEWEMAILERFORM-->
+	[[SQLE ~
+		SELECT
+			S.id,S.subdivision
+		FROM
+			clients AS C,
+			subdivisions AS S
+		WHERE
+			C.client='[[VERYHARD company]]' AND
+			S.client=C.id
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND S.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					S.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+			ORDER BY S.subdivision ASC
+	~subId,thisSubdivision~]]
+		[[CALC (SELECTSITEID,.,<option value="[[subId]]">[[thisSubdivision]]</option>)]]
+		[[CALC (siteIdCount,+,1)]]
+	[[/SQLE/]]
+		[[CALC (SELECTSITEID,.,<option value="invalid">Invalid</option>)]]
+	[[/SQLE]]
+	[[SQLE ~
+		SELECT
+			T.id,T.type
+		from
+			clients AS C,
+			emailerTypes AS T,
+			emailerClientTypeJunc AS J
+		WHERE
+			C.client='[[VERYHARD company]]' AND
+			J.client=C.id AND
+			J.type=T.id
+		ORDER BY
+			T.id DESC
+	~typeId,thisType~]]
+		[[CALC (SELECTTYPE,.,<option value="[[typeId]]">[[thisType]]</option>)]]
+		[[CALC (typeCount,+,1)]]
+	[[/SQLE/]]
+		[[CALC (SELECTTYPE,.,<option value="invalid">Invalid</option>)]]
+	[[/SQLE]]
+
+	[[CALC (EMAILER_SUMMARY,=,This is the e:mailer summary)]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]"><b>Home</b></a> &gt; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=emailer2"><b>[[\Summary\]]Emailer Summary[[VERYHARD EMAILER_SUM]]</b></a> &gt; New Email newsletter schedule[[\New Email newsletter schedule\]][[VERYHARD EMAILER_NEW]])]]
+	
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+		<TR>
+			<TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">
+				[[\New Emailer\]]
+				[[EMAILER_NEW]]
+				New E:mail newsletter 
+			</td>
+		</tr>
+	</table>
+	[[NEWFORM]]
+<!--/NEWEMAILERFORM-->
+
+
+
+<!--NEWFORM-->
+	<form action="/admin-cgi/[[EVAL ($adminName)]]" method="POST">
+	<input type="hidden" name="tool" value="emailer2">
+	<input type="hidden" name="action" value="addemailer">
+	<table border="0" width="100%">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; Site Identifier</td>
+			<td class="CMTITLETD">&nbsp; Type</td>
+			<td class="CMTITLETD">&nbsp; E:mail address</td>
+		</tr>
+		[[LOOP (1...9|1)]]
+			<tr>
+				<td width="10%" align="center" class="CMTable">[[LOOPVALUE]]</td>
+				<td width="20%" align="center" class="CMTable"><select name="siteId[[LOOPVALUE]]">[[IF ($siteIdCount >= 1.5)]]<option value="">Select...</option>[[/IF]] [[SELECTSITEID]]</select></td>
+				<td width="15%" align="center" class="CMTable"><select name="type[[LOOPVALUE]]">[[IF ($typeCount >= 1.5)]]<option value="">Select...</option>[[/IF]][[SELECTTYPE]]</select></td>
+				<td width="55%" align="left" class="CMTable"><input type="textbox" name="email[[LOOPVALUE]]" value="" class="cst"></td>
+				
+			</tr>
+		[[/LOOP]]
+		<tr>
+			<td colspan="3" align="center" class="CMTable">&nbsp;</td>
+			<td align="right" class="CMTable"><input type="Submit" name="submit" value="Submit"></td>
+		</tr>
+	</table>
+	</form>
+<!--/NEWFORM-->
+
+
+
+<!--LIST-->
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD EMAILER_BYSUB]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]"><b>Home</b></a> &gt; <b>[[\Summary\]]Emailer Summary[[VERYHARD EMAILER_SUM]]</b>)]]
+	
+	[[SQL ~
+		SELECT
+			count(DISTINCT S.id),
+			count(DISTINCT E.id)
+		FROM clients AS C, subdivisions AS S
+			LEFT JOIN emailers AS E
+			ON E.subdivision=S.id
+		WHERE
+			C.client='[[VERYHARD company]]' AND
+			S.client=C.id
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND S.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					S.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY C.id
+	~subCount,emailerCount~]]
+	
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	        <TR> 
+	          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+			</tr>
+	        <TR> 
+	          <TD ALIGN="CENTER"> 
+	            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	              <TR>
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of live sites\]]
+						Number of live sites
+						[[EMAILER_NUMSITES]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[subCount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+	              <TR> 
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of scheduled email notifications\]]
+						Number of scheduled email newsletters
+						[[EMAILER_NUMBER_EMAILERS]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[emailerCount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+				</table>
+			  </td>
+			</tr>
+	</table>
+	[[/SQL]]
+	
+	<br>
+	<a href="[[adminName]]?tool=emailer2~action=new">Add new schedules</a><br>
+	<br>	
+	<table border="0" width="98%">
+		<form action="[[EVAL ($adminName)]]" method="POST">
+		<input type="hidden" name="tool" value="emailer2">
+		<input type="hidden" name="action" value="deleteschedules">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; [[\Site name\]]Site identifier[[EMAILER_SITENAME]]</td>
+			<td align="center" class="CMTITLETD">
+				[[\E:mail address\]]
+				E:mail address
+				[[EMAILER_EMAILADDRESS]]
+			</td>
+			<td align="center" class="CMTITLETD">
+				[[\Type\]]
+				Type
+				[[EMAILER_EMAILTYPE]]
+			</td>
+			<td align="center" class="CMTITLETD">Links</td>
+			<td align="center" class="CMTITLETD">Delete</td>
+		</tr>
+		[[SQLE ~
+			SELECT
+				S.id,
+				S.subdivision,
+				E.id,
+				E.email,
+				T.type
+			FROM
+				clients AS C,
+				subdivisions AS S,
+				emailers AS E,
+				emailerTypes AS T
+			WHERE
+				T.id=E.type AND
+				E.subdivision=S.id AND
+				C.client='[[VERYHARD company]]' AND
+				S.client=C.id
+				[[VHIF ($focus ne 'corporate')]]
+					[[VHIF ($permissionSplit != 1)]]
+						AND S.subdivision='[[VERYHARD focus]]'
+					[[/VHIF]]
+				[[/VHIF]]
+				[[VHIF ($permissionSplit == 1)]]
+					AND (
+					[[LOOP (@focusList)]]
+						S.subdivision='[[LOOPVALUE]]' OR
+					[[/LOOP]]
+					1=0 )
+				[[/VHIF]]
+			ORDER BY S.subdivision ASC
+		~subId,thisSubdivision,eId,emailaddress,etype~]]
+			<tr>
+				<td width="5%" align="center" class="CMTable">[[SQLCOUNT]]</td>
+				<td width="15%" align="left" class="CMTable">[[thisSubdivision]]</td>
+				<td width="35%" align="center" class="CMTable">[[emailaddress]]</td>
+				<td width="15%" align="center" class="CMTable">[[etype]]</td>
+				<td width="22%" align="center" class="CMTable"><nobr><a href="/admin-cgi/searchAnalysis.cgi?analyse=month~month=[[lastmonthW]]~year=[[lastmonthY]]~type=emailer~id=[[eId]]~focus=[[thisSubdivision]]">Send Now</a> | <a href="[[adminName]]?tool=emailer2~action=edit~id=[[eId]]">Edit</a></td>
+				<td width="22%" align="center" class="CMTable"><nobr><input type="checkbox" name="[[eId]]" value="DELETE"></td>
+			</tr>
+		[[/SQLE/]]
+			<tr>
+				<td colspan="6" align="center" class="CMTable">No schedules have been entered.  <a href="[[adminName]]?tool=emailer2~action=new">Click here</a> to add e:mail schedules</td>
+			</tr>
+		[[/SQLE]]
+			<tr>
+				<td width="5%" align="center" class="CMTable"></td>
+				<td width="15%" align="left" class="CMTable"></td>
+				<td width="35%" align="center" class="CMTable"></td>
+				<td width="15%" align="center" class="CMTable"></td>
+				<td width="22%" align="center" class="CMTable"></td>
+				<td width="22%" align="center" class="CMTable"><input type="submit" name="submit" value="Delete"></td>
+			</tr>
+	</table>
+
+<!--/LIST-->
+
+
+

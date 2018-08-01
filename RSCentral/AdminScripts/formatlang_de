@@ -1,0 +1,170 @@
+<!--CST_MENUTITLE-->Generelle Alternativvorschl&auml;ge<!--/CST_MENUTITLE-->
+<!--CST_ADMIN-->
+<B>Generelle Alternativvorschl&auml;ge</A></B><BR>Hier k&ouml;nnen sie Alternativvorschl&auml;ge f&uuml;r W&ouml;rter angeben, die h&auml;ufig falsch geschrieben werden.
+<!--/CST_ADMIN-->
+<!--CST_SUM-->&Uuml;bersicht<!--/CST_SUM-->
+<!--CST_TITLE-->Generelles Alternativvorschlagswesen<!--/CST_TITLE-->
+<!--CST_SUMMARY-->Hier k&ouml;nnen sie einen alternativen <em>Begriff</em> (kann aus einem oder auch mehreren W&ouml;rtern bestehen) vorschlagen, der angezeigt wird, wenn das entsprechende <em>Wort</em> mit der falschen Schreibweise in die Suchbox eingegeben wurde.    [Bemerkung: Der zu ersetzende Begriff darf nur aus <b><em>einem Wort</em></b> bestehen.]<!--/CST_SUMMARY-->
+<!--CST_NUMSITES-->Anzahl der Websites<!--/CST_NUMSITES-->
+<!--CST_NUMBER_CS-->Anzahl der generellen Alternativvorschl&auml;ge<!--/CST_NUMBER_CS-->
+<!--CST_TOTAL_CS-->Summe aller Vorschl&auml;ge<!--/CST_TOTAL_CS-->
+<!--CST_SITENAME-->Sitename<!--/CST_SITENAME-->
+<!--CST_WORD-->Wort<!--/CST_WORD-->
+<!--CST_SUGGESTION-->Vorschlag<!--/CST_SUGGESTION-->
+<!--CST_MANAGE-->Verwalten<!--/CST_MANAGE-->
+<!--CST_DELETE-->L&ouml;schen<!--/CST_DELETE-->
+<!--CST_EDIT-->&Auml;ndern<!--/CST_EDIT-->			
+<!--CST_NO_CS_FOUND-->Keine generellen Alternativvorschl&auml;ge wurden gefunden<!--/CST_NO_CS_FOUND-->
+<!--CST_NEW-->Neu<!--/CST_NEW-->
+<!--CST_NEWSUG-->Neue Vorschl&auml;ge<!--/CST_NEWSUG-->
+<!--CST_NEW_CS_FOR-->Neue generellen Alternativvorschl&auml;ge f&uuml;r<!--/CST_NEW_CS_FOR-->
+<!--CST_NOMODS-->Es konnten in diesem Fall keine &Auml;nderungen vorgenommen werden<!--/CST_NOMODS-->
+<!--CST_NEW_CS_ADDED-->Neue Vorschl&auml;ge hinzugef&uuml;gt<!--/CST_NEW_CS_ADDED-->
+<!--CST_NOTHINGADDED-->Es wurde nichts hinzugef&uuml;gt (sind ihre W&ouml;rter schon gelistet?)<!--/CST_NOTHINGADDED-->
+<!--CST_SUGDELETED-->Vorschl&auml;ge erfolgreich gel&ouml;scht<!--/CST_SUGDELETED-->
+<!--CST_NOTHINGDELETED-->Es wurde nichts gel&ouml;scht<!--/CST_NOTHINGDELETED-->
+<!--CST_EDITSUGN-->&Auml;ndere Vorschlag<!--/CST_EDITSUGN-->
+<!--CST_EDIT_CS_FOR-->&Auml;ndere generelle Alternativvorschl&auml;ge f&uuml;r<!--/CST_EDIT_CS_FOR-->
+<!--CST_MODOK-->&Auml;nderung wurde erfolgreich durchgef&uuml;hrt<!--/CST_MODOK-->
+<!--CST_NOMODS2-->Es wurden keine &Auml;nderungen vorgenommen (entweder haben sie den Vorschlag ohne &Auml;nderung gespeichert oder es gibt bereits einen identischen weiteren Eintrag)<!--/CST_NOMODS2-->
+<!--CST_SUBMIT-->Abschicken<!--/CST_SUBMIT-->
+<!--CST_YOUAREIN-->Sie sind in<!--/CST_YOUAREIN-->
+<!--CST_VIEW_CS_FOR-->Ansicht der generellen Alternativvorsch&auml;ge f&uuml;r<!--/CST_VIEW_CS_FOR-->
+
+<!--ALTPICTITLE-->RS Verwaltung f&uuml;r<!--/ALTPICTITLE-->
+<!--TITLE-->Suchverwaltung f&uuml;r<!--/TITLE-->
+<!--TOOLSFOR-->Ansicht f&uuml;r:<!--/TOOLSFOR-->
+<!--DROPDOWNTITLE-->Verwaltungsoptionen<!--/DROPDOWNTITLE-->
+<!--DROPDOWNINST-->Bitte w&auml;hlen sie<!--/DROPDOWNINST-->
+<!--CHANGELANG-->Sprache &auml;ndern<!--/CHANGELANG-->
+<!--WELCOME-->Willkommen zur ihrer Suchverwaltungs-Website. Von hier k&ouml;nnen sie auf folgende Funktionen zugreifen<!--/WELCOME-->
+<!--CMTITLE-->Einstellbare Direktverweise (Custom Messaging Facility)<!--/CMTITLE-->
+<!--CMTITLE_SHELL-->Empfohlene Links (Recommended Links Facility)<!--/CMTITLE_SHELL-->
+<!--CMBLABLA-->
+Sie k&ouml;nnen eine auf ein bestimmtes Ziel verweisende Meldung zusammenstellen, die zus&auml;tzlich zu der &uuml;blichen Ergebnisliste angezeigt wird, wenn der Benutzer nach einem bestimmten Word oder Ausdruck sucht.
+<!--/CMBLABLA-->
+<!--CMBSELECTVER-->Bitte w&auml;hlen sie die entsprechende Version:<!--/CMBSELECTVER-->
+<!--PROFTITLE-->Status aller Websites<!--/PROFTITLE-->
+<!--PROFBRACKET-->(einschlie&szlig;lich neuestem Indexprofil und tote Links '404 Seiten')<!--/PROFBRACKET-->
+<!--PROFBLABLA-->
+Nach jeder Indizierung wird ein Profil des aktuellen Standes aller ihrer Websites erstellt. Dies erlaubt ihnen auf Informationen wie die Anzahl der indizierten Seiten pro Website sowie alle toten Links jeder Site zuzugreifen.
+<!--/PROFBLABLA-->
+<!--ANALBLABLA-->
+<B>Suchanalyse</A></B><BR>Hier erhalten sie eine vollst&auml;ndige und detaillierte Analyse aller Suchvorg&auml;nge auf ihrer Website. Diese Informationen werden dynamisch aktualisiert.
+<!--/ANALBLABLA-->
+<!--SUMMARY-->Zusammenfassung<!--/SUMMARY-->
+<!--TOTNUMSITE-->Gesamtzahl aller Websites<!--/TOTNUMSITE-->
+<!--TOTNUMPAGE-->Gesamtzahl aller indizierten Dokumente<!--/TOTNUMPAGE-->
+<!--TOTNUM404P-->Gesamtzahl aller 404 Seiten (tote Links)<!--/TOTNUM404P-->
+<!--PAGES-->Dokumente<!--/PAGES-->
+<!--OTHERINF-->Weitere Informationen<!--/OTHERINF-->
+<!--NBPROF-->*) Klicken sie auf die Zahl in der Spalte der toten Links um auf die Liste aller toten Links dieser Website zu gelangen.<!--/NBPROF-->
+<!--SITEPROFFOR-->Website-Profil f&uuml;r<!--/SITEPROFFOR-->
+<!--SITEPROFTITLE-->Diese Seite beinhaltet das Profil f&uuml;r die Website<!--/SITEPROFTITLE-->
+<!--SITEPROFDESC-->
+Durch klicken auf einen toten Link gelangen sie zu einer Liste mit den URLs aller Dokumente, die diesen toten Link enthalten.
+<!--/SITEPROFDESC-->
+<!--TOTNUMBROKEN-->Gesamtzahl aller toten Links (404 Seiten)<!--/TOTNUMBROKEN-->
+<!--BROKONSITE-->Tote Links auf dieser Website<!--/BROKONSITE-->
+<!--LOC404TITLE-->Dokumente, die diesen toten Link enthalten<!--/LOC404TITLE-->
+<!--LOC404DESC1-->Diese Seite zeigt ihnen in welchem Dokument der tote Link<!--/LOC404DESC1-->
+<!--LOC404DESC2-->gefunden werden kann.<!--/LOC404DESC2-->
+<!--LOC404DESC3-->Durch klicken auf einen Link gelangen sie zu dem entsprechenden Dokument.<!--/LOC404DESC3-->
+<!--SITEOWNER-->Inhaber&nbsp;<!--/SITEOWNER-->
+<!--MODERATOR-->Moderator<!--/MODERATOR-->
+<!--SETUPON-->Ersteintrag:<!--/SETUPON-->
+<!--NUMOFPAGES-->Anzahl der Dokumente<!--/NUMOFPAGES-->
+<!--CMINSTRUC-->
+<P>Auf dieser Seite k&ouml;nnen sie alle Direktverweise sehen, die bereits f&uuml;r <b>[[SUBDIVTITLE]]</b> aktiviert wurden. Sie k&ouml;nnen sowohl neue Direktverweise hinzuf&uuml;gen, als auch bestehende l&ouml;schen. </P>
+<P>F&uuml;r einen neuen Eintrag f&uuml;llen sie bitte einfach eine Reihe leerer Zellen mit der Beschriftung <I>Neu</I> aus. Um einen bestehenden Eintrag zu &auml;ndern, &auml;ndern sie einfach die gew&uuml;nschte Zelle. Um einen Eintrag zu l&ouml;schen, l&ouml;schen sie einfach den Inhalt aller Zellen der entsprechenden Reihe.<br>
+<B>Bitte pressen sie nach jeder &Auml;nderung auf die Taste <I>Absenden</I>.</B>
+<!--/CMINSTRUC-->
+<!--NEW-->Neu<!--/NEW-->
+<!--CMHEAD1-->Wort oder Ausdruck<!--/CMHEAD1-->
+<!--CMHEAD3-->Text der Nachricht<!--/CMHEAD3-->
+<!--CMSUBHEAD1-->(zu dem der Verweis angezeigt werden soll)<!--/CMSUBHEAD1-->
+<!--CMSUBHEAD2-->(die Adresse, zu der der Benutzer verwiesen wird)<!--/CMSUBHEAD2-->
+<!--SUBMIT-->Absenden<!--/SUBMIT-->
+<!--NBCM-->
+*) Falls der aktive Link nur f&uuml;r einen Teil der Nachricht gelten soll, schlie&szlig;en sie bitte den aktiven Bereich mit ^ Symbolen ein und pressen sie die Taste 'Absenden' <BR> Zum Beispiel: <b>Besuchen sie unsere ^Karriere-Website^ um zu allen offenen Stellen zu gelangen</b> liefert folgenden Verweis:<br>
+Besuchen sie unsere <A href="#">Karriere-Website</A> um zu allen offenen Stellen zu gelangen
+<!--/NBCM-->
+<!--HELPTEXT-->Bitte setzen sie sich mit uns in Verbindung, falls sie irgendwelche Fragen haben:<!--/HELPTEXT-->
+<!--SEARCH-->Suche<!--/SEARCH-->
+<!--RAWTITLE-->Rohdaten<!--/RAWTITLE-->
+<!--RAWBLABLA-->Hier k&ouml;nnen sie Rohdaten der Suche f&uuml;r jedes beliebige Datum herunterladen. Das angebotene Dokument ist kompatibel zu jedem Tabellenbearbeitungsprogramm wie z.B. Microsoft Excel.
+<!--/RAWBLABLA-->
+<!--RAWINSTRUCTION-->
+<LI>Klicken sie auf das Kalender Symbol und w&auml;hlen sie das gew&uuml;nschte Datum, f&uuml;r das sie die Rohdaten herunterladen m&ouml;chten. Dieser Kalender l&auml;&szlig;t nur eine Auswahl innerhalb des Zeitraumes zu, f&uuml;r den Daten vorhanden sind.</LI>
+<LI>Pressen sie dann auf  "[[SUBMIT]]".</LI>
+<LI>Eine Download-Box sollte erscheinen und sie fragen, was sie mit dem Dokument zu tun w&uuml;nschen.<BR>
+Um es zu speichern, w&auml;hlen sie 'Speichern' und &auml;ndern sie den Namen auf z.B. "data.tsv".<BR>
+Um es zu &ouml;ffnen, w&auml;hlen sie '&Ouml;ffnen' und das Dokument wird automatisch in ihrem vorgew&auml;hlten Texteditor ge&ouml;ffnet.<P> 
+Bemerkung: Das Fileformat ist 'tab-separated values', das vollst&auml;ndig kompatibel zu jedem Tabellenbearbeitungsprogramm, wie z.B. Micorsoft Excel, ist.</LI>
+<!--/RAWINSTRUCTION-->
+
+<!--ERRORPAGEHEADING-->ErrorPage Funktionalit&auml;t<!--/ERRORPAGEHEADING-->
+<!--ERRORPAGESUMMARY-->Hier finden sie eine Zusammenfassung aller Dokumente ihres Internettauftritts, die nicht gefunden werden k&ouml;nnen.<!--/ERRORPAGESUMMARY-->
+<!--ERRORPAGETOTNUMSITE-->Gesamtzahl der Websites, die Fehler enthalten<!--/ERRORPAGETOTNUMSITE-->
+<!--ERRORPAGETOTNUMPAGES-->Gesamtzahl aller gefundenen Dokumente, die Fehler enthalten<!--/ERRORPAGETOTNUMPAGES-->
+<!--ERRORPAGESMTITLE-->ErrorPages<!--/ERRORPAGESMTITLE-->
+<!--VIEWERRORPAGES-->ErrorPages ansehen<!--/VIEWERRORPAGES-->
+<!--ERRORPAGEVIEW-->Ansicht<!--/ERRORPAGEVIEW-->
+<!--ERRORPAGESUMFOR-->Zusammenfassung f&uuml;r<!--/ERRORPAGESUMFOR-->
+<!--ERRORPAGETOTNUMPAGESON-->Gesamtzahl aller Dokumente in<!--/ERRORPAGETOTNUMPAGESON-->
+<!--ERRORPAGE-->Fehlerhaftes Dokument<!--/ERRORPAGE-->
+<!--ERRORPAGENUM-->Nummer<!--/ERRORPAGENUM-->
+<!--ERRORPAGELINK-->Dokumente, die auf diese fehlerhafte Seite verweisen<!--/ERRORPAGELINK-->
+<!--ERRORPAGEGOTO-->Gehe auf dieses fehlerhafte Dokument<!--/ERRORPAGEGOTO-->
+<!--ERRORPAGELOCATELINKS-->Orte Links<br>zu dieser Seite<!--/ERRORPAGELOCATELINKS-->
+<!--ERRORPAGELINKLOCTITLE-->ErrorPage Link Lokalisierer<!--/ERRORPAGELINKLOCTITLE-->
+<!--ERRORPAGELINKLIST-->Die aufgelisteten Dokumente enthalten einen Link zu dieser fehlerhaften Seite<!--/ERRORPAGELINKLIST-->
+<!--ERRORPAGELOCPAGES-->Lokalisierte Seiten<!--/ERRORPAGELOCPAGES-->
+<!--ERRORPAGECONLINKS-->Dokumente, die einen Link auf die fehlerhafte Seite enthalten<!--/ERRORPAGECONLINKS-->
+
+
+<!--CUR_TITLE-->Content usage asset list report<!--/CUR_TITLE-->
+<!--CUR_SUMMARYDESC-->View a summary of live and unused content on your site.<!--/CUR_SUMMARYDESC-->
+<!--CUR_BYSITEID-->Here you will find a summary of live and unused content on your site.  This includes html pages, images, modules and downloads.<!--/CUR_BYSITEID-->
+<!--CUR_TOTNUMSITES-->Number of sites scanned for live and unused content<!--/CUR_TOTNUMSITES-->
+<!--CUR_TOTNUMPAGES-->Total number of content assets found<!--/CUR_TOTNUMPAGES-->
+
+<!--CUR_ERROR_CPR-->Error: cannot process this request<!--/CUR_ERROR_CPR-->
+<!--CUR_LASTRA-->Last requested analysis<!--/CUR_LASTRA-->
+<!--CUR_TIMESINCE-->Time since last request<!--/CUR_TIMESINCE-->
+<!--CUR_CURRSTATUS-->Current status<!--/CUR_CURRSTATUS-->
+<!--CUR_REQREBDATA-->Requesting rebuild of the data for <!--/CUR_REQREBDATA-->
+<!--CUR_SUMMARY-->Summary<!--/CUR_SUMMARY-->
+<!--CUR_TRIGGER-->Trigger<!--/CUR_TRIGGER-->
+<!--CUR_DUP-->Duplicate requests: an analysis for [[VERYHARD XsiteId]] has ALREADY been requested, you can view the status<!--/CUR_DUP-->
+<!--CUR_VIEWSTAT-->View the status of the content usage report for <!--/CUR_VIEWSTAT-->
+<!--CUR_HERE-->here<!--/CUR_HERE-->
+<!--CUR_ERRORCNT-->Could not trigger, sorry<!--/CUR_ERRORCNT-->
+<!--CUR_TYPE-->Type<!--/CUR_TYPE-->
+<!--CUR_ASSET-->Asset<!--/CUR_ASSET-->
+<!--CUR_ASSETS-->Assets<!--/CUR_ASSETS-->
+<!--CUR_STATUS-->Status<!--/CUR_STATUS-->
+<!--CUR_SITE-->Site<!--/CUR_SITE-->
+<!--CUR_LIVE-->Live<!--/CUR_LIVE-->
+<!--CUR_UNUSED-->Unused<!--/CUR_UNUSED-->
+<!--CUR_TOTAL-->Total<!--/CUR_TOTAL-->
+<!--CUR_LASTUP-->Last updated<!--/CUR_LASTUP-->
+<!--CUR_LINKS-->Links<!--/CUR_LINKS-->
+<!--CUR_REQUEST-->Request<!--/CUR_REQUEST-->
+<!--CUR_SUMM2-->Here you will find a summary of live and unused content on your site. This includes html pages, images, modules and downloads.<!--/CUR_SUMM2-->
+<!--CUR_CURFOR-->Content usage report for <!--/CUR_CURFOR-->
+<!--CUR_TOTALLIVE-->Total number of LIVE content assets on <!--/CUR_TOTALLIVE-->
+<!--CUR_TOTALUNUSED-->Total number of UNUSED content assets on <!--/CUR_TOTALUNUSED-->
+<!--CUR_TOTALCA-->Total number of content assets on <!--/CUR_TOTALCA-->
+<!--CUR_SHOWALL-->Show all<!--/CUR_SHOWALL-->
+<!--CUR_DIR-->Directory<!--/CUR_DIR-->
+<!--CUR_-->Here you will find a summary of [[VHIF ($Xtype==0)]]ALL[[/VHIF]][[VHIF ($Xtype==1)]]LIVE[[/VHIF]][[VHIF ($Xtype==2)]]UNUSED[[/VHIF]] content in the specified directory.  This includes html pages, images, modules and downloads.
+<!--CUR_ALLASSETS-->All assets<!--/CUR_ALLASSETS-->
+<!--CUR_ALLLIVEASSETS-->All live assets<!--/CUR_ALLLIVEASSETS-->
+<!--CUR_ALLUNUSEDASSETS-->All unused assets<!--/CUR_ALLUNUSEDASSETS-->
+
+<!--DS_TITLE-->Downloadable Statistics<!--/DS_TITLE-->
+<!--DS_BLABLA-->Download files containing a summary of last month's search statistics<!--/DS_BLABLA-->
+<!--DS_SUMMARY-->Click on a link to download last month's statistics for a site<!--/DS_SUMMARY-->
+
+

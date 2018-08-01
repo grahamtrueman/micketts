@@ -1,0 +1,147 @@
+
+<!--TEMPLATE-->
+	[[MAINHEADERBLOCK]]
+	[[LISTSUBDIVISIONS]]
+<!--/TEMPLATE-->
+
+<!--MAINHEADERBLOCK-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">
+			[[\  Monthly Search E:mail Newsletter  \]]
+			[[EMAILER_TITLE]]Monthly Search E:mail Newsletter
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			[[LAST CUR_SUMMARYDESC]]
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			You are in: Emailer [[LAST TRAIL]]
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<!--/MAINHEADERBLOCK-->
+
+<!--LISTSUBDIVISIONS-->
+
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD EMAILER_BYSUB]])]]
+	[[CALC (TRAIL,=,<b>[[\Summary\]][[VERYHARD EMAILER_SUM]]</b>)]]
+	
+	[[SQL ~
+		SELECT
+			count(DISTINCT S.id),
+			count(DISTINCT E.id)
+		FROM clients AS C,subdivisions AS S
+			LEFT JOIN emailers AS E
+			ON E.subdivision=S.id
+		WHERE
+			C.client='[[VERYHARD company]]' AND
+			S.client=C.id
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND subdivisions.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					S.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY C.id
+	~subCount,emailerCount~]]
+	
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	        <TR> 
+	          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+			</tr>
+	        <TR> 
+	          <TD ALIGN="CENTER"> 
+	            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	              <TR>
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of sites\]]
+						Number of live siteIds
+						[[EMAILER_NUMSITES]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[subCount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+	              <TR> 
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of scheduled email notifications\]]
+						Number of scheduled email notifications
+						[[EMAILER_NUMBER_EMAILERS]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[emailerCount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+				</table>
+			</td>
+			</tr>
+	</table>
+	[[/SQL]]
+	
+	<br>
+	<table border="0" width="98%">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; [[\Site name\]]Site identifier[[EMAILER_SITENAME]]</td>
+			<td align="center" class="CMTITLETD">
+				[[\Total common suggestions\]]
+				E:mail address
+				[[EMAILER_EMAILADDRESS]]
+			</td>
+			<td align="center" class="CMTITLETD">Links</td>
+		</tr>
+		[[SQL ~
+			SELECT
+				S.id,
+				S.subdivision,
+				E.id,
+				E.email
+			FROM clients AS C,subdivisions AS S,emailers AS E
+			WHERE
+				E.subdivision=S.id AND
+				C.client='[[VERYHARD company]]' AND
+				S.client=C.id
+				[[VHIF ($focus ne 'corporate')]]
+					[[VHIF ($permissionSplit != 1)]]
+						AND S.subdivision='[[VERYHARD focus]]'
+					[[/VHIF]]
+				[[/VHIF]]
+				[[VHIF ($permissionSplit == 1)]]
+					AND (
+					[[LOOP (@focusList)]]
+						S.subdivision='[[LOOPVALUE]]' OR
+					[[/LOOP]]
+					1=0 )
+				[[/VHIF]]
+			ORDER BY S.subdivision ASC
+		~subId,thisSubdivision,eId,emailaddress~]]
+			<tr>
+				<td width="10%" align="center" class="CMTable">[[SQLCOUNT]]</td>
+				<td width="30%" align="left" class="CMTable">[[IF ($thisSubdivision eq 'global')]]<b>[[/IF]][[thisSubdivision]]</td>
+				<td width="35%" align="center" class="CMTable">[[emailaddress]]</td>
+				<td width="35%" align="center" class="CMTable"><a href="/admin-cgi/searchAnalysis.cgi?analyse=month~month=[[lastmonthW]]~year=[[lastmonthY]]~type=emailer~id=[[eId]]~focus=[[thisSubdivision]]">Send</a></td>
+			</tr>
+		[[/SQL]]
+	</table>
+	
+<!--/LISTSUBDIVISIONS-->

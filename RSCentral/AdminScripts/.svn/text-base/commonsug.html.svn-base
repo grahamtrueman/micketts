@@ -1,0 +1,574 @@
+
+<!--TEMPLATE-->
+	[[MAINHEADERBLOCK]]
+
+	[[IF ($Xsub eq '')]]
+		[[BYSUB]]
+	[[/IF]]
+	[[IF ($Xsub ne '')]]
+		[[IF ($Xaction eq '')]]
+			[[LISTCS]]
+		[[/IF]]
+		[[IF ($Xaction eq 'new')]]
+			[[NEWCS]]
+		[[/IF]]
+		[[IF ($Xaction eq 'addcs')]]
+			[[ADDCS]]
+		[[/IF]]
+		[[IF ($Xaction eq 'delcs')]]
+			[[DELCS]]
+		[[/IF]]
+		[[IF ($Xaction eq 'editcs')]]
+			[[IF ($Xcsid > 0)]]
+				[[EDITCS]]
+			[[/IF]]
+		[[/IF]]
+		[[IF ($Xaction eq 'modifycs')]]
+			[[IF ($Xcsid > 0)]]
+				[[MODIFYCS]]
+			[[/IF]]
+		[[/IF]]
+	[[/IF]]
+
+<!--/TEMPLATE-->
+
+<!--MAINHEADERBLOCK-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">
+			[[\Common suggestions tool\]]
+			[[CST_TITLE]]
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			[[\This tool allows you to suggest a specific <em>word</em> when a common mis-spelling is typed into the search box\]]
+			[[CST_SUMMARY]].
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			[[\You are in\]]
+			[[CST_YOUAREIN]]:
+			[[LAST TRAIL]]
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<!--/MAINHEADERBLOCK-->
+
+<!--BYSUB-->
+
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD CS_BYSUB]])]]
+	[[CALC (TRAIL,=,<b>[[\Summary\]][[VERYHARD CST_SUM]]</b>)]]
+	
+	[[SQL ~
+		SELECT
+			count(DISTINCT subdivisions.id),
+			count(DISTINCT commonsuggestions.id)
+		FROM clients,subdivisions
+			LEFT JOIN commonsuggestions
+			ON commonsuggestions.subdivision=subdivisions.id
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.client=clients.id
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND subdivisions.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					subdivisions.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY clients.id
+	~subCount,commonCount~]]
+	
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	        <TR> 
+	          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+			</tr>
+	        <TR> 
+	          <TD ALIGN="CENTER"> 
+	            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	              <TR>
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of sites\]]
+						[[CST_NUMSITES]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[subCount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+	              <TR> 
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of common suggestions\]]
+						[[CST_NUMBER_CS]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[commonCount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+				</table>
+			</td>
+			</tr>
+	</table>
+	[[/SQL]]
+	
+	<br>
+	<table border="0" width="98%">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; [[\Site name\]][[CST_SITENAME]]</td>
+			<td align="center" class="CMTITLETD">
+				[[\Total common suggestions\]]
+				[[CST_TOTAL_CS]]
+			</td>
+		</tr>
+		[[SQL ~
+			SELECT
+				subdivisions.id,
+				subdivisions.subdivision,
+				count(commonsuggestions.id) AS commonCount
+			FROM clients,subdivisions
+			LEFT JOIN commonsuggestions
+			ON commonsuggestions.subdivision=subdivisions.id
+			WHERE
+				clients.client='[[VERYHARD company]]' AND
+				subdivisions.client=clients.id
+				[[VHIF ($focus ne 'corporate')]]
+					[[VHIF ($permissionSplit != 1)]]
+						AND subdivisions.subdivision='[[VERYHARD focus]]'
+					[[/VHIF]]
+				[[/VHIF]]
+				[[VHIF ($permissionSplit == 1)]]
+					AND (
+					[[LOOP (@focusList)]]
+						subdivisions.subdivision='[[LOOPVALUE]]' OR
+					[[/LOOP]]
+					1=0 )
+				[[/VHIF]]
+			GROUP BY subdivisions.id
+			ORDER BY subdivisions.subdivision ASC
+		~subId,thisSubdivision,commonCount~]]
+			<tr>
+				<td width="10%" align="center" class="CMTable">[[SQLCOUNT]]</td>
+				<td width="50%" align="left" class="CMTable"><a href="/admin-cgi/[[adminName]]?tool=commonsug~sub=[[thisSubdivision]]" title="[[\View common suggestions for\]][[CST_VIEW_CS_FOR]] [[thisSubdivision]]">[[IF ($thisSubdivision eq 'global')]]<b>[[/IF]][[thisSubdivision]]</a></td>
+				<td width="35%" align="center" class="CMTable">[[IF ($commonCount > 0)]]<b>[[commonCount]]</b>[[/IF]][[IF ($commonCount < 0.5)]]-[[/IF]]</td>
+			</tr>
+		[[/SQL]]
+	</table>
+	
+<!--/BYSUB-->
+
+<!--LISTCS-->
+
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD CS_BYSUB]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug"><b>[[\Summary\]][[VERYHARD CST_SUM]]</b></a> &gt; <b>[[VERYHARD Xsub]]</b>)]]
+
+	[[SQLE ~
+		SELECT
+			subdivisions.subdivision,
+			count(*)
+		FROM clients,subdivisions,commonsuggestions
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+			subdivisions.client=clients.id AND
+			commonsuggestions.subdivision=subdivisions.id
+			[[VHIF ($focus ne 'corporate')]]	AND subdivisions.subdivision='[[VERYHARD focus]]' [[/VHIF]]
+		GROUP BY subdivisions.id
+	~thisSubdivision,commonCount~]]
+	
+	[[/SQLE/]]
+	[[/SQLE]]
+
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	        <TR> 
+	          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+			</tr>
+	        <TR> 
+	          <TD ALIGN="CENTER"> 
+	            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	              <TR>
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Site name\]]
+						[[CST_SITENAME]]
+						
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[Xsub]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+	              <TR> 
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of common suggestions\]]
+						[[CST_NUMBER_CS]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[EVAL ($commonCount*1)]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+				</table>
+			</td>
+			</tr>
+	</table>
+
+	
+	<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug~sub=[[VERYHARD Xsub]]~action=new">[[\New\]][[CST_NEW]]</a><br>
+	<br>
+	<table border="0" width="98%">
+		<form action="/admin-cgi/[[EVAL ($adminName)]]" method="POST">
+		<input type="hidden" name="tool" value="commonsug">
+		<input type="hidden" name="sub" value="[[Xsub]]">
+		<input type="hidden" name="action" value="delcs">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; [[\Word\]][[CST_WORD]]</td>
+			<td class="CMTITLETD">&nbsp; [[\Suggestion\]][[CST_SUGGESTION]]</td>
+			<td align="center" class="CMTITLETD">[[\Manage\]][[CST_MANAGE]]</td>
+			<td align="center" class="CMTITLETD">[[\Delete\]][[CST_DELETE]]</td>
+		</tr>
+		[[SQLE ~
+			SELECT
+				commonsuggestions.id,
+				commonsuggestions.badword,
+				commonsuggestions.goodword
+			FROM clients,subdivisions,commonsuggestions
+			WHERE
+				clients.client='[[VERYHARD company]]' AND
+				subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+				subdivisions.client=clients.id AND
+				commonsuggestions.subdivision=subdivisions.id
+				[[VHIF ($focus ne 'corporate')]]
+					[[VHIF ($permissionSplit != 1)]]
+						AND subdivisions.subdivision='[[VERYHARD focus]]'
+					[[/VHIF]]
+				[[/VHIF]]
+				[[VHIF ($permissionSplit == 1)]]
+					AND (
+					[[LOOP (@focusList)]]
+						subdivisions.subdivision='[[LOOPVALUE]]' OR
+					[[/LOOP]]
+					1=0 )
+				[[/VHIF]]
+			ORDER BY commonsuggestions.badword ASC
+		~commonsuggestionId,goodword,badword~]]
+			<tr>
+				<td width="10%" align="center" class="CMTable">[[SQLCOUNT]]</td>
+				<td width="30%" align="left" class="CMTable">[[goodword]]</td>
+				<td width="30%" align="left" class="CMTable">[[badword]]</td>
+				<td width="18%" align="center" class="CMTable"><a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug~sub=[[VERYHARD Xsub]]~action=editcs~csid=[[commonsuggestionId]]">[[\Edit\]][[CST_EDIT]]</a> <!--| <a href="cur.html">Del</a>--></td>
+				<td width="12%" align="center" class="CMTable"><input type="checkbox" name="[[commonsuggestionId]]" value="true"></td>
+			</tr>
+		[[/SQLE/]]
+			<tr>
+				<td align="center" class="CMTable" colspan="5">
+					[[\No common suggestions were found\]]
+					[[CST_NO_CS_FOUND]]
+				</td>
+			</tr>
+		[[/SQLE]]
+		<tr>
+			<td width="10%" align="center" class="CMTable"></td>
+			<td width="30%" align="left" class="CMTable"></td>
+			<td width="30%" align="left" class="CMTable"></td>
+			<td width="18%" align="center" class="CMTable"></td>
+			<td width="12%" align="center" class="CMTable"><input type="Submit" name="submit" value="[[CST_DELETE]]"></td>
+		</tr>
+		</form>
+	</table>
+
+<!--/LISTCS-->
+
+<!--NEWCS-->
+
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD CS_BYSUB]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug"><b>[[\Summary\]][[VERYHARD CST_SUM]]</b></a> &gt; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug~sub=[[VERYHARD Xsub]]"><b>[[VERYHARD Xsub]]</b></a> &gt; [[\New suggestions\]][[VERYHARD CST_NEWSUG]])]]
+	
+	[[SQLE ~
+		SELECT
+			subdivisions.subdivision,
+			count(*)
+		FROM clients,subdivisions,commonsuggestions
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+			subdivisions.client=clients.id
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND subdivisions.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					subdivisions.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY subdivisions.id
+	~thisSubdivision,commonCount~]]
+		<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+			<TR> 
+				<TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">
+					[[\New common suggestions for\]]
+					[[CST_NEW_CS_FOR]]
+					[[Xsub]]
+				</td>
+			</tr>
+		</table>
+		[[NEWCSFORM]]
+	[[/SQLE/]]
+		<br>
+		[[\No modifications can be made here\]]
+		[[CST_NOMODS]]
+		<br>
+		<br>
+	[[/SQLE]]
+
+<!--/NEWCS-->
+
+<!--NEWCSFORM-->
+
+	<form action="/admin-cgi/[[EVAL ($adminName)]]" method="POST">
+	<input type="hidden" name="tool" value="commonsug">
+	<input type="hidden" name="sub" value="[[Xsub]]">
+	<input type="hidden" name="action" value="addcs">
+	<table border="0" width="70%">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; [[\Word\]][[CST_WORD]]</td>
+			<td class="CMTITLETD">&nbsp; [[\Suggestion\]][[CST_SUGGESTION]]</td>
+		</tr>
+		[[LOOP (1...12|1)]]
+			<tr>
+				<td width="20%" align="center" class="CMTable">[[LOOPVALUE]]</td>
+				<td width="40%" align="left" class="CMTable"><input type="textbox" name="badword[[LOOPVALUE]]" value="" class="cst"></td>
+				<td width="40%" align="left" class="CMTable"><input type="textbox" name="goodword[[LOOPVALUE]]" value="" class="cst"></td>
+			</tr>
+		[[/LOOP]]
+		<tr>
+			<td width="20%" align="center" class="CMTable">&nbsp;</td>
+			<td width="40%" align="left" class="CMTable">&nbsp;</td>
+			<td width="40%" align="right" class="CMTable"><input type="Submit" name="submit" value="Submit"></td>
+		</tr>
+	</table>
+	</form>
+
+<!--/NEWCSFORM-->
+
+<!--ADDCS-->
+
+	[[LOOP (1...12|1)]]
+		[[HIF ($Xbadword[[LOOPVALUE]] ne '')]]
+			[[HIF ($Xgoodword[[LOOPVALUE]] ne '')]]
+				
+				[[SQLMOD ~
+					INSERT INTO
+						commonsuggestions
+						(client,subdivision,badword,goodword)
+					SELECT
+						clients.id,
+						subdivisions.id,
+						'[[HARDEVAL ( &makesafetext($Xbadword[[LOOPVALUE]]) )]]',
+						'[[HARDEVAL ( &makesafetext($Xgoodword[[LOOPVALUE]]) )]]'
+					FROM
+						clients,
+						subdivisions
+					WHERE
+						clients.client='[[VERYHARD company]]' AND
+						subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+						subdivisions.client=clients.id
+				~~]]
+					[[CALC (Added,=,1)]]
+				[[/SQLMOD/]]
+				[[/SQLMOD]]
+				
+			[[/HIF]]
+		[[/HIF]]
+	[[/LOOP]]
+
+	[[IF ($Added > 0)]]
+		<span class="dynCalendar_today">&nbsp;[[\New suggestions added\]][[CST_NEW_CS_ADDED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	[[IF ($Added < 0.5)]]
+		<span class="dynCalendar_today">&nbsp;[[\Nothing was added (were your words duplicates?)\]][[CST_NOTHINGADDED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+
+	[[LAST LISTCS]]
+<!--/ADDCS-->
+
+<!--DELCS-->
+	[[LOOP (%FORM)]]
+		[[HIF ([[LOOPVALUE]] > 0)]]
+		[[HIF ([[PARAMVALUE]] eq 'true')]]
+			
+			[[SQLMOD ~
+
+				DELETE FROM
+					commonsuggestions
+				USING
+					clients,subdivisions,commonsuggestions
+				WHERE
+					commonsuggestions.id=[[LOOPVALUE]] AND
+					clients.client='[[VERYHARD company]]' AND
+					subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+					subdivisions.client=clients.id AND
+					commonsuggestions.subdivision=subdivisions.id
+			~~]]
+				[[CALC (Deletd,=,1)]]
+			[[/SQLMOD/]]
+			[[/SQLMOD]]
+		[[/HIF]]
+		[[/HIF]]
+	[[/LOOP]]
+	
+	[[IF ($Deletd > 0)]]
+		<span class="dynCalendar_today">&nbsp;[[\Suggestion(s) deleted successfully\]][[CST_SUGDELETED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	[[IF ($Deletd < 0.5)]]
+		<span class="dynCalendar_today">&nbsp;[[\Nothing deleted\]][[CST_NOTHINGDELETED]]&nbsp;</span><br>
+		<br>
+	[[/IF]]
+	
+	[[LAST LISTCS]]
+
+<!--/DELCS-->
+
+<!--EDITCS-->
+
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD CS_BYSUB]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug"><b>[[\Summary\]][[VERYHARD CST_SUM]]</b></a> &gt; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=commonsug~sub=[[VERYHARD Xsub]]"><b>[[VERYHARD Xsub]]</b></a> &gt; [[\Edit suggestion\]][[VERYHARD CST_EDITSUGN]])]]
+	
+	[[SQLE ~
+		SELECT
+			subdivisions.subdivision,
+			CS.badword,CS.goodword
+		FROM clients,subdivisions,commonsuggestions AS CS
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+			subdivisions.client=clients.id AND
+			CS.subdivision=subdivisions.id AND
+			CS.id=[[VERYHARDEVAL ( return ( $Xcsid * 1 ) )]]
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND subdivisions.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					subdivisions.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		
+	~thisSubdivision,thisbadword,thisgoodword~]]
+		<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+			<TR> 
+				<TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">
+					[[\Edit common suggestion for\]]
+					[[CST_EDIT_CS_FOR]]
+					[[Xsub]]
+				</td>
+			</tr>
+		</table>
+		<br>
+		[[EDITCSFORM]]
+	[[/SQLE/]]
+		<br>
+		[[\No modifications can be made here\]]
+		[[CST_NOMODS]]
+		<br>
+	[[/SQLE]]
+
+<!--/EDITCS-->
+
+<!--EDITCSFORM-->
+
+	<table border="0" width="70%">
+		<form action="/admin-cgi/[[EVAL ($adminName)]]" method="POST">
+		<input type="hidden" name="tool" value="commonsug">
+		<input type="hidden" name="sub" value="[[Xsub]]">
+		<input type="hidden" name="action" value="modifycs">
+		<input type="hidden" name="csid" value="[[Xcsid]]">
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">&nbsp; [[\Word\]][[CST_WORD]]</td>
+			<td class="CMTITLETD">&nbsp; [[\Suggestion\]][[CST_SUGGESTION]]</td>
+		</tr>
+			<tr>
+				<td width="20%" align="center" class="CMTable">&nbsp;</td>
+				<td width="40%" align="left" class="CMTable"><input type="textbox" name="badword" value="[[thisbadword]]" class="cst"></td>
+				<td width="40%" align="left" class="CMTable"><input type="textbox" name="goodword" value="[[thisgoodword]]" class="cst"></td>
+			</tr>
+		<tr>
+			<td width="20%" align="center" class="CMTable">&nbsp;</td>
+			<td width="40%" align="left" class="CMTable">&nbsp;</td>
+			<td width="40%" align="right" class="CMTable"><input type="Submit" name="submit" value="[[\Submit\]][[CST_SUBMIT]]"></td>
+		</tr>
+		</form>
+	</table>
+
+<!--/EDITCSFORM-->
+
+<!--MODIFYCS-->
+			
+	[[SQLMOD ~
+
+		UPDATE
+			clients,subdivisions,commonsuggestions AS CS
+		SET
+			CS.badword='[[HARDEVAL ( &makesafetext($Xbadword) )]]',
+			CS.goodword='[[HARDEVAL ( &makesafetext($Xgoodword) )]]'
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.subdivision='[[VERYHARD Xsub]]' AND
+			subdivisions.client=clients.id AND
+			CS.subdivision=subdivisions.id AND
+			CS.id=[[VERYHARDEVAL ( return ( $Xcsid * 1 ) )]]
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND subdivisions.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					subdivisions.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+	
+	~~]]
+		<span class="dynCalendar_today">&nbsp;[[\Modification successful\]][[CST_MODOK]]&nbsp;</span>
+	[[/SQLMOD/]]
+		<span class="dynCalendar_today">&nbsp;[[\No modifications made (either you submitted the suggestion with no changes or there is a duplicate entry)\]][[CST_NOMODS2]]&nbsp;</span>
+	[[/SQLMOD]]
+	<br>
+	<br>
+	[[LAST LISTCS]]
+
+<!--/MODIFYCS-->
+

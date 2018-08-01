@@ -1,0 +1,152 @@
+
+<!--TEMPLATE-->
+	[[IF ($ep eq 'bysite')]]
+		[[MAINHEADERBLOCK]]
+		[[BYSITE]]
+	[[/IF]]
+	[[IF ($ep eq 'byscore')]]
+		[[MAINHEADERBLOCK]]
+		[[BYSCORE]]
+	[[/IF]]
+	[[IF ($ep eq 'locate')]]
+		[[LOCATE]]
+	[[/IF]]
+<!--/TEMPLATE-->
+
+<!--MAINHEADERBLOCK-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[ERRORPAGEHEADING]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[ERRORPAGESUMMARY]]</TD>
+	</TR>
+</TABLE>
+<P>
+<!--/MAINHEADERBLOCK-->
+
+<!--BYSITE-->
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[ERRORPAGETOTNUMSITE]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[siteCount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[ERRORPAGETOTNUMPAGES]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[totalerrors]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			</table>
+		</td>
+		</tr>
+</table>
+<br>
+<table border="0" width="100%">
+	<tr>
+		<td class="CMTITLETD">&nbsp;</td>
+		<td class="CMTITLETD">Site</td>
+		<td align="center" class="CMTITLETD">[[ERRORPAGESMTITLE]]</td>
+		<td align="center" class="CMTITLETD">[[VIEWERRORPAGES]]</td>
+	</tr>
+	[[LOOP (%siteerrorcount|1000)]]
+		<tr>
+			<td width="3%" align="center" class="CMTable">[[LOOPCOUNT]]</td>
+			<td class="CMTable" width="65%"><a target="ShellOpened" href="http://[[siteurl[[LOOPVALUE]]]]">[[sitename[[LOOPVALUE]]]]</a></td>
+			<td width="15%" align="center" class="CMTable">[[siteerrorcount[[LOOPVALUE]]]]</td>
+			<td width="17%" align="center" class="CMTable"> &nbsp; <a href="[[adminName]]?tool=errorpages~ep=byscore~epsite=[[siteurl[[LOOPVALUE]]]]">[[ERRORPAGEVIEW]]</a></td>
+		</tr>
+	[[/LOOP]]
+</table>
+
+<!--/BYSITE-->
+
+<!--BYSCORE-->
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR>
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[ERRORPAGESUMFOR]] [[siteName]]</td>
+        </tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[ERRORPAGETOTNUMPAGESON]] [[siteName]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[score]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			</table>
+		</td>
+		</tr>
+</table>
+<br>
+<table border="0" width="100%">
+	<tr>
+		<td align="center" class="CMTITLETD">[[ERRORPAGENUM]]</td>
+		<td align="left" class="CMTITLETD">&nbsp; [[ERRORPAGE]]: URL</td>
+		<td align="center" class="CMTITLETD">[[ERRORPAGELINK]]</td>
+	</tr>
+	[[LOOP (1...score|1)]]
+		<tr>
+			<td width="8%" align="center" class="CMTable">[[LOOPVALUE]]</td>
+			<td class="CMTable" width="75%">[[url[[LOOPVALUE]]]]<br>&nbsp; &nbsp; <a target="ShellOpened" href="[[url[[LOOPVALUE]]]]">[[ERRORPAGEGOTO]]</a></td>
+			<td width="17%" align="center" class="CMTable"><a href="[[adminName]]?tool=errorpages~ep=locate~locateurl=[[url[[LOOPVALUE]]]]">[[ERRORPAGELOCATELINKS]]</a></td>
+		</tr>
+	[[/LOOP]]
+</table>
+
+<!--/BYSCORE-->
+
+<!--LOCATE-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[ERRORPAGELINKLOCTITLE]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[ERRORPAGELINKLIST]]:<br><br><A href="[[locateurl]]" target="ShellOpened">[[locateurl]]</A><br><br>
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[ERRORPAGELOCPAGES]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[NUMOFPAGES]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[nresults]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+			</table>
+		 </td>
+		</tr>
+</table>
+<p>
+<table width="100%" border="0">
+	<tr>
+		<td class="CMTITLETD"> &nbsp; [[ERRORPAGECONLINKS]]</td>
+	</tr>
+	[[LOOP (%dtitle|1000)]]
+	<tr>
+		<td class="CMTable"><a href="[[LOOPVALUE]]" target="ShellOpened">[[LOOPVALUE]]</a></td>
+	</tr>
+	[[/LOOP]]
+</table>
+<!--/LOCATE-->

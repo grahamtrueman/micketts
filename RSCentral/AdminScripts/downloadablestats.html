@@ -1,0 +1,28 @@
+
+<!--TEMPLATE-->
+	<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+		<TR> 
+			<TD CLASS="heading">[[\Downloadable statistics\]][[DS_TITLE]]</TD>
+		</TR>
+		<TR>
+			<TD CLASS="mid-bg">[[\Click on a link to download the statistics for a site\]][[DS_SUMMARY]]</TD>
+		</TR>
+	</TABLE>
+	<P>
+	[[SQLE ~
+		SELECT subdivision
+		FROM clients,subdivisions
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.client=clients.id AND
+			subdivision<>"global"
+	~subdivision~]]
+		<a href="/download/Magus_[[subdivision]]_[[lastmonthY]][[IF ($lastmonth < 9.5)]]0[[/IF]][[lastmonth]].csv">[[subdivision]]</a><br>
+	[[/SQLE/]]
+		Sorry - nothing found here
+	[[/SQLE]]
+	
+<!--/TEMPLATE-->
+
+	
+
