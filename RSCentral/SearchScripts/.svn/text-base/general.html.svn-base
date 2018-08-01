@@ -1,0 +1,34 @@
+
+<!--MODIFICATIONS-->
+	
+	[[SQLMOD ~
+		INSERT INTO
+			clients
+			(client)
+		VALUES
+			('[[VERYHARDEVAL ( &makesafetext($thiscompany) )]]')
+	~~]]
+	[[/SQLMOD/]]
+	[[/SQLMOD]]
+
+	[[SQL ~SELECT id FROM clients WHERE client='[[VERYHARD thiscompany]]'~clientId~]][[/SQL]]
+
+	[[HIF ($subdivision eq '')]]
+		[[CALC (subdivision,=,corporate)]]
+	[[/HIF]]
+	[[ADDSUBDIVISION]]
+	
+<!--/MODIFICATIONS-->
+
+<!--ADDSUBDIVISION-->
+	[[SQLMOD ~
+		INSERT INTO
+			subdivisions
+			(subdivision,client)
+		VALUES
+			('[[VERYHARDEVAL ( &makesafetext($subdivision) )]]',[[VERYHARD clientId]])
+	~~]]
+	[[/SQLMOD/]]
+	[[/SQLMOD]]
+		
+<!--/ADDSUBDIVISION-->

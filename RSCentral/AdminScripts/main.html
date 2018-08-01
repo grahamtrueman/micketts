@@ -1,0 +1,774 @@
+
+<!--CLIENTTITLE--><IMG SRC="http://www.remotesearch.com/analysis/AdminTitle_[[company]].gif" ALT="[[ALTPICTITLE]]&nbsp;[[company]]"><!--/CLIENTTITLE-->
+
+<!--TEMPLATE-->
+<HTML>
+<HEAD>
+<TITLE>[[TITLE]] [[SUBDIVTITLE]]</TITLE>
+[[IF ($charset !~ 'iso-8859')]]
+	[[IF ($charset ne 'GB2312')]]
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	[[/IF]]
+[[/IF]]
+[[IF ($charset =~ 'iso-8859')]]<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">[[/IF]]
+[[IF ($charset eq 'GB2312')]]<meta http-equiv="Content-Type" content="text/html; charset=GB2312">[[/IF]]
+<LINK REL="stylesheet" HREF="http://www.remotesearch.com/analysis/main.css" TYPE="TEXT/CSS">
+<script language="JavaScript">
+<!--
+window.name='main';
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function Jump(URL) {
+	if (URL != "BLANK") { window.location.href=URL ; }
+}
+
+function openPrint(URL) { 
+	features = "width=820,height=620,scrollbars=1,resizable=1,menubar=1,toolbar=0,top=0 ,left=0,screenX=0,screenY=0";
+  	newwin = window.open(URL,"print",features).focus();
+  }
+  
+/** 
+* Function to set a browser cookie with the name of cookieName, a value of
+* cookieVal, and valid for the specified number of days.
+*/
+function setCookie(cookieName, cookieVal, days) {
+	if (!days) days = 1;
+	var expDate = new Date();
+	expDate.setTime(expDate.getTime() + days*24*60*60*1000);
+	var expDateString = expDate.toGMTString();
+	document.cookie = cookieName + "="+escape(cookieVal) + ";path=/;expires="+expDateString;
+
+}
+
+/** 
+* Function to get a browser cookie with the name of cookieName.
+*/
+function getCookie(cookieName) {
+	cookieName = cookieName+"=";
+	var allCookies = document.cookie;
+	if (allCookies.length > 0) {
+		var start = allCookies.indexOf(cookieName);
+		if (start != -1) {
+			start = start + cookieName.length;
+			var end = allCookies.indexOf(";",start);
+			if (end == -1) end = allCookies.length;
+			return unescape(allCookies.substring(start,end));
+		}
+	}
+	return null;		
+}
+  
+//-->
+</script>
+</HEAD>
+
+<BODY  TEXT="#000000" LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" MARGINHEIGHT="0" BGCOLOR="#FFFFFF" onLoad="MM_preloadImages('http://www.remotesearch.com/analysis/up-arrow1.gif','http://www.remotesearch.com/analysis/next-arrow1.gif','http://www.remotesearch.com/analysis/prev-arrow1.gif')">
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR> 
+    <TD CLASS="header1"><A NAME="top"></A><IMG SRC="http://www.remotesearch.com/analysis/header_Magus.gif" WIDTH="128" HEIGHT="61" ALT="Magus Research">[[CLIENTTITLE]]</TD>
+  </TR>
+  <TR>
+    <TD CLASS="header2">
+      <TABLE WIDTH="753" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+        <TR>
+		  <td align="right" valign="bottom">
+		&nbsp;<A HREF="#contact"><IMG SRC="http://www.remotesearch.com/analysis/header_contact_[[displang]].gif" BORDER="0" ALT="Contact us"></A><A href="[[adminName]]?focus=[[focus]]"><IMG SRC="http://www.remotesearch.com/analysis/header_home.gif" WIDTH="46" HEIGHT="15" ALT="Home" border="0"></A>&nbsp;&nbsp;
+		[[IF ($displang ne 'en')]]<A href="[[adminName]]?focus=[[focus]]" onClick="javascript:setCookie('displang','en','365');"><img src="http://www.remotesearch.com/analysis/flag_en.gif" width="25" height="15" title="Site in english" border="0"></A>&nbsp;[[/IF]]
+		[[IF ($displang ne 'de')]]<A href="[[adminName]]?focus=[[focus]]" onClick="javascript:setCookie('displang','de','365');"><img src="http://www.remotesearch.com/analysis/flag_de.gif" width="25" height="15" title="Site auf Deutsch" border="0"></A>&nbsp;[[/IF]]
+		[[IF ($displang ne 'fr')]]<A href="[[adminName]]?focus=[[focus]]" onClick="javascript:setCookie('displang','fr','365');"><img src="http://www.remotesearch.com/analysis/flag_fr.gif" width="25" height="15" title="Site en fran&ccedil;ais" border="0"></A>&nbsp;[[/IF]]
+		[[IF ($displang ne 'es')]]<A href="[[adminName]]?focus=[[focus]]" onClick="javascript:setCookie('displang','es','365');"><img src="http://www.remotesearch.com/analysis/flag_es.gif" width="25" height="15" title="sitio en espa&ntilde;ol" border="0"></A>[[/IF]]
+</td>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="2"></TD>
+  </TR>
+  <TR>
+    <TD CLASS="header3"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+  </TR>
+  <TR>
+    <TD CLASS="headerpattern">
+      <TABLE WIDTH="753" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+        <TR> 
+          <TD WIDTH="128"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="126" HEIGHT="20"></TD>
+          <FORM NAME="form1" METHOD="post" ACTION="">
+            <TD width="43%" CLASS="smalltext" BGCOLOR="#E9E9D2" ALIGN="RIGHT"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="8" HEIGHT="6">
+<b>[[\View tools for\]][[TOOLSFOR]]</b>
+		[[IF ($multifocus ne '')]]
+			[[DROPDOWNFROM]]
+		[[/IF]]
+		[[IF ($multifocus eq '')]]
+			<b><i>[[SUBDIVTITLE]]</i></b>
+		[[/IF]]
+            </TD>
+          </FORM>
+          <TD WIDTH="2%"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="1" HEIGHT="20"></TD>
+          <FORM NAME="form2" METHOD="post" ACTION="">
+            <td width="55%" align="right" valign="bottom" bgcolor="#E9E9D2" class="smalltext"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="8" HEIGHT="6">
+			<b>[[DROPDOWNTITLE]]</b>&nbsp;[[DROPDOWTOOL]]
+            </td>
+          </FORM>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR> 
+    <TD CLASS="header3"><IMG SRC="http://www.remotesearch.com/analysis/pics/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+  </TR>
+</TABLE>
+
+<BR>
+
+<TABLE WIDTH="753" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR> 
+    <TD WIDTH="17"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="16" HEIGHT="25"></TD>
+    <td width="736" align="left"> 
+      [[CONTENT]]
+		<br>
+		[[HELPBAR]]
+    </td>
+  </TR>
+</TABLE>
+<BR>
+<BR>
+</BODY>
+</HTML>
+<!--/TEMPLATE-->
+<!--DROPDOWTOOL-->
+              <SELECT NAME="select2" onChange="javascript:Jump(this.value);">
+			  		<OPTION>[[DROPDOWNINST]]:</OPTION>
+					[[LOOP (0...longueurCM|1)]]
+					 <OPTION VALUE="[[EVAL (return $displayCMUrl[[[LOOPVALUE]]];)]]">[[EVAL (return $displayCMTitle[[[LOOPVALUE]]];)]]</OPTION>
+					[[/LOOP]]
+					[[LOOP (0...longueurMENU|1)]]
+					 <OPTION VALUE="[[EVAL (return $displayUrl[[[LOOPVALUE]]];)]]">[[EVAL (return $displayTitle[[[LOOPVALUE]]];)]]</OPTION>
+					[[/LOOP]]
+              </SELECT>
+<!--/DROPDOWTOOL-->
+<!--DROPDOWNFROM-->
+              <SELECT NAME="select2" onChange="javascript:Jump(this.value);">
+			  	[[IF ($permissionSplit == 1)]]<option value="[[adminName]]?focus=[[LOOPVALUE]]">All [[username]] sites[[/IF]]
+			  	[[LOOP (@focuslist)]]
+					<OPTION [[IF ($focus eq '[[LOOPVALUE]]')]]SELECTED[[/IF]] VALUE="[[adminName]]?focus=[[LOOPVALUE]]">[[EVAL ( if ($subdivName{'[[LOOPVALUE]]'}) {return "$subdivName{'[[LOOPVALUE]]'}";} else {return "[[LOOPVALUE]]";} )]]</OPTION>
+				[[/LOOP]]
+              </SELECT>
+<!--/DROPDOWNFROM-->
+<!--SUBDIVTITLE-->
+	[[EVAL ( if ( $subdivName{$focus}) {return $subdivName{$focus};} else {return $focus} )]]
+<!--/SUBDIVTITLE-->
+
+<!--CONTENT-->
+	[[RSERROR]]
+	[[IF ($tool eq '')]]
+		[[INDEX]]
+	[[/IF]]
+	[[IF ($tool eq 'index')]]
+		[[INDEX]]
+	[[/IF]]
+	[[IF ($tool eq 'profile')]]
+		[[PROFILE]]
+	[[/IF]]
+	[[IF ($tool eq 'linkchecker')]]
+		[[LINKCHECKER]]
+	[[/IF]]
+	[[IF ($tool eq 'pages404')]]
+		[[PAGES404]]
+	[[/IF]]
+	[[IF ($tool eq 'loc404')]]
+		[[LOC404]]
+	[[/IF]]
+	[[IF ($tool eq 'cm')]]
+		[[IF ($advancedCM eq '')]]
+			[[CM]]
+		[[/IF]]
+		[[IF ($advancedCM ne '')]]
+			[[ADVANCEDCM]]
+		[[/IF]]
+	[[/IF]]
+	[[IF ($tool eq 'rawstats')]]
+		[[RAWSTATS]]
+	[[/IF]]
+	[[IF ($tool eq 'exitpages')]]
+		[[EXITPAGES]]
+	[[/IF]]
+	[[IF ($tool eq 'errorpages')]]
+		[[ERRORPAGES]]
+	[[/IF]]
+	[[IF ($tool eq 'cur')]]
+		[[CUR]]
+	[[/IF]]
+	[[IF ($tool eq 'commonsug')]]
+		[[COMMONSUG]]
+	[[/IF]]
+	[[IF ($tool eq 'subdivisionsearchlist')]]
+		[[SUBDIVISIONSEARCHLIST]]
+	[[/IF]]
+	[[IF ($tool eq 'downloadablestats')]]
+		[[DOWNLOADABLESTATS]]
+	[[/IF]]
+	[[IF ($tool eq 'emailer')]]
+		[[EMAILER]]
+	[[/IF]]
+	[[IF ($tool eq 'emailer2')]]
+		[[EMAILER2]]
+	[[/IF]]
+<!--/CONTENT-->
+
+<!--INDEX-->
+<table width="100%" border="0">
+	<tr>
+          <TD>
+			 [[WELCOME]]:
+			 
+            <UL>
+
+				 [[TOOLSORDER]]
+
+            </UL>
+		
+		</td>
+	</tr>
+</table>
+<!--/INDEX-->
+<!--TOOLSORDER-->
+	[[CMLINK]]
+	[[SALINK]]
+	[[RSLINK]]
+	[[RWLINK]]
+	[[IF ($CSTON > 0.5)]]
+		[[CSLINK]]
+	[[/IF]]
+<!--/TOOLSORDER-->
+<!--CMLINK-->
+			[[IF ($defdisp eq '')]]
+              <LI><B><A HREF="[[adminName]]?tool=cm~focus=[[focus]]">[[IF ($company ne 'Shell')]][[CMTITLE]][[/IF]][[IF ($company eq 'Shell')]][[CMTITLE_SHELL]][[/IF]]</A><BR></B>[[CMBLABLA]]<BR>
+					[[IF ($focus eq 'corporate')]][[CMDOWNLOAD]][[/IF]]
+                &nbsp;
+			[[/IF]]
+			[[IF ($defdisp ne '')]]
+				[[IF ($longueurCM <= 0.5)]]
+			 <LI><B><A HREF="[[adminName]]?tool=cm~focus=[[focus]]~langcm=[[EVAL (return ${langcm_.$focus}[0];)]]">[[IF ($company ne 'Shell')]][[CMTITLE]][[/IF]][[IF ($company eq 'Shell')]][[CMTITLE_SHELL]][[/IF]]</A><BR></B>[[CMBLABLA]]<BR>
+                &nbsp;
+				[[/IF]]
+				[[IF ($longueurCM >= 0.5)]]
+              <LI><B>[[IF ($company ne 'Shell')]][[CMTITLE]][[/IF]][[IF ($company eq 'Shell')]][[CMTITLE_SHELL]][[/IF]]</A><BR></B>[[CMBLABLA]]<BR>[[CMBSELECTVER]]<BR>
+[[LOOP (0...longueurCM|1)]]<A HREF="[[adminName]]?tool=cm~focus=[[focus]]~langcm=[[EVAL (return ${langcm_.$focus}[[[LOOPVALUE]]];)]]">[[EVAL (return $fullname{${'langcm_'.$focus}[[[LOOPVALUE]]]}; )]]</A>&nbsp;&nbsp;[[/LOOP]]<BR>
+                &nbsp;
+				[[/IF]]
+			[[/IF]]
+<!--/CMLINK-->
+<!--CMDOWNLOAD-->
+	[[IF ($permission eq 'all')]]<span class="smalltext"><A HREF="/admin-cgi/data.tsv?tool=groupcustommessages">[[CMDOWN]]</a><br></span>[[/IF]]
+<!--/CMDOWNLOAD-->
+<!--SALINK-->
+              <LI><A HREF="[[analysisName]]">[[ANALBLABLA]]</a><BR>
+                &nbsp; </LI>
+<!--/SALINK-->
+<!--RSLINK-->
+			[[IF ($focus eq 'corporate')]]
+              <LI><B><A HREF="[[adminName]]?tool=profile~focus=[[focus]]">[[PROFTITLE]]</A></B>&nbsp;[[PROFBRACKET]]<BR>[[PROFBLABLA]]<BR>
+                &nbsp; 
+			[[/IF]]
+<!--/RSLINK-->
+<!--RWLINK-->
+			[[IF ($focus eq 'corporate')]]
+				<LI><B><A HREF="[[adminName]]?tool=rawstats~focus=[[focus]]">[[RAWTITLE]]</A></B><BR>[[RAWBLABLA]]<BR>&nbsp;
+			[[/IF]]
+<!--/RWLINK-->
+<!--CSLINK-->
+              <LI><A HREF="[[adminName]]?tool=commonsug">[[CST_ADMIN]]<BR>&nbsp; </LI>
+<!--/CSLINK-->
+
+
+<!--PROFILE-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[PROFTITLE]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[PROFBLABLA]]
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[TOTNUMSITE]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[numsites]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[TOTNUMPAGE]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[pagetot]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			   <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[TOTNUM404P]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[p404tot]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			</table>
+		</td>
+	</tr>
+</table>
+<p>
+<table border="0">
+	<tr>
+		<td class="CMTITLETD">Site</td>
+		<td align="center" class="CMTITLETD">[[PAGES]]</td>
+		<td align="center" class="CMTITLETD">404&nbsp;[[PAGES]]&nbsp;<A href="#note">*</A></td>
+		<td align="center" class="CMTITLETD">[[OTHERINF]]</td>
+	</tr>
+	[[LOOP (0...longueur|1)]]
+		<tr>
+			<td class="CMTable" width="350"><a href="http://[[EVAL (return $url[[[LOOPVALUE]]];)]]" target="_blank">[[EVAL (return $title[[[LOOPVALUE]]];)]]</a></td>
+			<td width="50" align="center" class="CMTable">[[EVAL (return $page[[[LOOPVALUE]]];)]]</td>
+			<td width="110" align="center" class="CMTable">
+			
+				[[HARDEVAL ( if ( $p404[[[LOOPVALUE]]] > 0.5) { return "<a href=\"".$adminName."?tool=pages404~focus=".$focus."~url404=http://".$url[[[LOOPVALUE]]]."/~pagenumb=".$page[[[LOOPVALUE]]]."~p404=".$p404[[[LOOPVALUE]]]."\">" } )]]
+				[[HARDEVAL ( return $p404[[[LOOPVALUE]]] )]]
+				[[HARDEVAL ( if ( $p404[[[LOOPVALUE]]] > 0.5) { return "</a>" } )]]
+			
+			</td>
+			<td width="200" align="left" class="CMTable">&nbsp;[[EVAL (return $otherinf[[[LOOPVALUE]]];)]]</td>
+		</tr>
+	[[/LOOP]]
+</table>
+<P>
+<A NAME="note">[[NBPROF]]</A>
+</P>
+<!--/PROFILE-->
+<!--PAGES404-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[SITEPROFFOR]]&nbsp;[[url404]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[SITEPROFTITLE]]&nbsp;<A href="[[url404]]" target="-blank">[[url404]]</A>.<BR>[[SITEPROFDESC]]
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[TOTNUMPAGE]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[pagenumb]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[TOTNUMBROKEN]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[p404]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+			</table>
+		 </td>
+		</tr>
+</table>
+<p>
+<table width="100%" border="0">
+	<tr>
+		<td class="CMTITLETD">[[BROKONSITE]]</td>
+	</tr>
+	[[LOOP (1...numbroken|1)]]
+	<tr>
+		<td class="CMTable"><a href="[[adminName]]?tool=loc404~locurl=[[broken[[LOOPVALUE]]]]~focus=[[focus]]~displayurl=[[displaybroken[[LOOPVALUE]]]]">[[displaybroken[[LOOPVALUE]]]]</a></td>
+	</tr>
+	[[/LOOP]]
+</table>
+<!--/PAGES404-->
+<!--LOC404-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">
+			[[IF ($Xtype eq 'linkchecker')]]Link Checker[[/IF]]
+			[[IF ($Xtype ne 'linkchecker')]][[LOC404TITLE]][[/IF]]
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			[[IF ($Xtype eq 'linkchecker')]]
+				Listing of pages that contain this url:<br>
+				<A href="[[Xdisplayurl]]">[[Xdisplayurl]]</A><br>
+				<br>	
+			[[/IF]]
+			[[IF ($Xtype ne 'linkchecker')]]
+				[[LOC404DESC1]]<br><A href="[[Xdisplayurl]]">[[Xdisplayurl]]</A><br>[[LOC404DESC2]]<BR>[[LOC404DESC3]]
+			[[/IF]]
+			
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[NUMOFPAGES]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[nresults]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+			</table>
+		 </td>
+		</tr>
+</table>
+<p>
+<table width="100%" border="0">
+	<tr>
+		<td class="CMTITLETD">
+			[[IF ($Xtype eq 'linkchecker')]]Pages that contain this link:[[/IF]]
+			[[IF ($Xtype ne 'linkchecker')]][[LOC404TITLE]][[/IF]]
+		</td>
+	</tr>
+	[[LOOP (%dtitle|1000)]]
+	<tr>
+		<td class="CMTable"><a href="[[LOOPVALUE]]" target="_blank">[[LOOPVALUE]]</a></td>
+	</tr>
+	[[/LOOP]]
+</table>
+<!--/LOC404-->
+<!--CM-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[IF ($company ne 'Shell')]][[CMTITLE]][[/IF]][[IF ($company eq 'Shell')]][[CMTITLE_SHELL]][[/IF]][[IFNB langcm]]&nbsp;-&nbsp;[[EVAL (return $fullname{'[[HARD langcm]]'};)]][[/IFNB]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[CMBLABLA]]
+		</TD>
+	</TR>
+</TABLE>
+<form action="[[adminName]]" method="post">
+<input type="Hidden" name="tool" value="cm">
+<input type="Hidden" name="focus" value="[[focus]]">
+<input type="Hidden" name="langcm" value="[[langcm]]">
+<input type="Hidden" name="longueur" value="[[longueur]]">
+<input type="Hidden" name="longueurCM" value="[[longueurCM]]">
+<input type="Hidden" name="longueurMENU" value="[[longueurMENU]]">
+<table width="100%" border="0">
+	<tr>
+		<td colspan="4"><P><BR>
+              </P>
+              [[CMINSTRUC]]
+              </P><BR>
+		</td>
+	</tr>
+	<tr>
+		<td width="26" align="center" class="CMTITLETD">#</td>
+		<td align="left" class="CMTITLETD">[[CMHEAD1]]</td>
+		<td align="left" class="CMTITLETD">URL</td>
+		<td align="left" class="CMTITLETD">[[CMHEAD3]]&nbsp;<A HREF="#note">*</A></td>
+	</tr>
+	<TR VALIGN="TOP"> 
+		<TD align=middle class=greyboxwhitetext>&nbsp;</TD>
+		<TD CLASS="greyboxwhitetext"><I CLASS="smalltext">[[CMSUBHEAD1]]</I></TD>
+		<TD CLASS="greyboxwhitetext"><I CLASS="smalltext">[[CMSUBHEAD2]]</I></TD>
+		<TD CLASS="greyboxwhitetext">&nbsp;</TD>
+	</TR>
+	[[LOOP (1...3|1)]]
+	<tr>
+		<td align="center" class="smalltext">[[NEW]]</td>
+		<td><input type="text" name="wordNew[[LOOPVALUE]]" class="word"></td>
+		<td><input type="text" name="urlNew[[LOOPVALUE]]" class="url"></td>
+		<td><input type="text" name="titleNew[[LOOPVALUE]]" class="title"></td>
+	</tr>
+	[[/LOOP]]
+[[VHIF ($longueur >= 0)]]
+	[[LOOP (0...longueur|1)]]
+	<tr>
+		<td align="center" class="smalltext">[[EVAL (return [[LOOPVALUE]]+1;)]]</td>
+		<td><input type="text" name="word[[LOOPVALUE]]" class="word" value="[[EVAL (return $word[[[LOOPVALUE]]];)]]"></td>
+		<td><input type="text" name="url[[LOOPVALUE]]" class="url" value="[[EVAL (return $url[[[LOOPVALUE]]];)]]"></td>
+		<td><input type="text" name="title[[LOOPVALUE]]" class="title" value="[[EVAL (return $title[[[LOOPVALUE]]];)]]"></td>
+	</tr>
+	[[/LOOP]]
+[[/VHIF]]
+	<TR> 
+		<TD align=middle class=smalltext>&nbsp;</TD>
+		<TD>&nbsp;</TD>
+		<TD>&nbsp;</TD>
+		<TD> 
+            <INPUT TYPE=submit VALUE="[[SUBMIT]]" NAME="submit">
+		</TD>
+	</TR>
+</table>
+</form>
+<P><A NAME="note"></A>[[NBCM]]</P>
+<!--/CM-->
+<!--ADVANCEDCM-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[IF ($company ne 'Shell')]][[CMTITLE]][[/IF]][[IF ($company eq 'Shell')]][[CMTITLE_SHELL]][[/IF]][[IFNB langcm]]&nbsp;-&nbsp;[[EVAL (return $fullname{'[[HARD langcm]]'};)]][[/IFNB]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[CMBLABLA]]
+		</TD>
+	</TR>
+</TABLE>
+<form action="[[adminName]]" method="post">
+<input type="Hidden" name="tool" value="cm">
+<input type="Hidden" name="focus" value="[[focus]]">
+<input type="Hidden" name="langcm" value="[[langcm]]">
+<input type="Hidden" name="longueur" value="[[longueur]]">
+<input type="Hidden" name="longueurCM" value="[[longueurCM]]">
+<input type="Hidden" name="longueurMENU" value="[[longueurMENU]]">
+<table width="736" border="0">
+	<tr>
+		<td colspan="4"><P><BR>
+              </P>
+              [[CMINSTRUC]]
+              </P><BR>
+		</td>
+	</tr>
+	<tr>
+		<td width="10" align="center" class="CMTITLETD">#</td>
+		<td align="left" class="CMTITLETD">[[CMHEAD1]]</td>
+		<td align="left" class="CMTITLETD">URL</td>
+		<td align="left" class="CMTITLETD">[[CMHEAD3]]&nbsp;<A HREF="#note">*</A></td>
+		<!--<td align="left" class="CMTITLETD">Site Owner</A></td><br>
+		<td align="left" class="CMTITLETD">Moderator</A></td>
+		<td align="left" class="CMTITLETD">Date</A></td>-->
+	</tr>
+	<TR VALIGN="TOP"> 
+		<TD width="10" align=middle class=greyboxwhitetext>&nbsp;</TD>
+		<TD CLASS="greyboxwhitetext"><I CLASS="smalltext">[[CMSUBHEAD1]]</I></TD>
+		<TD CLASS="greyboxwhitetext"><I CLASS="smalltext">[[CMSUBHEAD2]]</I></TD>
+		<TD CLASS="greyboxwhitetext">&nbsp;</TD>
+		<!--<TD CLASS="greyboxwhitetext">&nbsp;</TD>
+		<TD CLASS="greyboxwhitetext">&nbsp;</TD>
+		<TD CLASS="greyboxwhitetext">&nbsp;</TD>-->
+	</TR>
+	[[LOOP (1...3|1)]]
+	<tr>
+		<td width="10" align="left" class="smalltext">[[NEW]]</td>
+		<td align="right"><input type="text" name="wordNew[[LOOPVALUE]]" class="word"></td>
+		<td align="right"><input type="text" name="urlNew[[LOOPVALUE]]" class="url"></td>
+		<td align="right"><input type="text" name="titleNew[[LOOPVALUE]]" class="title"></td>
+	</tr>
+	<tr>
+		<td colspan="2">&nbsp;</td>
+		<td align="right" class="smalltext">[[\Site owner\]][[SITEOWNER]]&nbsp;<input type="text" name="siteNew[[LOOPVALUE]]" class="sitead"></td>
+		<td align="right" class="smalltext">[[\Moderator\]][[MODERATOR]]&nbsp;<input type="text" name="modeNew[[LOOPVALUE]]" class="modead"></td>
+	</tr>
+	<tr>
+		<td colspan="4"><hr size="1" class="cm"></td>
+	</tr>
+	[[/LOOP]]
+	[[VHIF ($longueur >= 0)]]
+		[[LOOP (0...longueur|1)]]
+		<tr>
+			<td width="10" align="center" class="smalltext">[[EVAL (return [[LOOPVALUE]]+1;)]]</td>
+			<td align="right"><input type="text" name="word[[LOOPVALUE]]" class="word" value="[[EVAL (return $word[[[LOOPVALUE]]];)]]"></td>
+			<td align="right"><input type="text" name="url[[LOOPVALUE]]" class="url" value="[[EVAL (return $url[[[LOOPVALUE]]];)]]"></td>
+			<td align="right"><input type="text" name="title[[LOOPVALUE]]" class="title" value="[[EVAL (return $title[[[LOOPVALUE]]];)]]"></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="smalltext">[[\Set up on\]][[SETUPON]] <b>[[EVAL (return $whenx[[[LOOPVALUE]]];)]]</b></td>
+			<td align="right" class="smalltext">[[\Site owner\]][[SITEOWNER]]&nbsp;<input type="text" name="site[[LOOPVALUE]]" class="sitead" value="[[EVAL (return $site[[[LOOPVALUE]]];)]]"></td>
+			<td align="right" class="smalltext">[[\Moderator\]][[MODERATOR]]&nbsp;<input type="text" name="mode[[LOOPVALUE]]" class="modead" value="[[EVAL (return $mode[[[LOOPVALUE]]];)]]"></td>
+			<INPUT type="hidden" name="when[[LOOPVALUE]]" value="[[EVAL (return $when[[[LOOPVALUE]]];)]]">
+	
+		</tr>
+		<tr>
+			<td colspan="4"><hr class="cm"></td>
+		</tr>
+		[[/LOOP]]
+	[[/VHIF]]
+	<TR> 
+		<TD align=middle class=smalltext>&nbsp;</TD>
+		<TD>&nbsp;</TD>
+		<TD>&nbsp;</TD>
+		<TD> 
+            <INPUT TYPE=submit VALUE="[[SUBMIT]]" NAME="submit">
+		</TD>
+	</TR>
+</table>
+</form>
+<P><A NAME="note"></A>[[NBCM]]</P>
+<!--/ADVANCEDCM-->
+
+<!--RAWSTATS-->
+<script src="http://www.remotesearch.com/analysis/browserSniffer.js" type="text/javascript" language="javascript"></script>
+<script src="http://www.remotesearch.com/analysis/dynCalendar.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript">
+	<!--
+		// Calendar callback. When a date is clicked on the calendar
+		// this function is called so you can do as you want with it
+		function calendarCallback(date, month, year)
+		{
+			document.forms.dateselect.day.value = date;
+			document.forms.dateselect.month.value = month;
+			document.forms.dateselect.year.value = year;
+		}
+	// -->
+	</script>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">[[RAWTITLE]]</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">[[RAWBLABLA]]
+		</TD>
+	</TR>
+	<tr valign="middle">
+		<td valign="middle">
+		<BR>
+			<FORM action="data.tsv" method="post" name="dateselect">
+			<INPUT type="hidden" name="tool" value="getrawstats">
+			<table border="0">
+			<tr><td align="left" valign="middle">
+				<script language="JavaScript" type="text/javascript">
+   				<!--
+    			fooCalendar = new dynCalendar([[rawstart_day]],[[rawstart_month]],[[rawstart_year]],'fooCalendar', 'calendarCallback', 'http://www.remotesearch.com/analysis/');
+    			//-->
+    			</script>&nbsp;&nbsp;
+			</td>
+			<td valign="middle">
+				<input type="text" name="day" readonly class="date">&nbsp;/&nbsp;<input type="text" name="month" readonly class="date">&nbsp;/&nbsp;<input type="text" name="year" readonly class="date">&nbsp;
+&nbsp;&nbsp;&nbsp;<input type="submit" value="[[SUBMIT]]">
+			</td></tr>
+			</table>
+			</FORM>
+		</td>
+	</TR>
+	<TR>
+		<TD>[[RAWINSTRUCTION]]</TD>
+	</TR>
+</TABLE>
+<!--/RAWSTATS-->
+<!--LINKCHECKER-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">Link Checker</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">Enter the link you want to search for, starting with:  http://...  This tool will search the shell web presence for pages which contain this link.
+		</TD>
+	</TR>
+	<tr valign="middle">
+		<td valign="middle">
+		<BR>
+			<script language="JavaScript" type="text/javascript">
+				function reconstruct(linkM) {
+					//alert('yeah') ;
+					document.location.href = '/admin-cgi/searchAdmin.cgi?tool=loc404~locurl=' + linkM + '*~displayurl=' + linkM + '~type=linkchecker';
+					return false ;
+				}
+   			</script>&nbsp;&nbsp;
+			<table border="0">
+			<tr><td align="left" valign="middle">
+			</td>
+			<td valign="middle">
+				<form onsubmit="javascript:reconstruct(this.linkM.value); return false ;"><input name="linkM" type="text" size=40 maxsize=4000>
+				<input type="submit" value="[[SUBMIT]]">
+				</form>
+			</td></tr>
+			</table>
+		</td>
+	</TR>
+</TABLE>
+<!--/LINKCHECKER-->
+<!--HELPBAR-->
+      <TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD CLASS="greyborder"> 
+            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%">
+              <TR> 
+                <TD VALIGN="TOP" CLASS="mid-bg"> 
+                  <P><A NAME="contact"></A>[[HELPTEXT]]</P>
+                  <P>Tel: +44 (0)20 7019 4700<BR>
+                    E-mail: <A HREF="mailto:searchadmin@magus.co.uk">searchadmin@magus.co.uk</A></P>
+                </TD>
+                <TD VALIGN="TOP" CLASS="mid-bg">&nbsp;</TD>
+                <TD COLSPAN="2" VALIGN="TOP"  CLASS="mid-bg" width="190"> 
+                  <FORM NAME="form2" METHOD="post" ACTION="[[searchName]]" target="searchres">
+                    <B><A NAME="search"></A>[[SEARCH]]:</B><BR>
+                    <INPUT TYPE="text" NAME="Search" class="searchInput">
+					[[IF! permission=all]]
+					<INPUT type="hidden" name="section" value="[[focus]]">
+					<INPUT type="hidden" name="subdivision" value="[[focus]]">
+						[[IF company=Shell]]
+						<INPUT type="hidden" name="referrer" value="[[focus]]">
+						[[/IF]]
+					[[/IF!]]
+                    <INPUT TYPE="submit" NAME="Submit2" VALUE="GO" >
+                  </FORM>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+        <TR>
+          <TD ALIGN="RIGHT" CLASS="smalltext"> <A HREF="#top"><BR>
+            </A><A HREF="#top" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image71','','http://www.remotesearch.com/analysis/up-arrow1.gif',1)"><IMG NAME="Image71" BORDER="0" SRC="http://www.remotesearch.com/analysis/up-arrow.gif" WIDTH="14" HEIGHT="12" title="Up"></A> 
+            <HR>
+            Copyright &copy; <A HREF="http://www.magus-research.com/">Magus Research Limited</A> 2002-4</TD>
+        </TR>
+      </TABLE>
+<!--/HELPBAR-->
+
+<!--ERRORPAGES-->
+	[[LOAD "/RSCentral/AdminScripts/ep.html"]]
+<!--/ERRORPAGES-->
+
+<!--CUR-->
+	[[LOAD "/RSCentral/AdminScripts/cur.html"]]
+<!--/CUR-->
+<!--COMMONSUG-->
+	[[LOAD "/RSCentral/AdminScripts/commonsug.html"]]
+<!--/COMMONSUG-->
+<!--DOWNLOADABLESTATS-->
+	[[LOAD "/RSCentral/AdminScripts/downloadablestats.html"]]
+<!--/DOWNLOADABLESTATS-->
+<!--EMAILER-->
+	[[LOAD "/RSCentral/AdminScripts/emailer.html"]]
+<!--/EMAILER-->
+<!--EMAILER2-->
+	[[LOAD "/RSCentral/AdminScripts/emailer2.html"]]
+<!--/EMAILER2-->
+

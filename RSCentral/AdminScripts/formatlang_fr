@@ -1,0 +1,165 @@
+<!--CST_MENUTITLE-->Suggestions g&eacute;n&eacute;rales<!--/CST_MENUTITLE-->
+<!--CST_ADMIN-->
+<B>Suggestions g&eacute;n&eacute;rales</A></B><BR>Cet outil vous permet de saisir des suggestions pour les termes qui sont fr&eacute;quemment mal orthographi&eacute;s.
+<!--/CST_ADMIN-->
+<!--CST_SUM-->R&eacute;sum&eacute;<!--/CST_SUM-->
+<!--CST_TITLE-->Outil Suggestions g&eacute;n&eacute;rales<!--/CST_TITLE-->
+<!--CST_SUMMARY-->Cet outil vous permet de sugg&eacute;rer un  <em>terme sp&eacute;cifique</em> pour chaque terme fr&eacute;quemment mal orthographi&eacute;.    (Veuillez noter que nous pouvons seulement sugg&eacute;rer une alternative pour des <b><em>termes uniques</em></b> et non pas des expressions)<!--/CST_SUMMARY-->
+<!--CST_NUMSITES-->Nombre de sites<!--/CST_NUMSITES-->
+<!--CST_NUMBER_CS-->Nombre de suggestions g&eacute;n&eacute;rales<!--/CST_NUMBER_CS-->
+<!--CST_TOTAL_CS-->Nombre total de suggestions g&eacute;n&eacute;rales<!--/CST_TOTAL_CS-->
+<!--CST_SITENAME-->Nom du site<!--/CST_SITENAME-->
+<!--CST_WORD-->Mot<!--/CST_WORD-->
+<!--CST_SUGGESTION-->Suggestion<!--/CST_SUGGESTION-->
+<!--CST_MANAGE-->G&eacute;r&eacute;er<!--/CST_MANAGE-->
+<!--CST_DELETE-->supprimer<!--/CST_DELETE-->
+<!--CST_EDIT-->Editer<!--/CST_EDIT-->			
+<!--CST_NO_CS_FOUND-->Aucune suggestion g&eacute;n&eacute;rale trouv&eacute;e<!--/CST_NO_CS_FOUND-->
+<!--CST_NEW-->Nouvelle suggestion<!--/CST_NEW-->
+<!--CST_NEWSUG-->Nouvelles suggestions<!--/CST_NEWSUG-->
+<!--CST_NEW_CS_FOR-->Nouvelles suggestions g&eacute;n&eacute;rales pour<!--/CST_NEW_CS_FOR-->
+<!--CST_NOMODS-->Aucune modification disponible ici<!--/CST_NOMODS-->
+<!--CST_NEW_CS_ADDED-->Nouvelle suggestion ajout&eacute;e<!--/CST_NEW_CS_ADDED-->
+<!--CST_NOTHINGADDED-->Aucune addition possible (vos termers sont-ils dupliqu&eacute;s?)<!--/CST_NOTHINGADDED-->
+<!--CST_SUGDELETED-->Suggestion(s) supprim&eacute;e(s)<!--/CST_SUGDELETED-->
+<!--CST_NOTHINGDELETED-->Aucune suppression<!--/CST_NOTHINGDELETED-->
+<!--CST_EDITSUGN-->Editer la suggestion<!--/CST_EDITSUGN-->
+<!--CST_EDIT_CS_FOR-->Edit la suggestion globale pour<!--/CST_EDIT_CS_FOR-->
+<!--CST_MODOK-->Suggestion modifi&eacute;e<!--/CST_MODOK-->
+<!--CST_NOMODS2-->Aucune modification effectu&eacute;e (soit vous avez soumit une suggestion sans aucun changement, soit la suggestion est dupliqu&eacute;e)<!--/CST_NOMODS2-->
+<!--CST_SUBMIT-->Soumettre<!--/CST_SUBMIT-->
+<!--CST_YOUAREIN-->Vous &ecirc;tes sur&nbsp;<!--/CST_YOUAREIN-->
+<!--CST_VIEW_CS_FOR-->Voir les suggestions globales pour<!--/CST_VIEW_CS_FOR-->
+
+<!--ALTPICTITLE-->RS administration pour<!--/ALTPICTITLE-->
+<!--TITLE-->RemoteSearch administration pour<!--/TITLE-->
+<!--TOOLSFOR-->Outils pour<!--/TOOLSFOR-->
+<!--DROPDOWNTITLE-->Outils d'administration<!--/DROPDOWNTITLE-->
+<!--DROPDOWNINST-->S&eacute;lectionner <!--/DROPDOWNINST-->
+<!--CHANGELANG-->Changer de langue <!--/CHANGELANG-->
+<!--WELCOME-->
+Bienvenu sur votre site d'administration pour RemoteSearch. A partir d'ici, vous pouvez effectuer les taches suivantes
+<!--/WELCOME-->
+<!--CMTITLE-->Gestion des Messages aux utilisateurs<!--/CMTITLE-->
+<!--CMTITLE_SHELL-->Gestion des Liens Recommand&eacute;s<!--/CMTITLE_SHELL-->
+<!--CMBLABLA-->
+Quand un utilisateur effectue une recherche sur un mot ou une phrase, vous pouvez choisir d'afficher un message personnalis&eacute; mettant en avant une information clef ou un sujet particulier, en plus des r&eacute;sultats de recherche.
+<!--/CMBLABLA-->
+<!--CMBSELECTVER-->Selectionner la version que vous souhaitez g&eacute;rer :<!--/CMBSELECTVER-->
+<!--PROFTITLE-->Status des sites de votre groupe<!--/PROFTITLE-->
+<!--PROFBRACKET-->(Incluant le dernier profil d'indexation et les liens cass&eacute;s)<!--/PROFBRACKET-->
+<!--PROFBLABLA-->
+Chaque fois que vos sites sont index&eacute;s, un profil du status actuel de vos sites est cr&eacute;&eacute;. Ceci vous permet de voir des informations telles que le nombre de documents index&eacute;s ou encore d'identifier les liens cass&eacute;s ainsi que d'autres &eacute;l&eacute;ments clef.
+<!--/PROFBLABLA-->
+<!--ANALBLABLA-->
+<B>Analyse des recherches</A></B><BR>Ceci vous offrira une analyse compl&eacute;te et d&eacute;taill&eacute;e des recherches effectu&eacute;es sur votre site. L'information est mise &agrave; jour dynamiquement.
+<!--/ANALBLABLA-->
+<!--SUMMARY-->R&eacute;sum&eacute;<!--/SUMMARY-->
+<!--TOTNUMSITE-->Nombre total de sites<!--/TOTNUMSITE-->
+<!--TOTNUMPAGE-->Nombre total de pages index&eacute;es<!--/TOTNUMPAGE-->
+<!--TOTNUM404P-->Nombre total de pages 404<!--/TOTNUM404P-->
+<!--PAGES-->Pages<!--/PAGES-->
+<!--OTHERINF-->Autres Informations<!--/OTHERINF-->
+<!--NBPROF-->N.B. Cliquer sur le nombre de liens cass&eacute;s pour afficher ces liens.<!--/NBPROF-->
+<!--SITEPROFFOR-->Profil du site<!--/SITEPROFFOR-->
+<!--SITEPROFTITLE-->Cette page vous donne le profil du site<!--/SITEPROFTITLE-->
+<!--SITEPROFDESC-->
+Cliquer sur un lien cass&eacute; ci-dessous liste les URL des documents contenant ce lien.
+<!--/SITEPROFDESC-->
+<!--TOTNUMBROKEN-->Nombre total de liens cass&eacute;s<!--/TOTNUMBROKEN-->
+<!--BROKONSITE-->Liens cass&eacute;s sur ce site<!--/BROKONSITE-->
+<!--LOC404TITLE-->Pages contenant ce lien cass&eacute;<!--/LOC404TITLE-->
+<!--LOC404DESC1-->Cette page vous montre sur quels URLs le lien cass&eacute;<!--/LOC404DESC1-->
+<!--LOC404DESC2-->se trouve.<!--/LOC404DESC2-->
+<!--LOC404DESC3-->Cliquer sur un de ces URLs vous am&eacute;nera sur la page.<!--/LOC404DESC3-->
+<!--NUMOFPAGES-->Nombre de pages<!--/NUMOFPAGES-->
+<!--CMINSTRUC-->
+<P>Sur cette page, vous pouvez voir les messages d&eacute;j&agrave; saisis pour la recherche sur [[SUBDIVTITLE]]. Vous pouvez &eacute;galement ajouter de nouveaux messages ainsi qu'&eacute;diter ou effacer ceux d&eacute;j&agrave; existant.</P>
+<P>Pour saisir un nouveau message, renseigner simplement les trois colonnes d'une ligne intitul&eacute; <I>Nouveau</I>. pour modifier une entr&eacute;e d&eacute;j&agrave; existante, modifier le contenu de la bo&icirc;te lui correspondant. Pour effacer un message, effacer simplement le contenu des trois colonnes correspondante. <b>Apr&egrave;s tout ajout ou modification, valider en cliquant le bouton <i>Soumettre</i>.</b>
+<!--/CMINSTRUC-->
+<!--NEW-->Nouv<!--/NEW-->
+<!--CMHEAD1-->Mot ou Phrase<!--/CMHEAD1-->
+<!--CMHEAD3-->Texte du message<!--/CMHEAD3-->
+<!--CMSUBHEAD1-->(auquel le message est li&eacute;)<!--/CMSUBHEAD1-->
+<!--CMSUBHEAD2-->(l'adresse &agrave; laquelle le message renvoie l'utilisateur)<!--/CMSUBHEAD2-->
+<!--SITEOWNER-->Propri&eacute;taire<!--/SITEOWNER-->
+<!--MODERATOR-->Moderateur<!--/MODERATOR-->
+<!--SETUPON-->Cr&eacute;&eacute; le<!--/SETUPON-->
+<!--SUBMIT-->Soumettre<!--/SUBMIT-->
+<!--NBCM-->
+N.B. Si vous ne souhaitez appliquer le lien qu'&agrave; une portion du texte du message, utiliser le 'chapeau' ^ avant et apr&egrave;s la portion du texte choisi. <BR> Par exemple, saisir <b>Visiter notre site ^Ressouces Humaines^ pour une liste des offres d'emploi</b> renverra le message suivant :<br>
+Visiter notre site <A href="#">Ressouces Humaines</A> pour une liste des offres d'emploi
+<!--/NBCM-->
+<!--HELPTEXT-->Si vous souhaitez des informations compl&eacute;mentaires, vous pouvez nous contacter :<!--/HELPTEXT-->
+<!--SEARCH-->Rechercher<!--/SEARCH-->
+<!--RAWTITLE-->Statistiques brutes de recherche<!--/RAWTITLE-->
+<!--RAWBLABLA-->Cette outil vous permet de t&eacute;l&eacute;charger pour une date donn&eacute;e les statistiques brutes de recherche &agrave; un format compatible avec tous les tableurs comme Microsoft Excel.<!--/RAWBLABLA-->
+<!--RAWINSTRUCTION-->
+<LI>Cliquez sur l'icone "calendrier" ci-dessus et s&eacute;lectionnez la date pour laquelle vous souhaitez les donn&eacute;es brutes. Ce calendrier vous propose uniquement les dates pour lesquelles des donn&eacute;es sont disponibles.</LI>
+<LI>Cliquez ensuite sur le bouton "[[SUBMIT]]".</LI>
+<LI>L'interface de t&eacute;l&eacute;chargement de votre navigateur souvrira et vous demandera ce que vous souhaitez faire.<BR> Pour enregistrer le document, choississez 'Enregistrer' et renommer le document "data.tsv" par exemple.<BR> Pour ouvrir le document directement, cliquez "Ouvrir" et celui-ci se chargera dans votre &eacute;diteur par d&eacute;faut.<P>Note : le document est au format 'tab seperated values' et peut-&ecirc;tre ouvert directement par un tableur comme Microsoft Excel</LI>
+<!--/RAWINSTRUCTION-->
+
+<!--ERRORPAGEHEADING-->Rapport des ErrorPages<!--/ERRORPAGEHEADING-->
+<!--ERRORPAGESUMMARY-->Vous trouverez ici un r&eacute;sum&eacute; des pages qui ne peuvent pas &ecirc;tre trouv&eacute;es sur votre site.<!--/ERRORPAGESUMMARY-->
+<!--ERRORPAGETOTNUMSITE-->Nombre total des sites contenant des erreurs<!--/ERRORPAGETOTNUMSITE-->
+<!--ERRORPAGETOTNUMPAGES-->Nombre total d'erreurs trouv&eacute;es<!--/ERRORPAGETOTNUMPAGES-->
+<!--ERRORPAGESMTITLE-->ErrorPages<!--/ERRORPAGESMTITLE-->
+<!--VIEWERRORPAGES-->Voir les ErrorPages<!--/VIEWERRORPAGES-->
+<!--ERRORPAGEVIEW-->Voir<!--/ERRORPAGEVIEW-->
+<!--ERRORPAGESUMFOR-->R&eacute;sum&eacute; pour<!--/ERRORPAGESUMFOR-->
+<!--ERRORPAGETOTNUMPAGESON-->Nombre total d'ErrorPage sur<!--/ERRORPAGETOTNUMPAGESON-->
+<!--ERRORPAGE-->ErrorPage<!--/ERRORPAGE-->
+<!--ERRORPAGENUM-->N&deg;<!--/ERRORPAGENUM-->
+<!--ERRORPAGELINK-->Localiser le lien vers cette page<!--/ERRORPAGELINK-->
+<!--ERRORPAGEGOTO-->Aller sur cette ErrorPage<!--/ERRORPAGEGOTO-->
+<!--ERRORPAGELOCATELINKS-->Localiser le lien<br>vers cette ErrorPage<!--/ERRORPAGELOCATELINKS-->
+<!--ERRORPAGELINKLOCTITLE-->Localisation des ErrorPages<!--/ERRORPAGELINKLOCTITLE-->
+<!--ERRORPAGELINKLIST-->Les pages ci-dessous contiennent un lien vers cette ErrorPage<!--/ERRORPAGELINKLIST-->
+<!--ERRORPAGELOCPAGES-->Pages localis&eacute;es<!--/ERRORPAGELOCPAGES-->
+<!--ERRORPAGECONLINKS-->Page contenant un lien vers cette ErrorPage<!--/ERRORPAGECONLINKS-->
+
+<!--CUR_TITLE-->Content usage asset list report<!--/CUR_TITLE-->
+<!--CUR_SUMMARYDESC-->View a summary of live and unused content on your site.<!--/CUR_SUMMARYDESC-->
+<!--CUR_BYSITEID-->Here you will find a summary of live and unused content on your site.  This includes html pages, images, modules and downloads.<!--/CUR_BYSITEID-->
+<!--CUR_TOTNUMSITES-->Number of sites scanned for live and unused content<!--/CUR_TOTNUMSITES-->
+<!--CUR_TOTNUMPAGES-->Total number of content assets found<!--/CUR_TOTNUMPAGES-->
+<!--CUR_ERROR_CPR-->Error: cannot process this request<!--/CUR_ERROR_CPR-->
+<!--CUR_LASTRA-->Last requested analysis<!--/CUR_LASTRA-->
+<!--CUR_TIMESINCE-->Time since last request<!--/CUR_TIMESINCE-->
+<!--CUR_CURRSTATUS-->Current status<!--/CUR_CURRSTATUS-->
+<!--CUR_REQREBDATA-->Requesting rebuild of the data for <!--/CUR_REQREBDATA-->
+<!--CUR_SUMMARY-->Summary<!--/CUR_SUMMARY-->
+<!--CUR_TRIGGER-->Trigger<!--/CUR_TRIGGER-->
+<!--CUR_DUP-->Duplicate requests: an analysis for [[VERYHARD XsiteId]] has ALREADY been requested, you can view the status<!--/CUR_DUP-->
+<!--CUR_VIEWSTAT-->View the status of the content usage report for <!--/CUR_VIEWSTAT-->
+<!--CUR_HERE-->here<!--/CUR_HERE-->
+<!--CUR_ERRORCNT-->Could not trigger, sorry<!--/CUR_ERRORCNT-->
+<!--CUR_TYPE-->Type<!--/CUR_TYPE-->
+<!--CUR_ASSET-->Asset<!--/CUR_ASSET-->
+<!--CUR_ASSETS-->Assets<!--/CUR_ASSETS-->
+<!--CUR_STATUS-->Status<!--/CUR_STATUS-->
+<!--CUR_SITE-->Site<!--/CUR_SITE-->
+<!--CUR_LIVE-->Live<!--/CUR_LIVE-->
+<!--CUR_UNUSED-->Unused<!--/CUR_UNUSED-->
+<!--CUR_TOTAL-->Total<!--/CUR_TOTAL-->
+<!--CUR_LASTUP-->Last updated<!--/CUR_LASTUP-->
+<!--CUR_LINKS-->Links<!--/CUR_LINKS-->
+<!--CUR_REQUEST-->Request<!--/CUR_REQUEST-->
+<!--CUR_SUMM2-->Here you will find a summary of live and unused content on your site. This includes html pages, images, modules and downloads.<!--/CUR_SUMM2-->
+<!--CUR_CURFOR-->Content usage report for <!--/CUR_CURFOR-->
+<!--CUR_TOTALLIVE-->Total number of LIVE content assets on <!--/CUR_TOTALLIVE-->
+<!--CUR_TOTALUNUSED-->Total number of UNUSED content assets on <!--/CUR_TOTALUNUSED-->
+<!--CUR_TOTALCA-->Total number of content assets on <!--/CUR_TOTALCA-->
+<!--CUR_SHOWALL-->Show all<!--/CUR_SHOWALL-->
+<!--CUR_DIR-->Directory<!--/CUR_DIR-->
+<!--CUR_-->Here you will find a summary of [[VHIF ($Xtype==0)]]ALL[[/VHIF]][[VHIF ($Xtype==1)]]LIVE[[/VHIF]][[VHIF ($Xtype==2)]]UNUSED[[/VHIF]] content in the specified directory.  This includes html pages, images, modules and downloads.
+<!--CUR_ALLASSETS-->All assets<!--/CUR_ALLASSETS-->
+<!--CUR_ALLLIVEASSETS-->All live assets<!--/CUR_ALLLIVEASSETS-->
+<!--CUR_ALLUNUSEDASSETS-->All unused assets<!--/CUR_ALLUNUSEDASSETS-->
+
+<!--DS_TITLE-->Downloadable Statistics<!--/DS_TITLE-->
+<!--DS_BLABLA-->Download files containing a summary of last month's search statistics<!--/DS_BLABLA-->
+<!--DS_SUMMARY-->Click on a link to download last month's statistics for a site<!--/DS_SUMMARY-->
+
+

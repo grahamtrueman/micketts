@@ -1,0 +1,566 @@
+
+<!--TEMPLATE-->
+	[[MAINHEADERBLOCK]]
+	[[IF ($XsiteId eq '')]]
+		[[BYSITEID]]
+	[[/IF]]
+	[[IF ($XsiteId ne '')]]
+		[[IF ($Xorder eq 'bydir')]]
+			[[BYDIR]]
+		[[/IF]]
+		[[IF ($Xorder eq 'byfile')]]
+			[[BYFILE]]
+		[[/IF]]
+		[[IF ($Xorder ne 'byfile')]]
+			[[IF ($Xorder ne 'bydir')]]
+				[[IF ($Xtype eq 'status')]]
+					[[CURSTATUS]]
+				[[/IF]]
+				[[IF ($Xtype eq 'trigger')]]
+					[[TRIGGER]]
+				[[/IF]]
+				[[IF ($Xtype ne 'status')]]
+					[[IF ($Xtype ne 'trigger')]]
+						[[CUR_ERROR_CPR]]
+					[[/IF]]
+				[[/IF]]
+			[[/IF]]
+		[[/IF]]
+	[[/IF]]
+<!--/TEMPLATE-->
+
+<!--CURSTATUS-->
+	[[CALC (CUR_SUMMARY,=,Status for [[VERYHARD XsiteId]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur">Summary</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~siteId=[[EVAL ($XsiteId)]]~order=bydir">[[EVAL ($XsiteId)]]</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~type=status~siteId=[[EVAL ($XsiteId)]]">Status</a>)]]
+	
+[[SQLE ~
+	SELECT
+		T.date,
+		T.done
+	FROM
+		triggers AS T
+	WHERE
+		T.siteId='[[VERYHARD XsiteId]]'
+		[[VHIF ($focus ne 'corporate')]]	AND T.siteId='[[VERYHARD focus]]' [[/VHIF]]
+	ORDER BY
+		T.date DESC
+	LIMIT 0,1
+~thisdate,status~]]
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">Status for [[XsiteId]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">
+					[[CUR_LASTRA]]
+				</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[EVAL ( &displayDate($thisdate)." ".&displayTime($thisdate) )]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">
+					[[CUR_TIMESINCE]]
+				</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">
+					[[EVAL ( int( (time-$thisdate)/(60*60*24) ) )]] d
+					[[EVAL (   int(24*(  (time-$thisdate)/(60*60*24) - int( (time-$thisdate)/(60*60*24) ) ) )     )]] h
+					[[EVAL (   int(60*(24*(  (time-$thisdate)/(60*60*24) - int( (time-$thisdate)/(60*60*24) ) )-int(24*(  (time-$thisdate)/(60*60*24) - int( (time-$thisdate)/(60*60*24) ) ) ) ) )   )]] m
+				</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">
+
+					[[CUR_CURRSTATUS]]:
+
+				</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">
+					
+					[[IF ($status == 0)]]
+						Waiting for results
+					[[/IF]]
+					[[IF ($status == 1)]]
+						Completed
+					[[/IF]]
+				
+				</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			</table>
+		</td>
+		</tr>
+	</table>
+[[/SQLE/]]
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR> 
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">Status for [[XsiteId]]</td>
+		</tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">
+					You do not have access to the status of this siteId
+				</TD>
+              </TR>
+			</table>
+		  </td>
+		</tr>
+	</table>
+[[/SQLE]]
+	
+<!--/CURSTATUS-->
+
+<!--TRIGGER-->
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD CUR_REQREBDATA]] [[VERYHARD XsiteId]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur">[[VERYHARD CUR_SUMMARY]]</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~siteId=[[EVAL ($XsiteId)]]~order=bydir">[[EVAL ($XsiteId)]]</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~type=trigger~siteId=[[EVAL ($XsiteId)]]">[[VERYHARD CUR_TRIGGER]]</a>)]]
+
+	[[SQLE ~SELECT id FROM triggers WHERE siteId='[[VERYHARD XsiteId]]' AND done=0 LIMIT 0,1~id~]]
+		[[CUR_DUP]] <a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~type=status" title="[[CUR_VIEWSTAT]] [[XsiteId]]">[[CUT_HERE]]</a>
+	[[/SQLE/]]
+		[[DOTRIGGER]]
+	[[/SQLE]]
+	<br>
+	<br>
+<!--/TRIGGER-->
+
+<!--DOTRIGGER-->
+	[[SQLMOD ~
+		INSERT INTO
+			triggers
+		(siteId,date,done,email)
+		VALUES('[[VERYHARD XsiteId]]',[[VERYHARDEVAL ( return time)]],0,'[[VERYHARD XPARAM1]]')
+		~~]]
+			An analysis for [[VERYHARD XsiteId]] has been requested, you can view the status <a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~type=status" title="View the status of the content usage report for [[XsiteId]]">here</a>
+	[[/SQLMOD/]]
+			[[CUR_ERRORCNT]]
+	[[/SQLMOD]]
+<!--/DOTRIGGER-->
+
+<!--MAINHEADERBLOCK-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="736">
+	<TR> 
+		<TD CLASS="heading">
+			[[\  Content usage report  \]]
+			[[CUR_TITLE]]
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			[[LAST CUR_SUMMARYDESC]]
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"><br>
+		</TD>
+	</TR>
+	<TR>
+		<TD CLASS="mid-bg">
+			You are in: [[LAST TRAIL]]
+		</TD>
+	</TR>
+</TABLE>
+<P>
+<!--/MAINHEADERBLOCK-->
+
+<!--BYSITEID-->
+	[[SQL ~
+		SELECT
+			A.siteId    AS siteId,
+			sum(A.asset=1) AS livecount,
+			sum(A.asset=2) AS unusedcount,
+			sum(A.asset>0) AS totalcount
+		FROM
+			assets AS A
+		GROUP BY
+			A.siteId
+	~thisSiteId,livecount,unusedcount,totalcount~]]
+		[[SETCOUNTS]]
+	[[/SQL]]
+	[[LAST BYSITEIDPAGE]]
+<!--/BYSITEID-->
+
+<!--SETCOUNTS-->
+		[[CALC ([[VERYHARDEVAL ( return "live".$thisSiteId )]],=,[[HARDEVAL ( $livecount )]])]]
+		[[CALC ([[VERYHARDEVAL ( return "unused".$thisSiteId )]],=,[[HARDEVAL ( $unusedcount )]])]]
+		[[CALC ([[VERYHARDEVAL ( return "total".$thisSiteId )]],=,[[HARDEVAL ( $totalcount )]])]]
+<!--/SETCOUNTS-->
+
+<!--BYSITEIDPAGE-->
+	[[CALC (CUR_SUMMARY,=,[[VERYHARD CUR_BYSITEID]])]]
+	[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur">Summary</a>)]]
+	
+	[[SQL ~
+		SELECT
+			count(DISTINCT A.siteId),
+			count(*)
+		FROM
+			assets AS A
+		[[VHIF ($focus ne 'corporate')]]
+			[[VHIF ($permissionSplit != 1)]]
+				WHERE A.siteId='[[VERYHARD focus]]'
+			[[/VHIF]]
+		[[/VHIF]]
+		[[VHIF ($permissionSplit == 1)]]
+			WHERE (
+			[[LOOP (@focusList)]]
+				A.siteId='[[LOOPVALUE]]' OR
+			[[/LOOP]]
+			1=0 )
+		[[/VHIF]]
+	~sitecount,asscount~]]
+	
+	<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	        <TR> 
+	          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[SUMMARY]]</td>
+			</tr>
+	        <TR> 
+	          <TD ALIGN="CENTER"> 
+	            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	              <TR> 
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Number of sites scanned for orphan assets\]]
+						[[CUR_TOTNUMSITES]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[sitecount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+	              <TR> 
+	                <TD CLASS="mid-bg" WIDTH="60%">
+						[[\Total number of orphan assets found\]]
+						[[CUR_TOTNUMPAGES]]
+					</TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[asscount]]</B></TD>
+	                <TD CLASS="mid-bg" WIDTH="20%" align="right"></TD>
+	              </TR>
+	              <TR> 
+	                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+	              </TR>
+				</table>
+			</td>
+			</tr>
+	</table>
+	[[/SQL]]
+	
+	<br>
+	<table border="0" width="98%">
+		<tr>
+			<td></td>
+			<td></td>
+			<td colspan="3" align="center" class="CMTITLETD">[[CUR_ASSETS]]</td>
+			<td colspan="2" align="center" class="CMTITLETD">[[CUR_STATUS]]</td>
+		</tr>
+		<tr>
+			<td class="CMTITLETD">&nbsp;</td>
+			<td class="CMTITLETD">Site</td>
+			<td align="center" class="CMTITLETD">[[CUR_LIVE]]</td>
+			<td align="center" class="CMTITLETD">[[CUR_UNUSED]]</td>
+			<td align="center" class="CMTITLETD">[[CUR_TOTAL]]</td>
+			<td align="center" class="CMTITLETD">[[CUR_LASTUP]]</td>
+			<td align="center" class="CMTITLETD">[[CUR_LINKS]]</td>
+		</tr>
+		[[SQL ~
+
+
+SELECT
+	S.subdivision,
+	max(T.date)
+FROM
+	`remotesearch`.`subdivisions` AS S
+LEFT JOIN
+	`shelltools`.`triggers` AS T
+	ON T.siteId=S.subdivision
+
+WHERE
+	S.client=1
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND S.subdivision='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					S.subdivision='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+
+
+GROUP BY
+	S.subdivision
+ORDER BY 
+	S.subdivision
+
+
+		~thisSiteId,lastrun~]]
+			<tr>
+				<td width="8%" align="center" class="CMTable">[[SQLCOUNT]]</td>
+				<td class="CMTable" width="27%">[[thisSiteId]]</td>
+				[[IF ($lastrun < 2)]]
+					<td width="11%" align="center" class="CMTable">-</td>
+					<td width="11%" align="center" class="CMTable">-</td>
+					<td width="11%" align="center" class="CMTable">-</td>
+					<td width="15%" align="center" class="CMTable"><NOBR>Not run</td>
+					<td width="15%" align="center" class="CMTable"><NOBR><a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[thisSiteId]]~type=trigger" title="Follow this link to request an asset analysis for [[thisSiteId]]">[[CUR_REQUEST]]</a></td>
+				[[/IF]]
+				[[IF ($lastrun>2)]]
+					<td width="11%" align="center" class="CMTable">[[EVAL ( if ( ${'live'.$thisSiteId} > 0.5 ) { return "<a href=\"/admin-cgi/[[adminName]]?tool=cur~siteId=[[thisSiteId]]~order=bydir~type=1\" title=\"View LIVE assets for [[thisSiteId]]\">".${'live'.$thisSiteId}."</a>" } else { return "0" } )]]</td>
+					<td width="11%" align="center" class="CMTable">[[EVAL ( if ( ${'unused'.$thisSiteId} > 0.5 ) { return "<a href=\"/admin-cgi/[[adminName]]?tool=cur~siteId=[[thisSiteId]]~order=bydir~type=1\" title=\"View UNUSED assets for [[thisSiteId]]\">".${'unused'.$thisSiteId}."</a>" } else { return "0" } )]]</td>
+					<td width="11%" align="center" class="CMTable">[[EVAL ( if ( ${'total'.$thisSiteId} > 0.5 ) { return "<a href=\"/admin-cgi/[[adminName]]?tool=cur~siteId=[[thisSiteId]]~order=bydir~type=1\" title=\"View UNUSED assets for [[thisSiteId]]\">".${'total'.$thisSiteId}."</a>" } else { return "0" } )]]</td>
+					<td width="15%" align="center" class="CMTable"><NOBR>[[EVAL ( &displayDate($lastrun)." ".&displayTime($lastrun) )]]</td>
+					<td width="15%" align="center" class="CMTable"><a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[thisSiteId]]~type=status" title="View the status of the content usage report for [[thisSiteId]]">[[CUR_STATUS]]</a> | <a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[thisSiteId]]~type=trigger" title="Follow this link to request an asset analysis for [[thisSiteId]]">[[CUR_REQUEST]]</a></td>
+				[[/IF]]
+			</tr>
+		[[/SQL]]
+	</table>
+<!--/BYSITEIDPAGE-->
+
+<!--BYDIR-->
+
+[[CALC (CUR_SUMMARY,=,[[VERYHARD CUR_SUMM2]])]]
+
+[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur">Summary</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~siteId=[[EVAL ($XsiteId)]]~order=bydir">[[EVAL ($XsiteId)]]</a>)]]
+
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	[[SQL ~
+		SELECT
+			A.siteId          AS siteId,
+			sum(A.asset=1)    AS livecount,
+			sum(A.asset=2)    AS unusedcount,
+			sum(A.asset>0)    AS totalcount
+		FROM
+			assets AS A
+		WHERE
+			A.siteId='[[VERYHARD XsiteId]]'
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND A.siteId='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					A.siteId='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY
+			A.siteId
+		ORDER BY 
+			unusedcount DESC
+	~thisSiteId,livecount,unusedcount,totalcount~]]
+        <TR>
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[CUR_CURFOR]] [[XsiteId]]</td>
+        </tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[CUR_TOTALLIVE]] [[XsiteId]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[livecount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="center" valign="middle"><a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~order=byfile~type=1">[[CUR_SHOWALL]]</a></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[CUR_TOTALUNUSED]] [[XsiteId]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[unusedcount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="center" valign="middle"><a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~order=byfile~type=2">[[CUR_SHOWALL]]</a></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="60%">[[CUR_TOTALCA]] [[XsiteId]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[totalcount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="center" valign="middle"><a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~order=byfile~type=0">[[CUR_SHOWALL]]</a></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			</table>
+		</td>
+		</tr>
+	[[/SQL]]
+</table>
+<br>
+<table border="0" width="98%">
+	<tr>
+		<td align="center"></td>
+		<td align="left"></td>
+		<td align="center" class="CMTITLETD" colspan="3"><nobr>[[CUR_ASSETS]]</td>
+	</tr>
+	<tr>
+		<td align="center" class="CMTITLETD">No</td>
+		<td align="left" class="CMTITLETD">[[CUR_DIR]]</td>
+		<td align="center" class="CMTITLETD">[[CUR_LIVE]]</td>
+		<td align="center" class="CMTITLETD">[[CUR_UNUSED]]</td>
+		<td align="center" class="CMTITLETD">[[CUR_TOTAL]]</td>
+	</tr>
+	[[SQL ~
+		SELECT
+			A.dir              AS dir,
+			SUM(A.asset=1)     AS livecount,
+			SUM(A.asset=2)     AS unusedcount,
+			SUM(A.asset>0)     AS totalcount
+		FROM
+			assets AS A
+		WHERE
+			A.siteId='[[VERYHARD XsiteId]]'
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND A.siteId='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					A.siteId='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY
+			A.dir
+		[[VHIF ($Xtype==1)]] ORDER BY livecount DESC, totalcount DESC  [[/VHIF]]
+		[[VHIF ($Xtype==2)]] ORDER BY unusedcount DESC, totalcount DESC [[/VHIF]]
+		[[VHIF ($Xtype!=1)]][[VHIF ($Xtype!=2)]] ORDER BY totalcount DESC [[/VHIF]][[/VHIF]]
+	~dir,livecount,unusedcount,totalcount~]]
+		<tr>
+			<td width="8%" align="center" class="CMTable">[[SQLCOUNT]]</td>
+			<td class="CMTable" width="64%">[[dir]]</td>
+			<td width="8%" align="center" class="CMTable">[[IF ($livecount == 0)]]&nbsp;[[/IF]][[IF ($livecount != 0)]]<a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~dir=[[dir]]~order=byfile~type=1">[[VHIF ($Xtype==1)]]<b>[[/VHIF]][[livecount]]</a>[[/IF]]</td>
+			<td width="8%" align="center" class="CMTable">[[IF ($unusedcount == 0)]]&nbsp;[[/IF]][[IF ($unusedcount != 0)]]<a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~dir=[[dir]]~order=byfile~type=2">[[VHIF ($Xtype==2)]]<b>[[/VHIF]][[unusedcount]]</a>[[/IF]]</td>
+			<td width="8%" align="center" class="CMTable">[[IF ($totalcount == 0)]]&nbsp;[[/IF]][[IF ($totalcount != 0)]]<a href="/admin-cgi/[[adminName]]?tool=cur~siteId=[[XsiteId]]~dir=[[dir]]~order=byfile~type=0">[[VHIF ($Xtype!=1)]][[VHIF ($Xtype!=2)]]<b>[[/VHIF]][[/VHIF]][[totalcount]]</a>[[/IF]]</td>
+		</tr>
+	[[/SQL]]
+</table>
+
+<!--/BYDIR-->
+
+<!--BYFILE-->
+
+[[CALC (CUR_SUMMARY,=,[[VERYHARD CUR_FILES]])]]
+
+[[CALC (TRAIL,=,<a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur">[[VERYHARD CUR_SUMMARY]]</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~siteId=[[EVAL ($XsiteId)]]~order=bydir">[[EVAL ($XsiteId)]]</a> &raquo; <a href="/admin-cgi/[[EVAL ($adminName)]]?tool=cur~siteId=[[EVAL ($XsiteId)]]~dir=[[EVAL ($Xdir)]]~order=byfile">[[EVAL ($Xdir)]] [[VHIF ($Xdir eq '')]] [[VHIF ($Xtype==0)]][[VERYHARD CUR_ALLASSETS]][[/VHIF]][[VHIF ($Xtype==1)]][[VERYHARD CUR_ALLLIVEASSETS]][[/VHIF]][[VHIF ($Xtype==2)]][[VERYHARD CUR_ALLUNUSEDASSETS]][[/VHIF]][[/VHIF]]</a>)]]
+
+<TABLE WIDTH="736" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+	[[SQL ~
+		SELECT
+			A.siteId           AS siteId,
+			SUM(A.asset=1)     AS livecount,
+			SUM(A.asset=2)     AS unusedcount,
+			SUM(A.asset>0)     AS totalcount
+		FROM
+			assets AS A
+		WHERE
+			A.siteId='[[VERYHARD XsiteId]]'
+			[[VHIF ($Xdir ne '')]]
+				AND	A.dir='[[VERYHARD Xdir]]'
+			[[/VHIF]]
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND A.siteId='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					A.siteId='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+		GROUP BY
+			A.siteId
+	~thisSiteId,livecount,unusedcount,totalcount~]]
+        <TR>
+          <TD ALIGN="CENTER" CLASS="greyboxlgwhitetext">[[CUR_CURFOR]] [[XsiteId]] [[IF ($Xdir ne '')]]in [[Xdir]][[/IF]]</td>
+        </tr>
+        <TR> 
+          <TD ALIGN="CENTER"> 
+            <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="2">
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="70%">[[CUR_TOTALLIVE]] [[IF ($Xdir ne '')]]in [[Xdir]][[/IF]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[livecount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="10%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="70%">[[CUR_TOTALUNUSED]] [[IF ($Xdir ne '')]]in [[Xdir]][[/IF]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[unusedcount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="10%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD CLASS="mid-bg" WIDTH="70%">[[CUR_TOTALCA]] [[IF ($Xdir ne '')]]in [[Xdir]][[/IF]]</TD>
+                <TD CLASS="mid-bg" WIDTH="20%" align="right"><B CLASS="largetext">[[totalcount]]</B></TD>
+                <TD CLASS="mid-bg" WIDTH="10%" align="right"></TD>
+              </TR>
+              <TR> 
+                <TD COLSPAN="2"><IMG SRC="http://www.remotesearch.com/analysis/spacer.gif" WIDTH="100" HEIGHT="1"></TD>
+              </TR>
+			</table>
+		</td>
+		</tr>
+	[[/SQL]]
+</table>
+<br>
+<table border="0" width="98%">
+	<tr>
+		<td align="center" class="CMTITLETD" width="7%">No</td>
+		<td  align="center"class="CMTITLETD" width="12%">[[CUR_TYPE]]</td>
+		<td align="left" class="CMTITLETD" width="81%">[[CUR_ASSET]]</td>
+	</tr>
+	[[SQL ~
+		SELECT
+			A.dir          AS dir,
+			A.file         AS file,
+			A.asset        AS type
+		FROM
+			assets AS A
+		WHERE
+			A.siteId='[[VERYHARD XsiteId]]'
+			[[VHIF ($focus ne 'corporate')]]
+				[[VHIF ($permissionSplit != 1)]]
+					AND A.siteId='[[VERYHARD focus]]'
+				[[/VHIF]]
+			[[/VHIF]]
+			[[VHIF ($permissionSplit == 1)]]
+				AND (
+				[[LOOP (@focusList)]]
+					A.siteId='[[LOOPVALUE]]' OR
+				[[/LOOP]]
+				1=0 )
+			[[/VHIF]]
+			[[VHIF ($Xdir ne '')]]
+				AND	A.dir='[[VERYHARD Xdir]]'
+			[[/VHIF]]
+			[[VHIF ($Xtype == 1)]]
+				AND asset=1
+			[[/VHIF]]
+			[[VHIF ($Xtype == 2)]]
+				AND asset=2
+			[[/VHIF]]
+		ORDER BY 
+			dir ASC,
+			file ASC
+	~dir,file,type~]]
+		<tr>
+			<td align="center" class="CMTable">[[SQLCOUNT]]</td>
+			<td class="CMTable" align="center">[[IF ($type == 2)]]<b>UNUSED</b>[[/IF]][[IF ($type == 1)]]LIVE[[/IF]]</td>
+			<td class="CMTable"><a  href="http[[EVAL ( if ($XsiteId =~ /rexnet/i ) { return "s" } )]]://www.shell.com[[dir]]/[[file]]">[[IF ($type == 2)]]<b>[[/IF]][[dir]]/[[file]][[IF ($type == 2)]]</b>[[/IF]]</a></td>
+		</tr>
+	[[/SQL]]
+</table>
+
+<!--/BYFILE-->
+

@@ -1,0 +1,16 @@
+
+<!--TEMPLATE-->[[CALC (wC,=,1)]][[CALC (pC,=,1)]][[GO]]<!--/TEMPLATE-->
+
+<!--GO-->[[\Total number of searches made\]][[TOTMADE]];[[count0]]
+[[\Zero hit searches\]][[ZEROHIT]];[[EVAL ($zeroes*1)]]
+
+[[\Most searched-for words\]][[MOSTSEARCHWORD]] (Top 30)
+[[LOOP (%topwords|30)]][[CALC (wC,+,1)]][[LOOPVALUE]];[[PARAMVALUE]]
+[[/LOOP]][[LOOP (wC...30|1)]]
+[[/LOOP]]
+[[\Most searched-for phrases\]][[MOSTSEARCHPHRASE]] (Top 30)
+[[LOOP (%topphrases|30)]][[CALC (pC,+,1)]][[LOOPVALUE]];[[PARAMVALUE]]
+[[/LOOP]][[LOOP (pC...30|1)]]
+[[/LOOP]]<!--/GO-->
+
+

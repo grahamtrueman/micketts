@@ -1,0 +1,1734 @@
+<!--STYLE-->
+
+<script>
+<!--
+[[IFB graphprint]]
+	window.name='main';
+[[/IFB]]
+function openPrint(URL) { 
+	features = "width=820,height=620,scrollbars=1,resizable=1,menubar=1,toolbar=0,top=0 ,left=0,screenX=0,screenY=0";
+  	newwin = window.open(URL,"print",features).focus();
+  }
+//-->
+</script>
+
+<STYLE>
+ul.Main, li.Main,.Main,p.Main { font-size: 13px; font-family : Tahoma, Arial, Helvetica, sans-serif; }
+
+.FormRadio {	width: 30 }
+.FormButton {	width: 80 }
+
+INPUT.FormNorm{	font-family : Tahoma, Arial, Helvetica, sans-serif;	color : Blue;	font-size: 12px;	width: 34px;	border : 1px solid Black;}
+.MainTitle,p.MainTitle { font-size: 16px; font-family : Tahoma, Arial, Helvetica, sans-serif; font-weight : 900; }
+.TitleSub,p.TitleSub{ font-size: 13px; font-family : Tahoma, Arial, Helvetica, sans-serif; font-weight : 800; }
+.GraphTitle,p.GraphTitle,td.GraphTitle{ font-size: 13px; font-family : Tahoma, Arial, Helvetica, sans-serif; font-weight : 800; color: White ; }
+.GraphTitleYellow,p.GraphTitleYellow,td.GraphTitleYellow{ font-size: 13px; font-family : Tahoma, Arial, Helvetica, sans-serif; font-weight : 800; color: Yellow ; }
+
+.Medium,p.Medium { font-size: 10px; font-family : Tahoma, Arial, Helvetica, sans-serif;}
+.Small,p.Small { font-size: 10px; font-family : Tahoma, Arial, Helvetica, sans-serif;}
+.SmallGray,p.SmallGray { font-size: 10px; font-family : Tahoma, Arial, Helvetica, sans-serif; color: gray}
+.Vsmall,p.Vsmall { font-size: 9px; font-family : Arial, Helvetica, sans-serif;} 
+.BIG,p.Big { font-size: 18pt; font-family : Tahoma, Tahoma, Arial, Helvetica, sans-serif; font-weight : 900;}
+.BigTitle { font-size: 16pt; font-family : Tahoma, Tahoma, Arial, Helvetica, sans-serif; font-weight : 900;}
+
+.PrintBigTitle{ font-size: 20px; font-family : Verdana, Arial, Helvetica, sans-serif;  font-weight : 900; }
+.PrintSmallTitle{ font-size: 16px; font-family : Tahoma, Tahoma, Arial, Helvetica, sans-serif; font-weight : 900; font-style : italic; }
+
+A:link.tiny { font-size: 10px; text-decoration: none; color: #0066CC; font-weight : normal;}
+A:visited.tiny { font-size: 10px; text-decoration: none; color: #0066CC; font-weight : normal;}
+A:hover.tiny { font-size: 10px; text-decoration: none; color: #CC3300; font-weight : normal;}
+A:link.notsotiny { font-size: 10px; text-decoration: none; color: #0066CC; font-weight : bold;}
+A:visited.notsotiny { font-size: 10px; text-decoration: none; color: #0066CC; font-weight : bold;}
+A:hover.notsotiny { font-size: 10px; text-decoration: none; color: #CC3300; font-weight : bold;}
+
+</STYLE>
+<!--/STYLE-->
+<!--TEMPLATEGRAPH-->
+<html>
+<head>
+<title>[[EN]]Printable version of RemoteSearch statistics[[/EN]][[FR]]Print version de statistiques RemoteSearch[[/FR]]</title>
+          <!--Printable version of RemoteSearch statistics-->
+</head>
+<body leftmargin=0 topmargin=0>
+	[[STYLE]]
+<table cellspacing="0" cellpadding="0">
+	<tr>
+		<td bgcolor="#003366"><img src="http://www.magusresearch.com/pics/front_logo.gif" border="0" alt=""></td>
+		<td align="left" valign="top">
+			<table cellspacing="0" cellpadding="0" align="left">
+				<tr>
+					<td colspan="2" valign="top" bgcolor="#003366"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></td>
+				</tr>
+				<tr>
+					<td valign="top" class="PrintBigTitle">
+						&nbsp;&nbsp;RemoteSearch Statistics for [[ANALYSISFOR]]&nbsp;&nbsp;
+					</td>
+					<td valign="top" bgcolor="#003366"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="25" WIDTH="10">
+					</td>
+				</tr>
+				<tr>
+					<TD class ="PrintSmallTitle">&nbsp;&nbsp;
+						[[IF graphprint=42days]]
+							[[TITLE_RECENTSNAPSHOTBREAKDOWN]]
+						[[/IF]]
+						[[IF graphprint=bymonthbreakdown]]
+							[[TITLE_BYMONTHBREAKDOWN]]
+						[[/IF]]
+						[[IF graphprint=dailybreakdown]]
+							[[TITLE_SUMMARYBREAKDOWN]]
+						[[/IF]]
+						[[IF graphprint=monthlybreakdown]]
+							[[TITLE_MONTHLYGRAPHICALBREAKDOWN]]
+						[[/IF]]
+						[[IF graphprint=intraday]]
+							[[TITLE_INTRADAYBREAKDOWN]]
+						[[/IF]]
+						[[IF graphprint=wordlist]]
+							[[TITLE_WORDLIST]]
+						[[/IF]]
+						[[IF graphprint=phraselist]]
+							[[TITLE_PHRASELIST]]
+						[[/IF]]
+					</TD>
+					<td valign="top" bgcolor="#003366"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="25" WIDTH="10">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" valign="top" bgcolor="#003366"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<P><P>
+	[[IF graphprint=42days]]
+		[[RECENTSNAPSHOTBREAKDOWN]]
+	[[/IF]]
+	
+	[[IF graphprint=dailybreakdown]]
+		[[SUMMARYBREAKDOWN]]
+	[[/IF]]
+	
+	[[IF graphprint=bymonthbreakdown]]
+		[[BYMONTHBREAKDOWN]]
+	[[/IF]]
+	
+	[[IF graphprint=monthlybreakdown]]
+		[[MONTHLYGRAPHICALBREAKDOWN]]
+	[[/IF]]
+	
+	[[IF graphprint=intraday]]
+		[[INTRADAYBREAKDOWN]]
+	[[/IF]]
+	
+	[[IF graphprint=wordlist]]
+		[[WORDLIST]]
+	[[/IF]]
+	[[IF graphprint=phraselist]]
+		[[PHRASELIST]]
+	[[/IF]]
+</body>
+</html>
+<!--/TEMPLATEGRAPH-->
+
+<!--CONTENT-->
+[[STYLE]]
+<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="[[WIDTH]]" ALT="0 searches" border="0"><br>
+<div align="Center">
+<br>
+[[MENU]]
+
+[[IF analyse=INDEX]]
+	[[INDEX]]
+[[/IF]]
+[[IF analyse=compare]]
+	[[IFB compareType]]
+		[[COMPAREFORM]]
+	[[/IFB]]
+	[[IFNB compareType]]
+		[[COMPARERESULTS]]
+	[[/IFNB]]
+[[/IF]]
+[[IF analyse=summary]]
+	[[SUMMARY]]
+[[/IF]]
+[[IF analyse=SNAPSHOT]]
+	[[SNAPSHOT]]
+[[/IF]]
+[[IF analyse=day]]
+	[[DAYANALYSIS]]
+[[/IF]]
+[[IF analyse=month]]
+	[[MONTHANALYSIS]]
+[[/IF]]
+[[IF analyse=year]]
+	[[YEARANALYSIS]]
+[[/IF]]
+[[IF analyse=ALLTIME]]
+	[[ALLANALYSIS]]
+[[/IF]]
+[[IF analyse=words]]
+	[[WORDLIST]]
+	<br>
+[[/IF]]
+[[IF analyse=phrases]]
+	[[PHRASELIST]]
+	<br>
+[[/IF]]
+[[IF analyse=subdivisions]]
+	[[SUBDIVISIONLIST]]
+	<br>
+[[/IF]]
+[[IF analyse=clients]]
+	[[CLIENTSLIST]]
+	<br>
+[[/IF]]
+[[IF analyse=preferences]]
+	[[PREFERENCES]]
+	<br>
+[[/IF]]
+</div>
+<!--/CONTENT-->
+<!--SUMMARY-->
+	[[INTERESTINGSUMMARY]]
+	<br>
+	[[BYMONTHBREAKDOWN]]
+	<br>
+<!--/SUMMARY-->
+<!--SNAPSHOT-->
+	[[RECENTSNAPSHOTBREAKDOWN]]
+	<br>
+	[[BYMONTHBREAKDOWN]]
+	<br>
+	[[SUMMARYBREAKDOWN]]
+	<br>
+	[[INTRADAYBREAKDOWN]]
+	<br>
+	[[IF thissite=server_status]]
+		[[TIMESPLITGRAPH]]
+	[[/IF]]
+	<br>
+<!--/SNAPSHOT-->
+<!--DAYANALYSIS-->
+	[[INTRADAYBREAKDOWN]]
+	<br>
+	[[SUMMARYBREAKDOWN]]
+	<br>
+	[[IF thissite=server_status]]
+		[[TIMESPLITGRAPH]]
+	[[/IF]]
+	<br>
+<!--/DAYANALYSIS-->
+<!--MONTHANALYSIS-->
+	[[MONTHLYGRAPHICALBREAKDOWN]]
+	<br>
+	[[SUMMARYBREAKDOWN]]
+	<br>
+	[[INTRADAYBREAKDOWN]]
+	<br>
+	[[IF thissite=server_status]]
+		[[TIMESPLITGRAPH]]
+	[[/IF]]
+	<br>
+<!--/MONTHANALYSIS-->
+<!--YEARANALYSIS-->
+	[[BYMONTHBREAKDOWN]]
+	<br>
+	[[SUMMARYBREAKDOWN]]
+	<br>
+	[[INTRADAYBREAKDOWN]]
+	<br>
+	[[IF thissite=server_status]]
+		[[TIMESPLITGRAPH]]
+	[[/IF]]
+	<br>
+<!--/YEARANALYSIS-->
+<!--ALLANALYSIS-->
+	[[BYMONTHBREAKDOWN]]
+	<br>
+	[[SUMMARYBREAKDOWN]]
+	<br>
+	[[INTRADAYBREAKDOWN]]
+	<br>
+	[[IF thissite=server_status]]
+		[[TIMESPLITGRAPH]]
+	[[/IF]]
+	<br>
+<!--/ALLANALYSIS-->
+
+<!--INTERESTINGSUMMARY-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">
+		[[TITLE_INTERESTINGSUMMARY]]
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+	<tr>
+		<td valign="top" width="40%">
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td colspan="2">
+						<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+							<tr>
+								<td class="Main">&nbsp;[[EN]]Searches today[[/EN]][[FR]]Recherches aujourd'hui[[/FR]]</td>
+								<td align="right" class="BIG">[[EVAL ( &commarise($count0))]]&nbsp;</TD>
+							</TR></TABLE>
+					</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;[[EN]]Searches Yesterday[[/EN]][[FR]]Recherches hier[[/FR]]</td>
+					<td align="right" class="Main"><B>[[EVAL ( &commarise($count1))]]</B></SPAN>&nbsp;</TD>
+				</TR>
+				<tr>
+					<td valign="top" bgcolor="[[COLOR4]]" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="2"></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main" colspan="2">
+						<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+							<tr>
+								<td class="Main">&nbsp;[[EN]]Searches this month[[/EN]][[FR]]Recherches ce mois[[/FR]]</td>
+								<td align="right" class="BIG">[[EVAL ( &commarise(${'monthcount'.($mmm)} ))]]&nbsp;</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;[[EN]]Searches last month[[/EN]][[FR]]Recherches derni&egrave;re mois[[/FR]]</td>
+					<td align="right" class="Main"><B>[[EVAL ( &commarise(${'monthcount'.($mmm - 1)} ))]]</B>&nbsp;</TD>
+				</TR>
+				<tr>
+					<td valign="top" bgcolor="[[COLOR4]]" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="2"></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main" colspan="2">
+						<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+							<tr>
+								<td class="Main">&nbsp;[[EN]]Searches this year[[/EN]][[FR]]Recherches ce ann&eacute;e[[/FR]]</td>
+								<td align="right" class="BIG">[[EVAL ( &commarise($totalthisyear) )]]&nbsp;</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;[[EN]]Searches last year[[/EN]][[FR]]Recherches derni&egrave;re ann&eacute;e[[/FR]]</td>
+					<td align="right" class="Main"><B>[[EVAL ( &commarise($totallastyear) )]]</B>&nbsp;</TD>
+				</TR>
+				<tr>
+					<td valign="top" bgcolor="[[COLOR4]]" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="2"></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;[[EN]]Searches since launch[[/EN]][[FR]]Recherches depuis lancement[[/FR]]</td>
+					<td align="right" class="BIG"><B>[[EVAL ( &commarise( $grandtotal ) )]]</B>&nbsp;</TD>
+				</TR>
+			</TABLE>
+		</TD>
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+		<td valign="top" width="60%">
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Maximum 30min count</td>
+					<td align="right" class="TitleSub">[[EVAL ( &commarise($max30Min))]]</SPAN>&nbsp;</TD>
+					<td class="small"><a href="internalAnalysis.cgi[[EVAL ( &linkDate($max30MinDate))]]">[[max30MinDate]]</a></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Maximum 1hr count</td>
+					<td align="right" class="TitleSub">[[EVAL ( &commarise($max1Hr))]]</SPAN>&nbsp;</TD>
+					<td class="small"><a href="internalAnalysis.cgi[[EVAL ( &linkDate($max1HrDate))]]">[[max1HrDate]]</a></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Maximum 4hr count</td>
+					<td align="right" class="TitleSub">[[EVAL ( &commarise($max4Hr))]]</SPAN>&nbsp;</TD>
+					<td class="small"><a href="internalAnalysis.cgi[[EVAL ( &linkDate($max4HrDate))]]">[[max4HrDate]]</a></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Maximum day count</td>
+					<td align="right" class="TitleSub">[[EVAL ( &commarise($maxdaycount))]]</SPAN>&nbsp;</TD>
+					<td class="small"><a href="internalAnalysis.cgi[[EVAL ( &linkDate($maxdaycountdate))]]">[[maxdaycountdate]]</a></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Maximum month count</td>
+					<td align="right" class="TitleSub">[[EVAL ( &commarise($maxmonthly))]]</SPAN>&nbsp;</TD>
+					<td class="small"><a href="internalAnalysis.cgi[[EVAL ( &linkDate($maxmonthlydate))]]">[[maxmonthlydate]]</a></TD>
+				</TR>
+				<tr>
+					<td valign="top" bgcolor="[[COLOR4]]" colspan="3"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="2"></TD>
+				</TR>
+				[[LOOP (1...7|1)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;Maximum [[weekdayName[[LOOPVALUE]]]] count</td>
+						<td align="right" class="TitleSub"><b>[[EVAL ( &commarise( ${'max'.$weekdayName[[LOOPVALUE]]} ) )]]</b>&nbsp;</TD>
+						<td class="small"><a href="internalAnalysis.cgi[[EVAL ( &linkDate(${'max'.$weekdayName[[LOOPVALUE]].'Date'}))]]">[[EVAL (  ${'max'.$weekdayName[[LOOPVALUE]].'Date'} )]]</a></TD>
+					</TR>
+				[[/LOOP]]
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+<!--/INTERESTINGSUMMARY-->
+<!--TITLE_INTERESTINGSUMMARY-->
+Interesting Statistics (at [[datestamp]])
+<!--/TITLE_INTERESTINGSUMMARY-->
+<!--RECENTSNAPSHOTBREAKDOWN-->
+	<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="1"><tr>
+	<td class="GraphTitle">[[TITLE_RECENTSNAPSHOTBREAKDOWN]]
+	</SPAN><br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="White">
+		<tr>
+			<td align="center"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+			</td>
+		</tr>
+	</table>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.remotesearch.com/analysis/graphback[[GRAPHHEIGHT]]-[[EVALUATE_DIVISIONS_42DAYS]].gif" bgcolor="White">
+		<tr>
+				<td align="left">
+					[[EVALUATE_SCALES_42DAY]]
+				</td>
+			[[LOOP (SNAPSHOTDAYS...0|-1)]]
+				<td valign="bottom" align="center" class="Small" onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background=''">
+					[[IFGT count[[LOOPVALUE]]|0.5]]
+						<A class="tiny" HREF="internalAnalysis.cgi?analyse=day~day=[[day[[LOOPVALUE]]]]~month=[[monthdisplay[[LOOPVALUE]]]]~year=[[year[[LOOPVALUE]]]]~focus=[[focus]]" target="main">[[IFLT height[[LOOPVALUE]]|10]]<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="20" WIDTH="[[WIDTH_SNAPSHOTDAYS]]" ALT="[[EVAL ( &commarise($count[[LOOPVALUE]]))]] searches" border="0"><br>[[/IFLT]]<IMG SRC="http://www.remotesearch.com/analysis/dot_[[dayimage[[LOOPVALUE]]]].gif" HEIGHT="[[height[[LOOPVALUE]]]]" WIDTH="[[WIDTH_SNAPSHOTDAYS]]" ALT="[[EVAL ( &commarise($count[[LOOPVALUE]]))]] searches" border="0"></a><br>
+<!--[[count[[LOOPVALUE]]]]-->
+					[[/IFGT]]
+					[[IFLT count[[LOOPVALUE]]|0.5]]
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="[[height[[LOOPVALUE]]]]" WIDTH="10" ALT="0 searches" border="0"><br>
+					[[/IFLT]]
+				</TD>
+			[[/LOOP]]
+				<td align="right">
+					[[EVALUATE_SCALES_42DAY]]
+				</td>
+		</TR>
+		<tr>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+			<td valign="bottom" class=Small align="center" colspan="[[EVAL ($SNAPSHOTDAYS + 1)]]" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+		</TR>
+		<tr>
+			<td></TD>
+			[[LOOP (SNAPSHOTDAYS...0|-1)]]
+				<td valign="bottom" class=Small align="center" bgcolor="[[color[[LOOPVALUE]]]]"><A class="tiny" HREF="internalAnalysis.cgi?analyse=day~day=[[day[[LOOPVALUE]]]]~month=[[monthdisplay[[LOOPVALUE]]]]~year=[[year[[LOOPVALUE]]]]~focus=[[focus]]" target="main">[[day[[LOOPVALUE]]]]</A><br>
+				</TD>
+			[[/LOOP]]
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			[[LOOP (SNAPSHOTDAYS...0|-1)]]
+				<td valign="bottom" class=Small align="center" bgcolor="[[weekcolour[[LOOPVALUE]]]]"><FONT COLOR="#808080">[[weekdaydisplay[[LOOPVALUE]]]]</FONT><br>
+				</TD>
+			[[/LOOP]]
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			
+			[[LOOP (1...ddd|1)]]
+				<td class=Small align="center" colspan="[[colspan[[LOOPVALUE]]]]" bgcolor="[[moncol[[LOOPVALUE]]]]"><A HREF="internalAnalysis.cgi?analyse=month~month=[[monthgraph[[LOOPVALUE]]]]~year=[[yeargraph[[LOOPVALUE]]]]~focus=[[focus]]" class=tiny target="main">[[monthgraphDisplay[[LOOPVALUE]]]]</A><br></TD>
+			[[/LOOP]]
+
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			<td valign="bottom" class=Small align="center" colspan="[[EVAL ($SNAPSHOTDAYS + 1)]]" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td></TD>
+		</TR>
+	</TABLE>
+	</TD></TR></TABLE>
+<!--/RECENTSNAPSHOTBREAKDOWN-->
+<!--TITLE_RECENTSNAPSHOTBREAKDOWN-->
+	[[EN]]Total searches in the last [[SNAPSHOTDAYS]] days[[/EN]][[FR]]Total recherche pendant les derni&egrave;res [[SNAPSHOTDAYS]] jours[[/FR]]
+	[[IFB graphprint]]
+		&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=42days~focus=[[focus]]');">[[PRINTPIC]]</A>
+	[[/IFB]]
+<!--/TITLE_RECENTSNAPSHOTBREAKDOWN-->
+<!--BYMONTHBREAKDOWN-->
+	<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">
+		[[TITLE_BYMONTHBREAKDOWN]]
+	</SPAN><br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="White">
+		<tr>
+			<td align="center"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+			</td>
+		</tr>
+	</table>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.remotesearch.com/analysis/graphback[[GRAPHHEIGHT]]-[[EVALUATE_DIVISIONS_MONTH]].gif" bgcolor="White">
+		<tr>
+				<td align="left">
+					[[EVALUATE_SCALES_MONTH]]
+				</td>
+			[[LOOP (1...mmm|1)]]
+				<td valign="bottom" align="center" class="Small">
+					[[IFGT monthcount[[LOOPVALUE]]|0.5]]
+						<A class="tiny" HREF="internalAnalysis.cgi?analyse=month~month=[[Mmonthgraph[[LOOPVALUE]]]]~year=[[Myeargraph[[LOOPVALUE]]]]~focus=[[focus]]" target="main"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="[[EVAL ($GRAPHHEIGHT-($monthheight[[LOOPVALUE]]+1))]]" WIDTH="[[widthmonth]]" ALT="[[MmonthgraphTagDisplay[[LOOPVALUE]]]] [[Myeargraph[[LOOPVALUE]]]] - [[EVAL ( &commarise($monthcount[[LOOPVALUE]]))]] searches" border="0"><br>
+<IMG SRC="http://www.remotesearch.com/analysis/dot_[[COLOR3]].gif" HEIGHT="[[monthheight[[LOOPVALUE]]]]" WIDTH="[[widthmonth]]" ALT="[[MmonthgraphTagDisplay[[LOOPVALUE]]]] [[Myeargraph[[LOOPVALUE]]]] - [[EVAL ( &commarise($monthcount[[LOOPVALUE]]))]] searches" border="0"></a><br>
+					[[/IFGT]]
+					[[IFLT monthcount[[LOOPVALUE]]|0.5]]
+						<A class="tiny" HREF="internalAnalysis.cgi?analyse=month~month=[[Mmonthgraph[[LOOPVALUE]]]]~year=[[Myeargraph[[LOOPVALUE]]]]~focus=[[focus]]" target="main"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="[[GRAPHHEIGHT]]" WIDTH="[[widthmonth]]" ALT="0 searches" border="0"></a><br>
+					[[/IFLT]]
+				</TD>
+			[[/LOOP]]
+				<td align="right">
+					[[EVALUATE_SCALES_MONTH]]
+				</td>
+		</TR>
+		<tr>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+			<td align="center" bgcolor="[[BACKCOLOURON]]" colspan="[[mmm]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br></td>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+		</tr>
+		<tr>
+			<td align="center">
+			</td>
+			[[LOOP (1...mmm|1)]]
+				<td valign="bottom" class=Small align="center" bgcolor="[[Mmonthcolour[[LOOPVALUE]]]]"><A class="tiny" HREF="internalAnalysis.cgi?analyse=month~month=[[Mmonthgraph[[LOOPVALUE]]]]~year=[[Myeargraph[[LOOPVALUE]]]]~focus=[[focus]]" target="main">[[MmonthgraphScaleDisplay[[LOOPVALUE]]]]</A><br>
+				</TD>
+			[[/LOOP]]
+			<td align="center">
+			</td>
+		</TR>
+		<tr>
+			<td align="center">
+			</td>
+			[[LOOP (1...mmmyearspan|1)]]
+				<td valign="bottom" class="Medium" align="center" colspan="[[Yearcolspan[[LOOPVALUE]]]]" bgcolor="[[Myearcolour[[LOOPVALUE]]]]"><A class="notsotiny" HREF="internalAnalysis.cgi?analyse=year~year=[[Myeargraphyear[[LOOPVALUE]]]]~focus=[[focus]]" target="main">[[Myeargraphdisplay[[LOOPVALUE]]]]</A></b><br>
+				</TD>
+			[[/LOOP]]
+			<td align="center">
+			</td>
+		</TR>
+		<tr>
+			<td align="center">
+			</td>
+			<td align="center" bgcolor="[[BACKCOLOURON]]" colspan="[[mmm]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br></td>
+			<td align="center">
+			</td>
+		</tr>
+	</TABLE>
+	</TD></TR></TABLE>
+<!--/BYMONTHBREAKDOWN-->
+<!--TITLE_BYMONTHBREAKDOWN-->
+	[[IF analyse=SNAPSHOT]]
+		[[EN]]Total searches per month[[/EN]]
+	[[/IF]]
+	[[IF analyse=summary]]
+		[[EN]]Total searches per month[[/EN]]
+	[[/IF]]
+	[[IF analyse=month]]
+		[[EN]]Total searches per month[[/EN]]
+	[[/IF]]
+	[[IF analyse=year]]
+		[[EN]]Total searches per month for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]][[yearIN]]</SPAN>[[/EN]]
+	[[/IF]]
+	[[IF analyse=ALLTIME]]
+		[[EN]]Total searches per month for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]]All Time</SPAN>[[/EN]]
+	[[/IF]]
+	[[IFB graphprint]]
+	&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=bymonthbreakdown~focus=[[focus]]');">[[PRINTPIC]]</A>
+	[[/IFB]]
+<!--/TITLE_BYMONTHBREAKDOWN-->
+<!--SUMMARYBREAKDOWN-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">
+		[[TITLE_SUMMARYBREAKDOWN]]
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+	<tr>
+		<td valign="top" width="30%">
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td colspan="2">
+						<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+							<tr>
+								<td class="Main">&nbsp;Total &nbsp;Searches</td>
+								<td align="right"><span class="BIG">[[EVAL ( &commarise($count0))]]</SPAN>&nbsp;</TD>
+							</TR></TABLE>
+					</TD>
+					
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Total &nbsp;zero-hits</TD>
+					<td class="Main" align="right"><B>[[EVAL ( &commarise ($zeroes) ; )]]</B>&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;%age &nbsp;zero-hits</TD>
+					<td class="Main" align="right"><B>[[percentagezeroes]]</B>%&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Visitors</TD>
+					<td class="Main" align="right"><B>[[EVAL ( &commarise($distinctIPs) )]]</B>&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Searches per visitor</TD>
+					<td class="Main" align="right"><B>[[searchesPerIP]]</B>&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Total bandwidth</TD>
+					<td class="Main" align="right"><B>[[EVAL ( if ($bandwidth <= 999999 ) { return (int($bandwidth/1000))." kb" } elsif ($bandwidth > 999999 && $bandwidth <= 999999999) { return (int($bandwidth/100000)/10)." Mb" } elsif ($bandwidth > 999999999 && $bandwidth <= 999999999999) {return (int($bandwidth/10000000)/100)." Gb"} else {return (int($bandwidth/10000000000)/100)." Tb"} )]]</B>&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Average page</TD>
+					<td class="Main" align="right"><B>[[EVAL ( &commarise(int($bandwidth/$count0)) )]] bytes</B>&nbsp;</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Average time</TD>
+					<td class="Main" align="right"><B>[[avetime]]</B> s&nbsp;</TD>
+				</TR>
+[[IF thissite=server_status]]
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Fastest Search</TD>
+					<td class="Main" align="right"><B>[[fastesttime]]</B> s&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Slowest Search</TD>
+					<td class="Main" align="right"><B>[[slowesttime]]</B> s&nbsp;</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Average initialise time</TD>
+					<td class="Main" align="right"><B>[[presearchtime]]</B> s&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Average RS search time</TD>
+					<td class="Main" align="right"><B>[[searchtime]]</B> s&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Average post search time</TD>
+					<td class="Main" align="right"><B>[[postsearchtime]]</B> s&nbsp;</TD>
+				</TR>
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;Average HTML generation</TD>
+					<td class="Main" align="right"><B>[[htmlgentime]]</B> s&nbsp;</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" align="center">Average search times</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%goodcount|100)]]
+				<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+					<td class="Main">&nbsp;[[LOOPVALUE]]</TD>
+					<td class="Main" align="right"><B>[[averagespeed[[LOOPVALUE]]]]</B> s</TD>
+				</TR>
+				[[/LOOP]]
+[[/IF]]
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+					</TR>
+[[IFB focus]]
+	[[IF permission=all]]
+				<tr>
+					<td class="Main" colspan="2" align="center">Top <A HREF="internalAnalysis.cgi?analyse=subdivisions~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~analysebefore=[[analyse]]~focus=[[focus]]" target="main">subdivisions</a></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%subdivsearches|10)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;<A HREF="internalAnalysis.cgi?analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[LOOPVALUE]]" target="main">[[LOOPVALUE]]</a></TD>
+						<td class="Main" align="right"><B>[[EVAL ( &commarise ([[PARAMVALUE]]) ; )]]</B>&nbsp;</TD>
+					</TR>
+				[[/LOOP]]
+				[[IFGT subdivisioncount|10]]
+					<tr>
+						<td class="small" colspan="2" align="right"><A HREF="internalAnalysis.cgi?analyse=subdivisions~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~analysebefore=[[analyse]]~focus=[[focus]]" target="main">More...</a></TD>
+					</TR>
+				[[/IFGT]]
+	[[/IF]]
+[[/IFB]]
+			</TABLE>
+		</TD>
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+		<td valign="top" width="19%">
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr>
+					<td class="Main" colspan="2" align="center">Per hour</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%perhour)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;[[LOOPVALUE]] h</TD>
+						<td class="Main" align="right"><B>[[EVAL ( &commarise ([[PARAMVALUE]]) ; )]]</B>&nbsp;</TD>
+					</TR>
+				[[/LOOP]]
+[[IF thissite=server_status]]
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+				<tr>
+					<td class="Main" colspan="2" align="center">Per RSBox</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%rsboxes)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;[[LOOPVALUE]]</TD>
+						<td class="Main" align="right"><B>[[EVAL ( &commarise ([[PARAMVALUE]]) ; )]]</B>&nbsp;</TD>
+					</TR>
+				[[/LOOP]]
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" align="center">Top <A HREF="internalAnalysis.cgi?analyse=clients~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]" target="main">clients</a></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%clients|1000)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;[[LOOPVALUE]]</TD>
+						<td class="Main" align="right"><B>[[EVAL ( &commarise ([[PARAMVALUE]]) ; )]]</B>&nbsp;</TD>
+					</TR>
+				[[/LOOP]]
+[[/IF]]
+[[IFGT clientcount|10]]
+				<tr>
+					<td class="small" colspan="2" align="right"><A HREF="internalAnalysis.cgi?analyse=clients~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]" target="main">More...</a></TD>
+				</TR>
+[[/IFGT]]
+			</TABLE>
+		</TD>
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+		<td valign="top" width="22%">
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr>
+					<td class="Main" colspan="2" align="center">Top <A HREF="internalAnalysis.cgi?analyse=words~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]" target="main">words</a> searched</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%topwords|50)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;[[LOOPVALUE]]</TD>
+						<td class="Main" align="right"><B>[[EVAL ( &commarise ([[PARAMVALUE]]) ; )]]</B>&nbsp;</TD>
+					</TR>
+				[[/LOOP]]
+			</TABLE>
+		</TD>
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+		<td valign="top" width="29%">
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr>
+					<td class="Main" colspan="2" align="center">Top <A HREF="internalAnalysis.cgi?analyse=phrases~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]" target="main">phrases</A> searched</TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%topphrases|50)]]
+					<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+						<td class="Main">&nbsp;[[LOOPVALUE]]</TD>
+						<td class="Main" align="right"><B>[[EVAL ( &commarise ([[PARAMVALUE]]) ; )]]</B>&nbsp;</TD>
+					</TR>
+				[[/LOOP]]
+			</TABLE>
+		</TD>
+		<!--<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>-->
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+<!--/SUMMARYBREAKDOWN-->
+<!--TITLE_SUMMARYBREAKDOWN-->
+[[IF analyse=SNAPSHOT]]
+Summary breakdown for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]]TODAY</SPAN> (at [[datestamp]])
+[[/IF]]
+[[IF! analyse=SNAPSHOT]]
+Summary breakdown for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]][[PERIOD]]</SPAN>
+[[/IF!]]
+[[IFB graphprint]]
+&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=dailybreakdown~analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]');">[[PRINTPIC]]</A></span>
+[[/IFB]]
+<!--/TITLE_SUMMARYBREAKDOWN-->
+<!--MONTHLYGRAPHICALBREAKDOWN-->
+	<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">
+	[[TITLE_MONTHLYGRAPHICALBREAKDOWN]]
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="White">
+		<tr>
+			<td align="center"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+			</td>
+		</tr>
+	</table>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.remotesearch.com/analysis/graphback[[GRAPHHEIGHT]]-[[EVALUATE_DIVISIONS_MONTHLY]].gif" bgcolor="White">
+		<tr>
+				<td align="left">
+					[[EVALUATE_SCALES_MONTHLY]]
+				</td>
+			[[LOOP (1...31|1)]]
+				[[IF monthcheck[[LOOPVALUE]]=OK]]
+					<td valign="bottom" align="center" class="Small">
+						[[IFGT count[[LOOPVALUE]]|0.5]]
+						<A class="tiny" HREF="internalAnalysis.cgi?analyse=day~day=[[day[[LOOPVALUE]]]]~month=[[monthdisplay[[LOOPVALUE]]]]~year=[[year[[LOOPVALUE]]]]~focus=[[focus]]" target="main"><IMG SRC="http://www.remotesearch.com/analysis/dot_[[image[[LOOPVALUE]]]].gif" HEIGHT="[[height[[LOOPVALUE]]]]" WIDTH="[[WIDTH_FULLMONTH]]" ALT="[[EVAL ( &commarise($count[[LOOPVALUE]]))]] searches" border="0"></a><br>
+						[[/IFGT]]
+						[[IFLT count[[LOOPVALUE]]|0.5]]
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="[[GRAPHHEIGHT]]" WIDTH="[[WIDTH_FULLMONTH]]" ALT="0 searches" border="0"><br>
+						[[/IFLT]]
+					</TD>
+				[[/IF]]
+			[[/LOOP]]
+				<td align="right">
+					[[EVALUATE_SCALES_MONTHLY]]
+				</td>
+		</TR>
+		<tr>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+			<td valign="bottom" class=Small align="center" colspan="[[daysinmonth]]" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+		</TR>
+		<tr>
+			<td></TD>
+			[[LOOP (1...31|1)]]
+				[[IFNB monthcheck[[LOOPVALUE]]]]
+				<td valign="bottom" class=Small align="center" bgcolor="[[color[[LOOPVALUE]]]]"><A class="tiny" HREF="internalAnalysis.cgi?analyse=day~day=[[day[[LOOPVALUE]]]]~month=[[monthdisplay[[LOOPVALUE]]]]~year=[[year[[LOOPVALUE]]]]~focus=[[focus]]" target="main">[[day[[LOOPVALUE]]]]</A><br>
+				</TD>
+				[[/IFNB]]
+			[[/LOOP]]
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			[[LOOP (1...31|1)]]
+				[[IFNB monthcheck[[LOOPVALUE]]]]
+				<td valign="bottom" class=Small align="center" bgcolor="[[weekcolour[[LOOPVALUE]]]]"><FONT COLOR="#808080">[[weekdaydisplay[[LOOPVALUE]]]]</FONT><br>
+				</TD>
+				[[/IFNB]]
+			[[/LOOP]]
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			<td valign="bottom" class="Medium" align="center" colspan="[[daysinmonth]]" bgcolor="[[BACKCOLOURON]]"><B>[[monthIN]]</B></TD>
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			<td valign="bottom" class="Medium" align="center" colspan="[[daysinmonth]]" bgcolor="[[BACKCOLOUROFF]]"><B><A HREF="internalAnalysis.cgi?analyse=year~year=[[yearIN]]">[[yearIN]]</A></B></TD>
+			<td></TD>
+		</TR>
+		<tr>
+			<td></TD>
+			<td valign="bottom" class="Medium" align="center" colspan="[[daysinmonth]]" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="2" BORDER="0"></TD>
+			<td></TD>
+		</TR>
+	</TABLE>
+	</TD></TR></TABLE>
+<!--/MONTHLYGRAPHICALBREAKDOWN-->
+<!--TITLE_MONTHLYGRAPHICALBREAKDOWN-->
+Daily search count for [[IFB graphprint]]<span class="GraphTitleYellow">[[/IFB]][[monthIN]] [[yearIN]]</SPAN>
+	[[IFB graphprint]]
+	<span class="TitleSub">
+	&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=monthlybreakdown~analyse=month~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]');">[[PRINTPIC]]</A></span><br>
+	[[/IFB]]
+<!--/TITLE_MONTHLYGRAPHICALBREAKDOWN-->
+<!--INTRADAYBREAKDOWN-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+<td class="GraphTitle">
+[[TITLE_INTRADAYBREAKDOWN]]
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="White">
+		<tr>
+			<td align="center"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+			</td>
+		</tr>
+	</table>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.remotesearch.com/analysis/graphback[[GRAPHHEIGHT]]-[[EVALUATE_DIVISIONS_DAILY]].gif" bgcolor="White">
+		<tr>
+				<td align="left">
+					[[EVALUATE_SCALES_DAILY]]
+				</td>
+			[[LOOP (0...47|1)]]
+				<td valign="bottom" align="center" class="Small">
+					[[IFNB dailyheight[[LOOPVALUE]]]]
+						<IMG SRC="http://www.remotesearch.com/analysis/dot_[[COLOR5]].gif" HEIGHT="[[dailyheight[[LOOPVALUE]]]]" WIDTH="[[WIDTH_INTRADAY]]" ALT="[[EVAL ( &commarise($dailysplit[[LOOPVALUE]]))]] search[[IFGT dailysplit[[LOOPVALUE]]|1.5]]es[[/IFGT]]" border="0"><br>
+					[[/IFNB]]
+					[[IFB dailyheight[[LOOPVALUE]]]]
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="[[GRAPHHEIGHT]]" WIDTH="[[WIDTH_INTRADAY]]" ALT="0 searches" border="0"><br>
+					[[/IFB]]
+				</TD>
+			[[/LOOP]]
+				<td align="right">
+					[[EVALUATE_SCALES_DAILY]]
+				</td>
+		</TR>
+		<tr>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+			<td valign="bottom" class=Small align="center" colspan="48" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+		</TR>
+		<tr>
+				<td align="center" class="Small">hh<br>mm<br>
+			[[LOOP (0...47|1)]]
+				<td valign="bottom" align="center" class="Small" bgcolor="[[dailycolor[[LOOPVALUE]]]]">[[dailyaxis[[LOOPVALUE]]]]<br></TD>
+			[[/LOOP]]
+			<td></td>
+		</TR>
+		<tr>
+			<td></TD>
+			<td align="center" colspan="48" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td></TD>
+		</TR>
+	</TABLE>
+
+</TD></TR></TABLE>
+<!--/INTRADAYBREAKDOWN-->
+<!--TITLE_INTRADAYBREAKDOWN-->
+[[IF analyse=SNAPSHOT]]
+	Intraday search count for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]]TODAY</SPAN> (at [[datestamp]])
+[[/IF]]
+[[IF! analyse=SNAPSHOT]]
+	Intraday search count for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]][[PERIOD]]</SPAN>
+[[/IF!]]
+[[IFB graphprint]]
+	<span class="TitleSub">&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=intraday~analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]');">[[PRINTPIC]]</A></SPAN>
+[[/IFB]]
+<!--/TITLE_INTRADAYBREAKDOWN-->
+<!--TIMESPLITGRAPH-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+<td class="GraphTitle">
+Search performance for 
+[[IF analyse=SNAPSHOT]]
+	<span class="GraphTitleYellow">Today</SPAN> (at [[datestamp]])
+[[/IF]]
+[[IF analyse=day]]
+	<span class="GraphTitleYellow">[[dayIN]] [[monthIN]] [[yearIN]]</SPAN>
+[[/IF]]
+[[IF analyse=month]]
+	<span class="GraphTitleYellow">[[monthIN]] [[yearIN]]</SPAN>
+[[/IF]]
+[[IF analyse=year]]
+	<span class="GraphTitleYellow">[[yearIN]]</SPAN>
+[[/IF]]
+[[IF analyse=ALLTIME]]
+	<span class="GraphTitleYellow">All Time</SPAN>
+[[/IF]]
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="White">
+		<tr>
+			<td align="center"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+			</td>
+		</tr>
+	</table>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="http://www.remotesearch.com/analysis/graphback[[GRAPHHEIGHT]]-[[EVALUATE_DIVISIONS_TIMESPLIT]].gif" bgcolor="White">
+		<tr>
+				<td align="left">
+					[[EVALUATE_SCALES_TIMESPLIT]]
+				</td>
+			[[LOOP (0...33|1)]]
+				<td valign="bottom" align="center" class="Small">
+					[[IFNB timesplit[[LOOPVALUE]]]]
+						[[IFLT timesplitheight[[LOOPVALUE]]|10]]
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="20" WIDTH="[[WIDTH_TIMESPLIT]]" ALT="[[EVAL ( &commarise($timesplit[[LOOPVALUE]]))]] search[[IFGT timesplit[[LOOPVALUE]]|1.5]]es[[/IFGT]] between [[timesplitscaleupper[[LOOPVALUE]]]] and [[timesplitscalelower[[LOOPVALUE]]]] s" border="0"><br>
+						[[/IFLT]]
+						<IMG SRC="http://www.remotesearch.com/analysis/dot_[[COLOR1]].gif" HEIGHT="[[timesplitheight[[LOOPVALUE]]]]" WIDTH="[[WIDTH_TIMESPLIT]]" ALT="[[EVAL ( &commarise($timesplit[[LOOPVALUE]]))]] search[[IFGT timesplit[[LOOPVALUE]]|1.5]]es[[/IFGT]] between [[timesplitscaleupper[[LOOPVALUE]]]] and [[timesplitscalelower[[LOOPVALUE]]]] s" border="0"><br>
+					[[/IFNB]]
+					[[IFB timesplit[[LOOPVALUE]]]]
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="20" WIDTH="[[WIDTH_TIMESPLIT]]" ALT="0 searches between [[timesplitscaleupper[[LOOPVALUE]]]] and [[timesplitscalelower[[LOOPVALUE]]]] s" border="0"><br>
+					[[/IFB]]
+				</TD>
+			[[/LOOP]]
+				<td align="right">
+					[[EVALUATE_SCALES_TIMESPLIT]]
+				</td>
+		</TR>
+		<tr>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+			<td valign="bottom" class=Small align="center" colspan="34" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td valign="top">
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+				</table>
+			</TD>
+		</TR>
+		<tr>
+				<td align="center" class="Small">from<br>to<br>
+				</td>
+			[[LOOP (0...34|1)]]
+				<td valign="bottom" align="center" class="Small" bgcolor="[[dailycolour[[LOOPVALUE]]]]">
+					[[timesplitscaleupper[[LOOPVALUE]]]]<br>
+					[[timesplitscalelower[[LOOPVALUE]]]]<br>
+				</TD>
+			[[/LOOP]]
+				<td align="center">
+				</td>
+		</TR>
+		<tr>
+			<td valign="top"></TD>
+			<td valign="bottom" class=Small align="center" colspan="34" bgcolor="[[BACKCOLOURON]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="1" HEIGHT="3" BORDER="0"></TD>
+			<td valign="top"></TD>
+		</TR>
+	</table>
+</TD></TR></TABLE>
+<!--/TIMESPLITGRAPH-->
+<!--WORDLIST-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">Word list for <SPAN CLASS="GraphTitleYellow">
+		[[TITLE_WORDLIST]]
+	<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+<TABLE width="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+	<tr>
+		[[LOOP (1,2,3,4)]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+			<td valign="top" width="25%">
+				<!--content pane [[LOOPVALUE]]-->
+				<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+					[[LOOP2 (%wordlist[[LOOPVALUE]]|100)]]
+						<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+							<td class="Main">&nbsp;[[LOOPVALUE2]]</TD>
+							<td class="Main" align="right"><B>[[EVAL ( &commarise([[PARAMVALUE2]]) ; )]]</B>&nbsp;</TD>
+						</TR>
+					[[/LOOP2]]
+				</table>
+			</TD>
+		[[/LOOP]]
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+
+<!--/WORDLIST-->
+<!--TITLE_WORDLIST-->
+[[IF TODAY=TODAY]]
+		TODAY
+[[/IF]]
+[[IFB TODAY]]
+	[[IFGT dayIN|0.5]][[dayIN]][[/IFGT]]
+	[[IFNB monthIN]][[monthIN]][[/IFNB]]
+	[[IFNB yearIN]][[yearIN]][[/IFNB]]
+[[/IFB]]
+[[IFB yearIN]]All Time[[/IFB]]
+	[[IFB graphprint]]
+	&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=wordlist~analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]');">[[PRINTPIC]]</A>
+	[[/IFB]]
+<!--/TITLE_WORDLIST-->
+<!--PHRASELIST-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">
+	[[TITLE_PHRASELIST]]
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+<TABLE width="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+<!--	<tr>
+		<td colspan="4">
+			[[EVALUATE_PAGES]]
+		</td>
+	</tr>-->
+	<tr>
+		[[LOOP (1,2,3)]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+			<td valign="top" width="33%">
+				<!--content pane [[LOOPVALUE]]-->
+				<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+					[[LOOP2 (%phraselist[[LOOPVALUE]]|100)]]
+						<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+							<td class="Main">&nbsp;[[LOOPVALUE2]]</TD>
+							<td class="Main" align="right"><B>[[EVAL ( &commarise([[PARAMVALUE2]]) ; )]]</B>&nbsp;</TD>
+						</TR>
+					[[/LOOP2]]
+				</table>
+			</TD>
+		[[/LOOP]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+<!--/PHRASELIST-->
+<!--TITLE_PHRASELIST-->
+Phrase list for [[IFB graphprint]]<SPAN CLASS="GraphTitleYellow">[[/IFB]][[PERIOD]]</SPAN>	
+	[[IFB graphprint]]
+	&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=phraselist~analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]');">[[PRINTPIC]]</A>
+	[[/IFB]]
+<!--/TITLE_PHRASELIST-->
+<!--SUBDIVISIONLIST-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">Search count per subdivision for <SPAN CLASS="GraphTitleYellow">[[PERIOD]]</SPAN>	
+	[[IFB graphprint]]
+	&nbsp;&nbsp;&nbsp;<A HREF="javascript:openPrint('internalAnalysis.cgi?graphprint=phraselist~analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]');">[[PRINTPIC]]</A>
+	[[/IFB]]
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+<TABLE width="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+	<tr>
+		[[LOOP (1,2,3)]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+			<td valign="top" width="33%">
+				<!--content pane [[LOOPVALUE]]-->
+				<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+					[[LOOP2 (%subdivisionlist[[LOOPVALUE]]|100)]]
+						<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+							<td class="Main">&nbsp;<A HREF="internalAnalysis.cgi?analyse=[[analysebefore]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[LOOPVALUE2]]" target="main">[[LOOPVALUE2]]</a></TD>
+							<td class="Main" align="right"><B>[[EVAL ( &commarise([[PARAMVALUE2]]) ; )]]</B>&nbsp;</TD>
+						</TR>
+					[[/LOOP2]]
+				</table>
+			</TD>
+		[[/LOOP]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+<!--/SUBDIVISIONLIST-->
+<!--CLIENTSLIST-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">Searches per client for <SPAN CLASS="GraphTitleYellow">[[PERIOD]]</SPAN>	
+<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+<TABLE width="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+	<tr>
+		[[LOOP (1,2,3,4)]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+			<td valign="top" width="25%">
+				<!--content pane [[LOOPVALUE]]-->
+				<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+					[[LOOP2 (%clientlist[[LOOPVALUE]]|100)]]
+						<tr onmouseover="javascript:style.background='[[BACKCOLOURON]]'" onmouseout="javascript:style.background='[[BACKCOLOUROFF]]'">
+							<td class="Main">&nbsp;[[LOOPVALUE2]]</TD>
+							<td class="Main" align="right"><B>[[EVAL ( &commarise([[PARAMVALUE2]]) ; )]]</B>&nbsp;</TD>
+						</TR>
+					[[/LOOP2]]
+				</table>
+			</TD>
+		[[/LOOP]]
+			<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+<!--/CLIENTSLIST-->
+<!--SCALES-->
+				<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+				[[LOOP (40...1|-1)]]
+					[[IFNB scale[[LOOPVALUE]]]]
+					<tr><td bgcolor="#003366">
+						<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" WIDTH="15" HEIGHT="1" BORDER="0"><br>
+					</TD></TR>
+					<tr><td height="[[scaleheight]]" align="center" valign="top" class="VSmall">
+						&nbsp;[[scale[[LOOPVALUE]]]]&nbsp;
+					</TD></TR>
+					[[/IFNB]]
+				[[/LOOP]]
+				</TABLE>
+<!--/SCALES-->
+
+<!--MENU-->
+	<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr><td>
+		<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+			<tr>
+				<td align="left" class="GraphTitle">[[ANALYSISFOR]] Search Analysis: Menu<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br></TD>
+				<td align="right" class="GraphTitleYellow">[[datestamp]] UK Time</TD>
+			</TR>
+		</TABLE>
+	
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+		<tr bgcolor="White">
+			<td align="center" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+			</td>
+		</tr>
+		<tr bgcolor="White">
+			<td valign="left" class="Small">&nbsp;&nbsp;<A href="/admin/" target="main">Back to main menu</A> | <a 	href="internalAnalysis.cgi?analyse=preferences~analysebefore=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]~focus=[[focus]]" target="main">Preferences</a>[[IFNB focus]][[REMOVEFOCUS]][[/IFNB]]&nbsp;&nbsp;<br></td>
+			<td align="right" class="Small"><a href="internalAnalysis.cgi?analyse=summary" target="main">Summary</a> | <a href="internalAnalysis.cgi" target="main">Snapshot</a> | <a href="internalAnalysis.cgi?analyse=day~day=[[thisday]]~month=[[thismonthW]]~year=[[thisyear]]~focus=[[focus]]" target="main">Today</a> | <a href="internalAnalysis.cgi?analyse=month~month=[[thismonthW]]~year=[[thisyear]]~focus=[[focus]]" target="main">This Month</a> | <a href="internalAnalysis.cgi?analyse=year~year=[[thisyear]]~focus=[[focus]]" target="main">This Year</a> | <a href="internalAnalysis.cgi?analyse=ALLTIME~focus=[[focus]]" target="main">All Time</a>&nbsp;&nbsp;</td>
+		</tr>
+		<tr bgcolor="White">
+			<td align="center" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="5" WIDTH="10" border="0"><br>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="10" border="0"><br>
+			</td>
+		</tr>
+		<tr bgcolor="White">
+			<td align="center" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+			</td>
+		</tr>
+		<tr bgcolor="White">
+			<td align="center" colspan="2" class="BigTitle">[[BIGTITLE]]</td>
+		</tr>
+		<tr bgcolor="White">
+			<td align="center" colspan="2"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+			</td>
+		</tr>
+	</table>
+	</td></tr></table><br>
+<!--/MENU-->
+
+<!--PREFERENCES-->
+<form Action="internalAnalysis.cgi" METHOD="POST">
+<input TYPE="Hidden" NAME="analyse" VALUE="[[analysebefore]]">
+<input TYPE="Hidden" NAME="day" VALUE="[[dayIN]]">
+<input TYPE="Hidden" NAME="month" VALUE="[[monthIN]]">
+<input TYPE="Hidden" NAME="year" VALUE="[[yearIN]]">
+<input TYPE="Hidden" NAME="focus" VALUE="[[focus]]">
+<input TYPE="Hidden" NAME="POSTtype" VALUE="preferences">
+
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr><td>
+	<span class="TitleSub"><FONT Color="White">Setting [[ANALYSISFOR]] preferences for username:</FONT> <FONT Color="Yellow">[[username]]</FONT></SPAN><br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="White">
+		<tr>
+			<td align="center"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" ALT="0 searches" border="0"><br>
+			</td>
+		</tr>
+	</table>
+<TABLE width="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" bgcolor="white">
+	<tr>
+		<td valign="top" width="25%">
+			<!--content pane 1-->
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Graph height:</B></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				[[LOOP (%scalearray)]]
+					<tr>
+						<td class="Main" colspan="2" align="left"><INPUT TYPE="radio" NAME="GRAPHHEIGHT" VALUE="[[LOOPVALUE]]" [[IF GRAPHHEIGHT=[[LOOPVALUE]]]]CHECKED[[/IF]] class="FormRadio">[[LOOPVALUE]]<br></TD>
+					</TR>
+				[[/LOOP]]
+				<tr>
+					<td class="Main" colspan="2" width="100%"><br></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Days in SnapShot chart:</B></TD>
+				</TR>
+				[[LOOP (%daysarray|500)]]
+					<tr>
+						<td class="Main" colspan="2" align="left"><INPUT TYPE="radio" NAME="SNAPSHOTDAYS" VALUE="[[PARAMVALUE]]" [[IF SNAPSHOTDAYS=[[PARAMVALUE]]]]CHECKED[[/IF]] class="FormRadio">[[PARAMVALUE]]<br></TD>
+					</TR>
+				[[/LOOP]]
+				
+			</TABLE>
+		</TD>
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"></TD>
+		<td valign="top" width="25%">
+			<!--content pane 2-->
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Display width:</B></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" class="small" align="left">&nbsp;<INPUT TYPE="text" NAME="WIDTH" VALUE="[[WIDTH]]" class="FormNorm">&nbsp;px<br><span class="Vsmall">Must be greater than 400</span></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" width="100%"><br></TD>
+				</TR>
+
+				<tr>
+					<td class="Main" colspan="2" width="100%"><br></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Printing Format:</B></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<td width="10%"><INPUT TYPE="radio" NAME="PRINTFORMAT" VALUE="A4P" [[IF PRINTFORMAT=A4P]]CHECKED[[/IF]] class="FormRadio"></td><td class="Main">&nbsp;A4 Portrait</td>
+				</tr>
+				<tr>
+					<td width="10%"><INPUT TYPE="radio" NAME="PRINTFORMAT" VALUE="A4L" [[IF PRINTFORMAT=A4L]]CHECKED[[/IF]] class="FormRadio"></td><td class="Main">&nbsp;A4 Landscape</td>
+				</tr>
+				<tr>
+					<td class="Main" colspan="2" width="100%"><br></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Language/Langue/german?</B></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<td width="10%"><INPUT TYPE="radio" NAME="DISPLANG" VALUE="EN" [[IF DISPLANG=EN]]CHECKED[[/IF]] class="FormRadio"></td><td class="Main">&nbsp;English/Anglais</td>
+				</tr>
+				<tr>
+					<td width="10%"><INPUT TYPE="radio" NAME="DISPLANG" VALUE="FR" [[IF DISPLANG=FR]]CHECKED[[/IF]] class="FormRadio"></td><td class="Main">&nbsp;French/Fran&ccedil;ais</td>
+				</tr>
+			</TABLE>
+		<td valign="top" bgcolor="[[COLOR4]]"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="10" WIDTH="2"><BR></TD>
+		<td valign="top" width="50%">
+			<!--content pane 3-->
+			<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Graph colors:</B></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<TD><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="4" WIDTH="2"><BR>
+						[[LOOP (1,2,3,5)]]
+							<table border="0" cellspacing="2" cellpadding="2"  bgcolor="White">
+								<tr>
+									<td width="60" align="center" class="Main">[[COLORHEADING[[LOOPVALUE]]]]</td>
+									[[LOOP2 (1...NCOLORS|1)]]
+										<td bgcolor="#[[DEFCOLOR[[LOOPVALUE2]]]]"><INPUT TYPE="radio" NAME="COLOR[[LOOPVALUE]]" VALUE="[[DEFCOLOR[[LOOPVALUE2]]]]" [[IF COLOR[[LOOPVALUE]]=[[HARD DEFCOLOR[[LOOPVALUE2]]]]]]CHECKED[[/IF]] class="FormRadio">
+										</td>
+									[[/LOOP2]]
+		
+								</tr>
+							</TABLE>
+						[[/LOOP]]
+					</td>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" width="100%"><br></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" align="Left"><B>Other colors:</B></TD>
+				</TR>
+				<tr>
+					<td class="Main" colspan="2" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+				<tr>
+					<TD><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="4" WIDTH="2"><BR>
+						[[LOOP (4)]]
+							<table border="0" cellspacing="2" cellpadding="2"  bgcolor="White">
+								<tr>
+									<td width="60" align="center" class="Main">[[COLORHEADING[[LOOPVALUE]]]]</td>
+									[[LOOP2 (1...NCOLORS|1)]]
+										<td bgcolor="#[[DEFCOLOR[[LOOPVALUE2]]]]"><INPUT TYPE="radio" NAME="COLOR[[LOOPVALUE]]" VALUE="[[DEFCOLOR[[LOOPVALUE2]]]]" [[IF COLOR[[LOOPVALUE]]=[[HARD DEFCOLOR[[LOOPVALUE2]]]]]]CHECKED[[/IF]] class="FormRadio">
+										</td>
+									[[/LOOP2]]
+		
+								</tr>
+							</TABLE>
+						[[/LOOP]]
+
+					</td>
+				</TR>
+			</TABLE>
+			<BR>
+		</TD>
+		</TD>
+	</TR>
+	<tr>
+		<td class="Main" colspan="7" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+	</TR>
+	<tr>
+		<td class="Main" colspan="7" bgcolor="white" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+	</TR>
+	<tr>
+		<td colspan="7" align="right"><INPUT TYPE="reset" class="FormButton">&nbsp;<INPUT TYPE="submit" NAME="Submit" VALUE="Apply" class="FormButton">&nbsp;&nbsp;
+		</TD>
+	</TR>
+	<tr>
+		<td class="Main" colspan="7" bgcolor="white" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+	</TR>
+</TABLE>
+</TD></TR></TABLE>
+</FORM>
+<!--/PREFERENCES-->
+
+<!--COLORHEADING1-->WeekDay<!--/COLORHEADING1-->
+<!--COLORHEADING2-->Weekend<!--/COLORHEADING2-->
+<!--COLORHEADING3-->Month<!--/COLORHEADING3-->
+<!--COLORHEADING4-->Surround<!--/COLORHEADING4-->
+<!--COLORHEADING5-->Intraday<!--/COLORHEADING5-->
+
+These are the default graph colors
+<!--COLOR1-->009900<!--/COLOR1-->
+<!--COLOR2-->550000<!--/COLOR2-->
+<!--COLOR3-->0033CC<!--/COLOR3-->
+<!--COLOR4-->003366<!--/COLOR4-->
+<!--COLOR5-->009900<!--/COLOR5-->
+
+<!--NCOLORS-->6<!--/NCOLORS-->
+<!--DEFCOLOR1-->009900<!--/DEFCOLOR1-->
+<!--DEFCOLOR2-->550000<!--/DEFCOLOR2-->
+<!--DEFCOLOR3-->0033CC<!--/DEFCOLOR3-->
+<!--DEFCOLOR4-->000000<!--/DEFCOLOR4-->
+<!--DEFCOLOR5-->FF9933<!--/DEFCOLOR5-->
+<!--DEFCOLOR6-->003366<!--/DEFCOLOR6-->
+
+<!--ANALYSISFOR-->this site<!--/ANALYSISFOR-->
+<!--BIGTITLE-->
+[[IF analyse=summary]]
+	Summary
+[[/IF]]
+[[IF analyse=SNAPSHOT]]
+	SnapShot
+[[/IF]]
+[[IF analyse=month]]
+	Breakdown for [[PERIOD]]
+[[/IF]]
+[[IF analyse=year]]
+	Breakdown for [[PERIOD]]
+[[/IF]]
+[[IF analyse=day]]
+	Breakdown for [[PERIOD]]
+[[/IF]]
+[[IF analyse=ALLTIME]]
+	Breakdown for all time
+[[/IF]]
+[[IF analyse=words]]
+	Word count for [[PERIOD]]
+[[/IF]]
+[[IF analyse=phrases]]
+	Phrase count for [[PERIOD]]
+[[/IF]]
+[[IF analyse=subdivisions]]
+	Subdivision search count for [[PERIOD]]
+[[/IF]]
+[[IF analyse=clients]]
+	Client search count for [[PERIOD]]
+[[/IF]]
+[[IF analyse=preferences]]
+	Preferences for "[[username]]"
+[[/IF]]
+[[IF analyse=compare]]
+	Compare
+[[/IF]]
+[[IF analyse=INDEX]]
+	[[INDEX]]
+[[/IF]]
+<br>
+<SPAN CLASS="Small">[[SUBDIVTITLE]]</SPAN>
+<!--/BIGTITLE-->
+<!--PERIOD-->
+[[IF TODAY=TODAY]]
+	TODAY
+[[/IF]]
+[[IFB TODAY]]
+	[[IFGT dayIN|0.5]][[dayIN]][[/IFGT]]
+	[[IFNB monthIN]][[monthIN]][[/IFNB]]
+	[[IFNB yearIN]][[yearIN]][[/IFNB]]
+[[/IFB]]
+[[IFB yearIN]]All Time[[/IFB]]
+<!--/PERIOD-->
+<!--DISPLANG-->EN<!--/DISPLANG-->
+<!--SNAPSHOTDAYS-->41<!--/SNAPSHOTDAYS-->
+<!--BACKCOLOURDARK-->#D3D3D3<!--/BACKCOLOURDARK-->
+<!--BACKCOLOURON-->#E4E4E4<!--/BACKCOLOURON-->
+<!--BACKCOLOUROFF-->White<!--/BACKCOLOUROFF-->
+<!--GRAPHHEIGHT-->360<!--/GRAPHHEIGHT-->
+<!--WIDTH-->680<!--/WIDTH-->
+<!--PRINTFORMAT-->A4L<!--/PRINTFORMAT-->
+<!--PRINTHEIGHTA4L-->480<!--/PRINTHEIGHTA4L-->
+<!--PRINTWIDTHA4L-->1000<!--/PRINTWIDTHA4L-->
+<!--PRINTHEIGHTA4P-->600<!--/PRINTHEIGHTA4P-->
+<!--PRINTWIDTHA4P-->600<!--/PRINTWIDTHA4P-->
+<!--PRINTPIC--><img src="http://www.remotesearch.com/analysis/print.gif" width="40" height="12" alt="" border="0"><!--/PRINTPIC-->
+
+<!--REMOVEFOCUS--> | <A HREF="internalAnalysis.cgi?analyse=[[analyse]]~day=[[dayIN]]~month=[[monthIN]]~year=[[yearIN]]" target="main"><B>Remove focus</B></a><!--/REMOVEFOCUS-->
+
+<!--SUBDIVTITLE-->
+[[IF permission=all]]
+	[[IFNB focus]]
+		(focus on [[focus]])
+	[[/IFNB]]
+[[/IF]]
+[[IF! permission=all]]
+	(you can view "[[permission]]" only)
+[[/IF!]]
+<!--/SUBDIVTITLE-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--COMPAREFORM-->
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+//<!--
+var periodsSelected = 2 ;
+var comparisonType = "months" ;
+
+if (parseInt(navigator.appVersion) >= 4) {
+	isNav = (navigator.appName == "Netscape")&&(parseInt(navigator.appVersion) < 5);
+	isNav06 = (navigator.appName == "Netscape")&&(parseInt(navigator.appVersion) >= 5);
+	isIE = (navigator.appName.indexOf("Microsoft Internet Explorer") != -1);
+	isMacIE = (navigator.userAgent.indexOf("MSIE") != -1) && (navigator.userAgent.indexOf("Mac") != -1) && (parseInt(navigator.appVersion) >= 4);
+}
+
+function showBlocks() {
+//	alert('You have selected ' + periodsSelected + ' periods by ' + comparisonType) ;
+	for (ii=1;ii<=9;ii++) {
+		if (ii > periodsSelected) {
+			//hide...
+			hide(ii) ;
+		} else {
+			//show...
+			show(ii) ;
+		}
+	}
+}
+
+function hide(id) {
+	if (isNav){
+		document.layers[id].visibility = 'hide' ;
+	} else if (isIE){
+		//document.all[id].style.visibility = 'hidden' ;
+		eval("document.forms[0].day" + id + ".style.visibility = 'hidden'")
+		eval("document.forms[0].month" + id + ".style.visibility = 'hidden'")
+		eval("document.forms[0].year" + id + ".style.visibility = 'hidden'")
+	} else if (isNav06){    
+		document.getElementById(id).style.visibility = 'hidden';
+	}
+}
+
+function show(id) {
+	if (isNav){
+		document.layers[id].visibility = 'hide' ;
+	} else if (isIE){
+		//document.all[id].style.visibility = 'hidden' ;
+		if (comparisonType == "days" ) {
+			eval("document.forms[0].day" + id + ".style.visibility = 'visible'")
+		} else {
+			eval("document.forms[0].day" + id + ".style.visibility = 'hidden'")
+		}
+		if ( (comparisonType == 'days') || (comparisonType == 'months')) {
+			eval("document.forms[0].month" + id + ".style.visibility = 'visible'")
+		} else {
+			eval("document.forms[0].month" + id + ".style.visibility = 'hidden'")
+		}
+		eval("document.forms[0].year" + id + ".style.visibility = 'visible'")
+	} else if (isNav06){    
+		document.getElementById(id).style.visibility = 'hidden';
+	}
+}
+
+//-->
+</script>
+
+<form Action="internalAnalysis.cgi" METHOD="POST">
+<!--<form Action="http://193.130.109.60/cgi-bin/postdata" METHOD="POST">-->
+<input type="hidden" name="POSTtype" value="compare">
+<input type="hidden" name="analyse" value="compare">
+
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr><td>
+	<span class="TitleSub"><FONT Color="White">Specify the time periods for comparison:</FONT></SPAN><br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+
+	<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="White">
+		<tr>
+			<td class="Main">
+
+
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><img src="http://www.remotesearch.com/analysis/sp.gif" width="20" height="1" alt="" border="0">
+					</td>
+					<td class="Main">
+
+					<br>
+					Comparison type: 
+						<select name="compareType" onchange="javascript:comparisonType=this.value; showBlocks();">
+							<OPTION value="days">days</OPTION>
+							<OPTION value="months" SELECTED>months</OPTION>
+							<OPTION value="years">years</OPTION>
+						</SELECT> and number of periods:
+						<select name="periods" onchange="javascript:periodsSelected=this.value; showBlocks();">
+							<OPTION value="2">2</OPTION>
+							<OPTION value="3">3</OPTION>
+							<OPTION value="4">4</OPTION>
+							<OPTION value="5">5</OPTION>
+							<OPTION value="6">6</OPTION>
+							<OPTION value="7">7</OPTION>
+							<OPTION value="8">8</OPTION>
+							<OPTION value="9">9</OPTION>
+						</SELECT>
+						<br>
+
+		[[LOOP (1,2,3,4,5,6,7,8,9)]]
+
+				<div name="period[[LOOPVALUE]]">
+					<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Period [[LOOPVALUE]]:
+					<select name="day[[LOOPVALUE]]">
+						[[LOOP2 (1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)]]
+							<OPTION value="[[LOOPVALUE2]]">[[LOOPVALUE2]]
+						[[/LOOP2]]
+					</SELECT>
+					<select name="month[[LOOPVALUE]]">
+						[[LOOP2 (1,2,3,4,5,6,7,8,9,10,11,12)]]
+							<OPTION value="[[LOOPVALUE2]]"[[EVAL ( if ( ( ($thismonth-([[LOOPVALUE]]-1)) == [[LOOPVALUE2]] ) || ( (12 + $thismonth-([[LOOPVALUE]]-1)) == [[LOOPVALUE2]] ) ) { return " SELECTED" } )]]>[[EVAL ( return $month[[LOOPVALUE2]] )]]
+						[[/LOOP2]]
+					</SELECT>
+					<select name="year[[LOOPVALUE]]">
+						[[LOOP2 (1999,2000,2001,2002,2003,2004)]]
+							<OPTION value="[[LOOPVALUE2]]" [[EVAL ( if ( ($thismonth - ([[LOOPVALUE]]-1) > 0 ) && ($thisyear == [[LOOPVALUE2]]) ) { return " SELECTED" } elsif ( ($thismonth - ([[LOOPVALUE]]-1) <= 0 ) && (($thisyear - 1) == [[LOOPVALUE2]]) ) { return " SELECTED"} )]]>[[LOOPVALUE2]]
+						[[/LOOP2]]
+					</SELECT>
+				</div>
+
+		[[/LOOP]]
+
+						<br>
+					</td>
+				</tr>
+			</table>
+
+
+		</TR>
+		<tr>
+			<td class="Main" colspan="7" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+		</TR>
+		<tr>
+			<td class="Main" colspan="7" bgcolor="white" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+		</TR>
+		<tr>
+			<td colspan="7" align="right"><INPUT TYPE="submit" NAME="Submit" VALUE="Compare" class="FormButton">&nbsp;&nbsp;
+			</TD>
+		</TR>
+		<tr>
+			<td class="Main" colspan="7" bgcolor="white" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="2" WIDTH="1"></TD>
+		</TR>
+	</TABLE>
+</TD></TR></TABLE>
+</form>
+
+<script>
+//<!--
+	showBlocks() ;
+//-->
+</script>
+
+<!--/COMPAREFORM-->
+
+<!--COMPARERESULTS-->
+<table bgcolor="#[[COLOR4]]" width="[[WIDTH]]" BORDER="0" CELLSPACING="3" CELLPADDING="0"><tr>
+	<td class="GraphTitle">		Comparing [[Xperiods]] [[compareType]]
+	<br>
+	<IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="3" WIDTH="10" border="0"><br>
+	<TABLE width="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" bgcolor="white">
+		<tr>
+			<td class="Main" align="right">Period&nbsp;</td>
+			[[LOOP (1...periods|1)]]
+				<td  bgcolor="[[EVAL ( if ( int([[LOOPVALUE]]/2) != ([[LOOPVALUE]]/2) ) { return "[[BACKCOLOURON]]"})]]" valign="top" align="right" width="[[EVAL ( return int(100/($Xperiods+1)) ; )]]%" class="Main">
+					[[Xday[[LOOPVALUE]]]]/[[Xmonth[[LOOPVALUE]]]]/[[Xyear[[LOOPVALUE]]]]
+				&nbsp;
+				</TD>
+			[[/LOOP]]
+		</TR>
+		<tr>
+			<td class="Main" colspan="[[EVAL ($Xperiods+1)]]" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+		</TR>
+		<tr>
+			<td class="Main" valign="top" align="right">Searches&nbsp;</td>
+			[[LOOP (1...periods|1)]]
+				<td bgcolor="[[EVAL ( if ( int([[LOOPVALUE]]/2) != ([[LOOPVALUE]]/2) ) { return "[[BACKCOLOURON]]"})]]" valign="top" align="right" width="[[EVAL ( return int(100/($Xperiods+1)) ; )]]%" class="Main"><b>[[EVAL ( &commarise($count_[[LOOPVALUE]]_0) ; )]]</B>&nbsp;<br><span class="SmallGray">[[EVAL ( &commarise($count_[[LOOPVALUE]]_0 - $count_1_0) ; )]]&nbsp;&nbsp;</span></TD>
+			[[/LOOP]]
+		</TR>
+		<tr>
+			<td class="Main" valign="top" align="right">Zeroes&nbsp;</td>
+			[[LOOP (1...periods|1)]]
+				<td bgcolor="[[EVAL ( if ( int([[LOOPVALUE]]/2) != ([[LOOPVALUE]]/2) ) { return "[[BACKCOLOURON]]"})]]" valign="top" align="right" width="[[EVAL ( return int(100/($Xperiods+1)) ; )]]%" class="Main">[[EVAL ( &commarise($zeroes_[[LOOPVALUE]]) ; )]]&nbsp;<br><span class="SmallGray">[[EVAL ( &commarise($zeroes_[[LOOPVALUE]] - $zeroes_1) ; )]]&nbsp;&nbsp;</span></TD>
+			[[/LOOP]]
+		</TR>
+		<tr>
+			<td class="Main" colspan="[[EVAL ($Xperiods+1)]]" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+		</TR>
+
+		[[LOOP (0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)]]
+			<tr>
+				<td bgcolor="[[EVAL ( if ($thishour > [[LOOPVALUE]]) { return "[[BACKCOLOURON]]" }  )]]" class="Main" align="right" valign="top">&nbsp;<b>From 0:00 to [[LOOPVALUE]]:59</b>&nbsp;<BR><span class="SmallGray">([[maxPartial[[LOOPVALUE]]Date]]) <b>[[maxPartial[[LOOPVALUE]]]]</b></SPAN></td>
+				[[LOOP2 (1...periods|1)]]
+					<td bgcolor="[[EVAL ( if ($thishour > [[LOOPVALUE]]) { if ( int([[LOOPVALUE2]]/2) != ([[LOOPVALUE2]]/2) ) { return "[[BACKCOLOURDARK]]" } else { return "[[BACKCOLOURON]]" } } else { if ( int([[LOOPVALUE2]]/2) != ([[LOOPVALUE2]]/2) ) { return "[[BACKCOLOURON]]" }} )]]" valign="top" align="right" width="[[EVAL ( return int(100/($Xperiods+1)) ; )]]%" class="Main">[[EVAL ( &commarise( $cumulativeperhour_[[LOOPVALUE2]]{[[LOOPVALUE]]} ) ; )]]&nbsp;<br><span class="SmallGray">[[EVAL ( &commarise( $cumulativeperhour_[[LOOPVALUE2]]{[[LOOPVALUE]]} - $cumulativeperhour_1{[[LOOPVALUE]]}) ; )]]&nbsp;&nbsp;</span></TD>
+				[[/LOOP2]]
+			</TR>
+			[[IF compareDemark[[LOOPVALUE]]=yes]]
+				<tr>
+					<td class="Main" colspan="[[EVAL ($Xperiods+1)]]" bgcolor="[[COLOR4]]" width="100%"><IMG SRC="http://www.remotesearch.com/analysis/sp.gif" HEIGHT="1" WIDTH="1"></TD>
+				</TR>
+			[[/IF]]
+		[[/LOOP]]
+	</TABLE>
+</TD></TR></TABLE>
+
+<!--/COMPARERESULTS-->
+
+
+
+
+[[EVAL ( if ( int([[LOOPVALUE2]]/2) != ([[LOOPVALUE2]]/2) ) { return "[[BACKCOLOURON]]"})]]

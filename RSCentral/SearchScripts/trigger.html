@@ -1,0 +1,71 @@
+<!--TEMPLATE-->
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+	<html>
+	<head>
+		<title>[[company]] [[subdivision]] trigger</title>
+	</head>
+	
+	<body>
+	
+		[[CONTENT]]
+	
+	</body>
+	</html>
+<!--/TEMPLATE-->
+
+<!--CONTENT-->
+	[[SQLE ~
+		SELECT
+			clients.id AS clientId,
+			subdivisions.id AS subId
+		FROM clients,subdivisions
+		WHERE
+			clients.client='[[VERYHARD company]]' AND
+			subdivisions.client=clients.id AND
+			subdivisions.subdivision='[[VERYHARD subdivision]]'
+	~clientId,subId~]]
+		Company ([[clientId]]) & subdivision ([[subId]]) authorised, attempting to trigger...<br><br>
+		[[CHECKEXISTS]]
+	[[/SQLE/]]
+		{{Error: Cannot trigger, company and subdivision combination not recognised}}
+	[[/SQLE]]
+<!--/CONTENT-->
+
+<!--CHECKEXISTS-->
+	[[SQLE ~
+		SELECT
+			id
+		FROM triggers
+		WHERE
+			triggers.client=[[VERYHARD clientId]] AND
+			triggers.subdivision=[[VERYHARD subId]] AND
+			triggers.name='[[VERYHARD triggerName]]' AND
+			triggers.script='[[VERYHARD triggerScript]]' AND
+			triggers.status=0
+	~triggerId~]]
+		Already triggered with id: [[triggerId]], please wait until the previous request has been fulfilled.<br>
+	[[/SQLE/]]
+		[[TRIGGER]]
+	[[/SQLE]]
+<!--/CHECKEXISTS-->
+
+<!--TRIGGER-->
+	[[SQLMOD ~
+		INSERT INTO triggers
+			(client, subdivision, hostname, name, script, email, datestamp, status)
+		VALUES
+			([[VERYHARD clientId]], [[VERYHARD subId]], '[[VERYHARD hostname]]', '[[VERYHARD triggerName]]',
+			'[[VERYHARD triggerScript]]', '[[VERYHARDEVAL ( return($email) )]]', [[VERYHARDEVAL (time)]], 0)
+	~~]]
+		The trigger was successful, your request will be executed in the next 60 seconds<br>
+		<br>
+		[[IF ($email ne '')]]
+			An e:mail will be sent to [[email]] on completion<br>
+		[[/IF]]
+	[[/SQLMOD/]]
+		{{Error: Could not trigger, please contact Magus sending the URL of this page}}
+	[[/SQLMOD]]
+	
+<!--/TRIGGER-->
+
+

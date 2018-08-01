@@ -1,0 +1,162 @@
+<!--CST_MENUTITLE-->Commonly misspelled words<!--/CST_MENUTITLE-->
+<!--CST_ADMIN-->
+<B>Commonly misspelled words</A></B><BR>This tool will allow you to enter precise suggestions for words that are commonly misspelt.
+<!--/CST_ADMIN-->
+<!--CST_SUM-->Summary<!--/CST_SUM-->
+<!--CST_TITLE-->Commonly misspelled words tool<!--/CST_TITLE-->
+<!--CST_SUMMARY-->This tool allows you to suggest a specific <em>word</em> when a common mis-spelling is typed into the search box.  [Note that we can only suggest alternatives for <b><em>single words</em></b>.]<!--/CST_SUMMARY-->
+<!--CST_NUMSITES-->Number of sites<!--/CST_NUMSITES-->
+<!--CST_NUMBER_CS-->Number of common misspelled words<!--/CST_NUMBER_CS-->
+<!--CST_TOTAL_CS-->Total common misspelled words<!--/CST_TOTAL_CS-->
+<!--CST_SITENAME-->Site name<!--/CST_SITENAME-->
+<!--CST_WORD-->Word<!--/CST_WORD-->
+<!--CST_SUGGESTION-->Suggestion<!--/CST_SUGGESTION-->
+<!--CST_MANAGE-->Manage<!--/CST_MANAGE-->
+<!--CST_DELETE-->Delete<!--/CST_DELETE-->
+<!--CST_EDIT-->Edit<!--/CST_EDIT-->			
+<!--CST_NO_CS_FOUND-->No common misspelled words were found<!--/CST_NO_CS_FOUND-->
+<!--CST_NEW-->New<!--/CST_NEW-->
+<!--CST_NEWSUG-->New suggestions<!--/CST_NEWSUG-->
+<!--CST_NEW_CS_FOR-->New common misspelled words for<!--/CST_NEW_CS_FOR-->
+<!--CST_NOMODS-->No modifications can be made here<!--/CST_NOMODS-->
+<!--CST_NEW_CS_ADDED-->New suggestions added<!--/CST_NEW_CS_ADDED-->
+<!--CST_NOTHINGADDED-->Nothing was added (were your words duplicates?)<!--/CST_NOTHINGADDED-->
+<!--CST_SUGDELETED-->Suggestion(s) deleted successfully<!--/CST_SUGDELETED-->
+<!--CST_NOTHINGDELETED-->Nothing deleted<!--/CST_NOTHINGDELETED-->
+<!--CST_EDITSUGN-->Edit suggestion<!--/CST_EDITSUGN-->
+<!--CST_EDIT_CS_FOR-->Edit common misspelled word for<!--/CST_EDIT_CS_FOR-->
+<!--CST_MODOK-->Modification successful<!--/CST_MODOK-->
+<!--CST_NOMODS2-->No modifications made (either you submitted the suggestion with no changes or there is a duplicate entry)<!--/CST_NOMODS2-->
+<!--CST_SUBMIT-->Submit<!--/CST_SUBMIT-->
+<!--CST_YOUAREIN-->You are in<!--/CST_YOUAREIN-->
+<!--CST_VIEW_CS_FOR-->View common misspelled words for<!--/CST_VIEW_CS_FOR-->
+
+<!--CMDOWN-->Download all group recommended links<!--/CMDOWN-->
+<!--ALTPICTITLE-->RS administration for<!--/ALTPICTITLE-->
+<!--TITLE-->Search administration for<!--/TITLE-->
+<!--TOOLSFOR-->View tools for<!--/TOOLSFOR-->
+<!--DROPDOWNTITLE-->Administration tools<!--/DROPDOWNTITLE-->
+<!--DROPDOWNINST-->Please select<!--/DROPDOWNINST-->
+<!--CHANGELANG-->Change the language<!--/CHANGELANG-->
+<!--WELCOME-->Welcome to your search administration website. From here you can perform the following tasks<!--/WELCOME-->
+<!--CMTITLE-->Administer Custom Messaging<!--/CMTITLE-->
+<!--CMTITLE_SHELL-->Administer recommended links<!--/CMTITLE_SHELL-->
+<!--CMBLABLA-->When a user searches for a particular word or phrase, you can choose to display a message pointing to key information on that topic, in addition to the standard search results.<!--/CMBLABLA-->
+<!--CMBSELECTVER-->Select a version to manage below:<!--/CMBSELECTVER-->
+<!--PROFTITLE-->Group website status<!--/PROFTITLE-->
+<!--PROFBRACKET-->(Including the latest index profile and the broken links)<!--/PROFBRACKET-->
+<!--PROFBLABLA-->
+Whenever your sites are indexed, a profile is built of your current group website status. This allows you to access information about the number of pages indexed per site, and also to identify broken links and other key issues.
+<!--/PROFBLABLA-->
+<!--ANALBLABLA-->
+<B>Search analysis</A></B><BR>This will give you a full and detailed analysis of the searches performed by users on your site. The information is updated dynamically.
+<!--/ANALBLABLA-->
+<!--SUMMARY-->Summary<!--/SUMMARY-->
+<!--TOTNUMSITE-->Total number of sites<!--/TOTNUMSITE-->
+<!--TOTNUMPAGE-->Total number of pages indexed<!--/TOTNUMPAGE-->
+<!--TOTNUM404P-->Total number of 404 pages<!--/TOTNUM404P-->
+<!--PAGES-->Pages<!--/PAGES-->
+<!--OTHERINF-->Other Informations<!--/OTHERINF-->
+<!--NBPROF-->N.B. Click on the number of broken links to see a list of those links.<!--/NBPROF-->
+<!--SITEPROFFOR-->Site Profile for<!--/SITEPROFFOR-->
+<!--SITEPROFTITLE-->This page gives you the profile for the site<!--/SITEPROFTITLE-->
+<!--SITEPROFDESC-->
+Clicking on a broken link listed below will display the URL of the documents containing this broken link.
+<!--/SITEPROFDESC-->
+<!--TOTNUMBROKEN-->Total number of broken links<!--/TOTNUMBROKEN-->
+<!--BROKONSITE-->Broken links on this site<!--/BROKONSITE-->
+<!--LOC404TITLE-->Pages containing this broken link<!--/LOC404TITLE-->
+<!--LOC404DESC1-->This page shows you on which page the broken link<!--/LOC404DESC1-->
+<!--LOC404DESC2-->can be found.<!--/LOC404DESC2-->
+<!--LOC404DESC3-->Clicking on one link of this page will take you to it.<!--/LOC404DESC3-->
+<!--NUMOFPAGES-->Number of pages<!--/NUMOFPAGES-->
+<!--CMINSTRUC-->
+<P>From this page you can view the messages already set up on the [[SUBDIVTITLE]] search. You can also add new messages, as well as editing and deleting existing ones. </P>
+<P>To enter a new message simply fill in one of the rows of empty boxes labelled <I>New. </I>To modify an existing entry, modify the contents of its corresponding boxes. To delete a whole entry, simply delete the contents of all three corresponding boxes. <B>After making any changes or additions, click the <I>Submit</I> button.</B>
+<!--/CMINSTRUC-->
+<!--NEW-->New<!--/NEW-->
+<!--CMHEAD1-->Word or Phrase<!--/CMHEAD1-->
+<!--CMHEAD3-->Text for the message<!--/CMHEAD3-->
+<!--CMSUBHEAD1-->(to which the message is linked)<!--/CMSUBHEAD1-->
+<!--CMSUBHEAD2-->(the address to which the message directs the user)<!--/CMSUBHEAD2-->
+<!--SITEOWNER-->Site owner<!--/SITEOWNER-->
+<!--MODERATOR-->Moderator<!--/MODERATOR-->
+<!--SETUPON-->Set up on<!--/SETUPON-->
+<!--SUBMIT-->Submit<!--/SUBMIT-->
+<!--NBCM-->
+N.B. If you want to apply the link to a portion of the message text only, use the hat sign ^ before and after the portion of the text you would like to use, and press submit. <BR> For example, typing <b>Visit our ^career website^ for a list of vacancies</b> will return the following:<br>
+Visit our <A href="#">career website</A> for a list of vacancies
+<!--/NBCM-->
+<!--HELPTEXT-->If you have any further enquiries, please contact us:<!--/HELPTEXT-->
+<!--SEARCH-->Search<!--/SEARCH-->
+<!--RAWTITLE-->Search raw statistics<!--/RAWTITLE-->
+<!--RAWBLABLA-->This tool allows you to dowload the search raw statistics for any date. The output file is compatible with any spreadsheet software such as Microsoft Excel.
+<!--/RAWBLABLA-->
+<!--RAWINSTRUCTION-->
+<LI>Click the calendar icon above and select the date for which you wish to download the raw data. This calendar will only display dates for which data is available.</LI>
+<LI>Then click on  "[[SUBMIT]]".</LI>
+<LI>Your navigator download interface should come up and ask you what you wish to do with the file.<BR> To save it, choose 'Save' and change its name to "data.tsv" for example.<BR> To open it directly, choose "open" and the file will automatically open in your default text editor.<P>Note: the file format is 'tab-separated values' which is fully compatible with any speadsheet software such as Microsoft Excel.</LI>
+<!--/RAWINSTRUCTION-->
+
+<!--ERRORPAGEHEADING-->Error page report<!--/ERRORPAGEHEADING-->
+<!--ERRORPAGESUMMARY-->Here you will find a summary of pages on your site that cannot be found.<!--/ERRORPAGESUMMARY-->
+<!--ERRORPAGETOTNUMSITE-->Total number of sites containing errors<!--/ERRORPAGETOTNUMSITE-->
+<!--ERRORPAGETOTNUMPAGES-->Total number of ErrorPages found<!--/ERRORPAGETOTNUMPAGES-->
+<!--ERRORPAGESMTITLE-->ErrorPages<!--/ERRORPAGESMTITLE-->
+<!--VIEWERRORPAGES-->View ErrorPages<!--/VIEWERRORPAGES-->
+<!--ERRORPAGEVIEW-->View<!--/ERRORPAGEVIEW-->
+<!--ERRORPAGESUMFOR-->Summary for<!--/ERRORPAGESUMFOR-->
+<!--ERRORPAGETOTNUMPAGESON-->Total number of ErrorPages on<!--/ERRORPAGETOTNUMPAGESON-->
+<!--ERRORPAGE-->ErrorPage<!--/ERRORPAGE-->
+<!--ERRORPAGENUM-->Number<!--/ERRORPAGENUM-->
+<!--ERRORPAGELINK-->Locate pages that link to this page<!--/ERRORPAGELINK-->
+<!--ERRORPAGEGOTO-->Go to this ErrorPage<!--/ERRORPAGEGOTO-->
+<!--ERRORPAGELOCATELINKS-->Locate links<br>to this ErrorPage<!--/ERRORPAGELOCATELINKS-->
+<!--ERRORPAGELINKLOCTITLE-->ErrorPage link locator<!--/ERRORPAGELINKLOCTITLE-->
+<!--ERRORPAGELINKLIST-->The pages listed below contain a link to this ErrorPage<!--/ERRORPAGELINKLIST-->
+<!--ERRORPAGELOCPAGES-->Located pages<!--/ERRORPAGELOCPAGES-->
+<!--ERRORPAGECONLINKS-->Pages containing a link to the ErrorPage<!--/ERRORPAGECONLINKS-->
+
+<!--CUR_TITLE-->Content usage asset list report<!--/CUR_TITLE-->
+<!--CUR_SUMMARYDESC-->View a summary of live and unused content on your site.<!--/CUR_SUMMARYDESC-->
+<!--CUR_BYSITEID-->Here you will find a summary of live and unused content on your site.  This includes html pages, images, modules and downloads.<!--/CUR_BYSITEID-->
+<!--CUR_TOTNUMSITES-->Number of sites scanned for live and unused content<!--/CUR_TOTNUMSITES-->
+<!--CUR_TOTNUMPAGES-->Total number of content assets found<!--/CUR_TOTNUMPAGES-->
+<!--CUR_ERROR_CPR-->Error: cannot process this request<!--/CUR_ERROR_CPR-->
+<!--CUR_LASTRA-->Last requested analysis<!--/CUR_LASTRA-->
+<!--CUR_TIMESINCE-->Time since last request<!--/CUR_TIMESINCE-->
+<!--CUR_CURRSTATUS-->Current status<!--/CUR_CURRSTATUS-->
+<!--CUR_REQREBDATA-->Requesting rebuild of the data for <!--/CUR_REQREBDATA-->
+<!--CUR_SUMMARY-->Summary<!--/CUR_SUMMARY-->
+<!--CUR_TRIGGER-->Trigger<!--/CUR_TRIGGER-->
+<!--CUR_DUP-->Duplicate requests: an analysis for [[VERYHARD XsiteId]] has ALREADY been requested, you can view the status<!--/CUR_DUP-->
+<!--CUR_VIEWSTAT-->View the status of the content usage report for <!--/CUR_VIEWSTAT-->
+<!--CUR_HERE-->here<!--/CUR_HERE-->
+<!--CUR_ERRORCNT-->Could not trigger, sorry<!--/CUR_ERRORCNT-->
+<!--CUR_TYPE-->Type<!--/CUR_TYPE-->
+<!--CUR_ASSET-->Asset<!--/CUR_ASSET-->
+<!--CUR_ASSETS-->Assets<!--/CUR_ASSETS-->
+<!--CUR_STATUS-->Status<!--/CUR_STATUS-->
+<!--CUR_SITE-->Site<!--/CUR_SITE-->
+<!--CUR_LIVE-->Live<!--/CUR_LIVE-->
+<!--CUR_UNUSED-->Unused<!--/CUR_UNUSED-->
+<!--CUR_TOTAL-->Total<!--/CUR_TOTAL-->
+<!--CUR_LASTUP-->Last updated<!--/CUR_LASTUP-->
+<!--CUR_LINKS-->Links<!--/CUR_LINKS-->
+<!--CUR_REQUEST-->Request<!--/CUR_REQUEST-->
+<!--CUR_SUMM2-->Here you will find a summary of live and unused content on your site. This includes html pages, images, modules and downloads.<!--/CUR_SUMM2-->
+<!--CUR_CURFOR-->Content usage report for <!--/CUR_CURFOR-->
+<!--CUR_TOTALLIVE-->Total number of LIVE content assets on <!--/CUR_TOTALLIVE-->
+<!--CUR_TOTALUNUSED-->Total number of UNUSED content assets on <!--/CUR_TOTALUNUSED-->
+<!--CUR_TOTALCA-->Total number of content assets on <!--/CUR_TOTALCA-->
+<!--CUR_SHOWALL-->Show all<!--/CUR_SHOWALL-->
+<!--CUR_DIR-->Directory<!--/CUR_DIR-->
+<!--CUR_-->Here you will find a summary of [[VHIF ($Xtype==0)]]ALL[[/VHIF]][[VHIF ($Xtype==1)]]LIVE[[/VHIF]][[VHIF ($Xtype==2)]]UNUSED[[/VHIF]] content in the specified directory.  This includes html pages, images, modules and downloads.
+<!--CUR_ALLASSETS-->All assets<!--/CUR_ALLASSETS-->
+<!--CUR_ALLLIVEASSETS-->All live assets<!--/CUR_ALLLIVEASSETS-->
+<!--CUR_ALLUNUSEDASSETS-->All unused assets<!--/CUR_ALLUNUSEDASSETS-->
+
+<!--DS_TITLE-->Downloadable Statistics<!--/DS_TITLE-->
+<!--DS_BLABLA-->Download files containing a summary of last month's search statistics<!--/DS_BLABLA-->
+<!--DS_SUMMARY-->Click on a link to download last month's statistics for a site<!--/DS_SUMMARY-->
+
